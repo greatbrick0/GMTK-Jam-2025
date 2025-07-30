@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dle3mg52w82e3"]
+
+[ext_resource type="Material" uid="uid://biw035gej7vvg" path="res://Textures/new_standard_material_3d.tres" id="1_w7rvf"]
+[ext_resource type="ArrayMesh" uid="uid://croh33xe3b8tp" path="res://Models/BaseTile1.obj" id="2_it1xu"]
+[ext_resource type="Material" uid="uid://b6j1lyasp5y57" path="res://Textures/new_standard_material_3d_Rock.tres" id="3_agwyr"]
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_3vlem"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="BaseTile1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.993045, 0, 0.98532)
+material_override = ExtResource("1_w7rvf")
+mesh = ExtResource("2_it1xu")
+
+[node name="BaseTile2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59104, -1.19209e-07, -0.648813)
+material_override = ExtResource("3_agwyr")
+mesh = ExtResource("2_it1xu")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_3vlem")
