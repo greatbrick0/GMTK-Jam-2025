@@ -8,6 +8,7 @@ extends Node
 
 var currentLevel: int = 0
 
+var connectPoint: Vector2i = Vector2i.ZERO
 var currentLevelMapRef: LevelMap
 var prevTransferRef: LevelMap
 var currentTransferRef: LevelMap
@@ -23,6 +24,12 @@ func _ready() -> void:
 	
 	LoadNextLevelMap()
 	prevTransferRef = mapTransfers[0].instantiate()
+	MapHolder.add_child(prevTransferRef)
+
+func _process(delta):
+	if(Input.is_action_just_released("ui_up")):
+		currentLevel += 1
+		LoadNextLevelMap()
 
 func LoadNextLevelMap() -> void:
 	if(prevTransferRef != null):
@@ -33,10 +40,18 @@ func LoadNextLevelMap() -> void:
 	
 	currentLevelMapRef = levelMaps[currentLevel].instantiate()
 	MapHolder.add_child(currentLevelMapRef)
+	currentLevelMapRef.global_position = Vector3(connectPoint.x, 0, connectPoint.y)
+	currentLevelMapRef.get_node("FallAnims").play("FallEnter")
+	connectPoint = currentLevelMapRef.GetConnectPoint()
+	
 	currentTransferRef = mapTransfers[currentLevel + 1].instantiate()
 	MapHolder.add_child(currentTransferRef)
-	successTiles = currentTransferRef.GetTileArray()
+	currentTransferRef.global_position = Vector3(connectPoint.x, 0, connectPoint.y)
+	currentTransferRef.get_node("FallAnims").play("FallEnter")
+	successTiles = currentTransferRef.GetTileArray(connectPoint)
 
 func RecieveClick(clickPos: Vector3) -> void:
 	var roundedClickPos: Vector2i = Vector2i(round(clickPos.x), round(clickPos.z))
 	print("pressed ", roundedClickPos)
+	if(roundedClickPos in successTiles):
+		print("success tile")

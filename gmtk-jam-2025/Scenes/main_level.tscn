@@ -18,8 +18,8 @@ script = ExtResource("1_ikcpc")
 cam = NodePath("../CameraHolder")
 clickHandler = NodePath("../ClickPlane")
 MapHolder = NodePath("../MapHolder")
-levelMaps = Array[PackedScene]([ExtResource("2_236hc"), ExtResource("2_236hc")])
-mapTransfers = Array[PackedScene]([ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3")])
+levelMaps = Array[PackedScene]([ExtResource("2_236hc"), ExtResource("2_236hc"), ExtResource("2_236hc")])
+mapTransfers = Array[PackedScene]([ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q2fht")
@@ -29,17 +29,15 @@ transform = Transform3D(0.993914, -0.0130512, -0.109382, 0.109382, 0.23457, 0.96
 
 [node name="MapHolder" type="Node3D" parent="."]
 
-[node name="TransferPlatformTypeA" parent="MapHolder" instance=ExtResource("2_a2ia3")]
-
 [node name="GameHud" parent="." instance=ExtResource("1_q2fht")]
 
 [node name="CameraHolder" type="Node3D" parent="."]
 transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 0, 0, 0)
 script = ExtResource("3_qbrl8")
-speedMult = Vector2(0.014, 0.02)
+speedMult = Vector2(-0.014, -0.02)
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20)
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 20, -20)
 projection = 1
 fov = 1.0
 size = 10.0
