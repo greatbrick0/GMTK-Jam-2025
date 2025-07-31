@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvpryud4lc300"
-path.s3tc="res://.godot/imported/DefaultMaterial_Base_color.png-2befe2418d62db85b8305c42eb04b8c2.s3tc.ctex"
+uid="uid://cdleqnsgguswp"
+path.s3tc="res://.godot/imported/BomberBaseColor.png-52e7ca95f0f78746ad5aaea4400e7ffb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/DefaultMaterial_Base_color.png"
-dest_files=["res://.godot/imported/DefaultMaterial_Base_color.png-2befe2418d62db85b8305c42eb04b8c2.s3tc.ctex"]
+source_file="res://Textures/BomberBaseColor.png"
+dest_files=["res://.godot/imported/BomberBaseColor.png-52e7ca95f0f78746ad5aaea4400e7ffb.s3tc.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bomhb0o7kqis1"]
 
-[ext_resource type="Texture2D" uid="uid://bvpryud4lc300" path="res://Textures/DefaultMaterial_Base_color.png" id="1_750gg"]
+[ext_resource type="Texture2D" uid="uid://bvpryud4lc300" path="res://Textures/ZoomerBaseColor.png" id="1_750gg"]
 [ext_resource type="Texture2D" uid="uid://cm22x1q7vq66j" path="res://Textures/Zoomer_emission.png" id="2_y7dko"]
 
 [resource]
