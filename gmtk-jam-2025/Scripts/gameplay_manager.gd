@@ -9,6 +9,7 @@ extends Node
 var currentLevel: int = 0
 
 var connectPoint: Vector2i = Vector2i.ZERO
+var prevConnectPoint: Vector2i = Vector2i.ZERO
 var currentLevelMapRef: LevelMap
 var prevTransferRef: LevelMap
 var currentTransferRef: LevelMap
@@ -25,6 +26,7 @@ func _ready() -> void:
 	LoadNextLevelMap()
 	prevTransferRef = mapTransfers[0].instantiate()
 	MapHolder.add_child(prevTransferRef)
+	allActiveTiles.merge(prevTransferRef.SetUpTiles())
 
 func _process(delta):
 	if(Input.is_action_just_released("ui_up")):
@@ -33,25 +35,35 @@ func _process(delta):
 
 func LoadNextLevelMap() -> void:
 	if(prevTransferRef != null):
+		for ii in prevTransferRef.GetTileArray(prevConnectPoint):
+			allActiveTiles.erase(ii)
 		prevTransferRef.RemoveFromPlay()
 		prevTransferRef = currentTransferRef
 	if(currentLevelMapRef != null):
+		for ii in currentLevelMapRef.GetTileArray(prevConnectPoint):
+			allActiveTiles.erase(ii)
 		currentLevelMapRef.RemoveFromPlay()
 	
 	currentLevelMapRef = levelMaps[currentLevel].instantiate()
 	MapHolder.add_child(currentLevelMapRef)
 	currentLevelMapRef.global_position = Vector3(connectPoint.x, 0, connectPoint.y)
 	currentLevelMapRef.get_node("FallAnims").play("FallEnter")
+	allActiveTiles.merge(currentLevelMapRef.SetUpTiles(connectPoint))
+	prevConnectPoint = connectPoint
 	connectPoint = currentLevelMapRef.GetConnectPoint()
 	
 	currentTransferRef = mapTransfers[currentLevel + 1].instantiate()
 	MapHolder.add_child(currentTransferRef)
 	currentTransferRef.global_position = Vector3(connectPoint.x, 0, connectPoint.y)
 	currentTransferRef.get_node("FallAnims").play("FallEnter")
+	allActiveTiles.merge(currentTransferRef.SetUpTiles(connectPoint))
 	successTiles = currentTransferRef.GetTileArray(connectPoint)
 
 func RecieveClick(clickPos: Vector3) -> void:
 	var roundedClickPos: Vector2i = Vector2i(round(clickPos.x), round(clickPos.z))
-	print("pressed ", roundedClickPos)
 	if(roundedClickPos in successTiles):
 		print("success tile")
+	if(allActiveTiles.has(roundedClickPos)):
+		print("pressed ", roundedClickPos)
+		if(allActiveTiles[roundedClickPos] is GridItem):
+			print(allActiveTiles[roundedClickPos].name)

@@ -18,3 +18,6 @@ func _on_input_event(camera, event, event_position, normal, shape_idx):
 	elif(event.is_released()):
 		if(event.button_index == MOUSE_BUTTON_RIGHT):
 			stop_camera_move.emit()
+
+func _on_mouse_exited():
+	stop_camera_move.emit()

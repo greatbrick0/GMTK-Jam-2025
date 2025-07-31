@@ -49,4 +49,5 @@ script = ExtResource("3_5erdv")
 shape = SubResource("WorldBoundaryShape3D_q2fht")
 
 [connection signal="input_event" from="ClickPlane" to="ClickPlane" method="_on_input_event"]
+[connection signal="mouse_exited" from="ClickPlane" to="ClickPlane" method="_on_mouse_exited"]
 [connection signal="start_camera_move" from="ClickPlane" to="CameraHolder" method="_on_click_plane_start_camera_move"]

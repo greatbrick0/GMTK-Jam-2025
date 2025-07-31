@@ -25,6 +25,10 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
 
+[editor]
+
+movie_writer/movie_file="C:/Users/speha/Videos/Captures/Godot Movies/movie.avi"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

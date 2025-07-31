@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://djbmx87xr4b6h"]
+[gd_scene load_steps=3 format=3 uid="uid://djbmx87xr4b6h"]
 
 [ext_resource type="PackedScene" uid="uid://d3mdpfhbust2f" path="res://Scenes/level_map.tscn" id="1_ja1fj"]
+[ext_resource type="PackedScene" uid="uid://8p4dmlrnlsd0" path="res://Scenes/scrap.tscn" id="2_3rp1v"]
 
 [node name="LevelMap1" instance=ExtResource("1_ja1fj")]
 
@@ -11,3 +12,6 @@ data = {
 
 [node name="ConnectPoint" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
+
+[node name="Scrap" parent="GridItemHolder" index="0" instance=ExtResource("2_3rp1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)

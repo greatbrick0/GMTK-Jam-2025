@@ -19,21 +19,6 @@ tracks/0/keys = {
 "values": [Vector3(-0.5, 10, -0.5), Vector3(-0.5, -0.5, -0.5)]
 }
 
-[sub_resource type="Animation" id="Animation_2bcta"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GridMap:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.5, -0.5, -0.5)]
-}
-
 [sub_resource type="Animation" id="Animation_1enw7"]
 resource_name = "FallExit"
 tracks/0/type = "value"
@@ -63,6 +48,21 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_2bcta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GridMap:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5, -0.5, -0.5)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1enw7"]
 _data = {
 &"FallEnter": SubResource("Animation_8xd6f"),
@@ -82,3 +82,5 @@ mesh_library = ExtResource("1_r7mfs")
 libraries = {
 &"": SubResource("AnimationLibrary_1enw7")
 }
+
+[node name="GridItemHolder" type="Node3D" parent="."]
