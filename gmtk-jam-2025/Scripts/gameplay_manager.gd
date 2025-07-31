@@ -1,4 +1,5 @@
 extends Node
+class_name GameplayManager
 
 @export var cam: CameraMovement
 @export var clickHandler: ClickHandler

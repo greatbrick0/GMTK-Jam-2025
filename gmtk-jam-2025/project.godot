@@ -17,6 +17,7 @@ config/icon="uid://c720ty7shjn3e"
 
 [autoload]
 
+EventBus="*res://Scripts/event_bus.gd"
 LevelSelector="*res://Scripts/level_selector.gd"
 
 [display]

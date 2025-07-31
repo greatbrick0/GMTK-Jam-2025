@@ -2,8 +2,8 @@
 
 [ext_resource type="Material" uid="uid://biw035gej7vvg" path="res://Textures/new_standard_material_3d.tres" id="1_ylmg4"]
 [ext_resource type="Material" uid="uid://b6j1lyasp5y57" path="res://Textures/new_standard_material_3d_Rock.tres" id="2_iuycv"]
-[ext_resource type="Material" uid="uid://cvju1jojitkvw" path="res://Textures/new_standard_material_3d_Stone.tres" id="3_aetgp"]
-[ext_resource type="Material" uid="uid://k8cph87nbk7n" path="res://Textures/new_standard_material_3d_Rugged.tres" id="4_24edm"]
+[ext_resource type="Material" path="res://Textures/new_standard_material_3d_Stone.tres" id="3_aetgp"]
+[ext_resource type="Material" path="res://Textures/new_standard_material_3d_Rugged.tres" id="4_24edm"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_oaoiu"]
 _surfaces = [{

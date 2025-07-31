@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bij7x1xcx8mw6"]
+
+[ext_resource type="Script" uid="uid://dhbqyon5di6vb" path="res://Scripts/grid_character.gd" id="1_wqe62"]
+
+[node name="GridCharacter" type="Node3D"]
+script = ExtResource("1_wqe62")
+
+[node name="Visuals" type="Node3D" parent="."]
