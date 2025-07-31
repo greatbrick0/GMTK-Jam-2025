@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="GMTK Jam 2025"
+run/main_scene="uid://cuvfu8kv8gl2s"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://c720ty7shjn3e"
+
+[autoload]
+
+LevelSelector="*res://Scripts/level_selector.gd"
 
 [display]
 

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq66ghu4s5lx8"]
+
+[ext_resource type="PackedScene" uid="uid://sudq4r1h1rsk" path="res://Scenes/transfer_platform.tscn" id="1_n46ci"]
+
+[node name="TransferPlatformTypeA" instance=ExtResource("1_n46ci")]
+
+[node name="GridMap" parent="." index="0"]
+data = {
+"cells": PackedInt32Array(0, 65535, 2, 65535, 65535, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 2, 1, 65535, 2, 1, 1, 2, 0, 1, 2, 65535, 1, 2)
+}

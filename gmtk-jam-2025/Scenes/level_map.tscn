@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3mdpfhbust2f"]
+
+[ext_resource type="MeshLibrary" uid="uid://dlpq2k8gh7dh0" path="res://Tiles/Tile Library.tres" id="2_2bcta"]
+
+[sub_resource type="GDScript" id="GDScript_ijhud"]
+script/source = "extends LevelMap
+class_name  LevelMapManager
+
+@export var transferPlatformObj: PackedScene
+var transferPlatformRef: LevelMap
+
+func CreateTransferPlatform() -> LevelMap:
+	transferPlatformRef = transferPlatformObj.instantiate()
+	return transferPlatformRef
+"
+
+[node name="LevelMap" type="Node3D"]
+script = SubResource("GDScript_ijhud")
+metadata/_custom_type_script = "uid://dm8ejyy4xlty8"
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, -0.5, -0.5)
+mesh_library = ExtResource("2_2bcta")
+
+[node name="ConnectPoint" type="Marker3D" parent="."]
