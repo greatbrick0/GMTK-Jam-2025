@@ -3,6 +3,7 @@ class_name GameplayManager
 
 @export var cam: CameraMovement
 @export var clickHandler: ClickHandler
+@export var gameHud: GameHud
 @export var mapHolder: Node3D
 @export var levelMaps: Array[PackedScene]
 @export var mapTransfers: Array[PackedScene]
@@ -73,7 +74,7 @@ func LoadNextLevelMap() -> void:
 	successTiles = currentTransferRef.GetTileArray(connectPoint)
 
 func MoveItemOnGrid(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
-	allActiveTiles[newPos] = GridItem
+	allActiveTiles[newPos] = item
 	if(allActiveTiles.has(oldPos)):
 		allActiveTiles[oldPos] = null
 
@@ -112,6 +113,7 @@ func UnselectCharacter() -> void:
 	if(selectedCharacter == null): return
 	
 	print("unselected character")
+	gameHud.RemoveActionButtons()
 	selectedCharacter = null
 	UnselectAction()
 

@@ -16,12 +16,15 @@ func _ready():
 func StandardClickAction(manager: GameplayManager) -> void:
 	if(team == Enums.Teams.PLAYER):
 		manager.selectedCharacter = self
-		print($Actions.get_children())
+		manager.gameHud.GenerateActionButtons(self)
 
 func ResetForTurn(turnTeam: Enums.Teams) -> void:
 	if(turnTeam == team):
 		usedActions.clear()
 		actions_available_updated.emit(true)
+
+func GetActionCount() -> int:
+	return $Actions.get_child_count()
 
 func AttemptGetAction(index: int) -> CharacterAction:
 	if($Actions.get_child_count() > index):

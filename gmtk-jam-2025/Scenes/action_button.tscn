@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5b7rwc8bl5qk"]
+
+[ext_resource type="Texture2D" uid="uid://b42x26r0kl0if" path="res://Art/Images/loopMiddle.png" id="1_k8n73"]
+
+[node name="ActionButton" type="TextureButton"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -720.0
+offset_right = 256.0
+offset_bottom = -464.0
+grow_vertical = 0
+texture_normal = ExtResource("1_k8n73")
+texture_pressed = ExtResource("1_k8n73")
+texture_hover = ExtResource("1_k8n73")
+texture_disabled = ExtResource("1_k8n73")
+texture_focused = ExtResource("1_k8n73")

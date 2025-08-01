@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c52jeaqpo6aj0"]
+[gd_scene load_steps=8 format=3 uid="uid://c52jeaqpo6aj0"]
 
+[ext_resource type="Script" uid="uid://b0nffpu084jmj" path="res://Scripts/game_hud.gd" id="1_qecdm"]
 [ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="1_qmln0"]
+[ext_resource type="Texture2D" uid="uid://b42x26r0kl0if" path="res://Art/Images/loopMiddle.png" id="3_jgq5c"]
+[ext_resource type="PackedScene" uid="uid://c5b7rwc8bl5qk" path="res://Scenes/action_button.tscn" id="3_pef4c"]
+[ext_resource type="Texture2D" uid="uid://ciwpdrdwl7w3s" path="res://Art/Images/loopSingle.png" id="4_ae0to"]
+[ext_resource type="Texture2D" uid="uid://kh0wfn7waq3r" path="res://Art/Images/loopLeft.png" id="5_a0eom"]
+[ext_resource type="Texture2D" uid="uid://cfp3ooyt3pgwp" path="res://Art/Images/loopRight.png" id="6_sq0d6"]
 
 [node name="GameHud" type="CanvasLayer"]
+script = ExtResource("1_qecdm")
+actionButtonObj = ExtResource("3_pef4c")
+actionButtonSprites = Array[Texture]([ExtResource("3_jgq5c"), ExtResource("4_ae0to"), ExtResource("5_a0eom"), ExtResource("6_sq0d6")])
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -36,3 +45,16 @@ offset_top = 20.0
 offset_right = 169.0
 offset_bottom = 43.0
 text = "Remaining Turns: 3"
+
+[node name="ActionButtonHolder" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -122.4
+offset_right = 788.0
+offset_bottom = 133.6
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 0

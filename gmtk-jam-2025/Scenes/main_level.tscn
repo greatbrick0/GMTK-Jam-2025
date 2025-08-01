@@ -14,10 +14,11 @@
 
 [node name="MainLevel" type="Node3D"]
 
-[node name="GameplayManager" type="Node" parent="." node_paths=PackedStringArray("cam", "clickHandler", "mapHolder")]
+[node name="GameplayManager" type="Node" parent="." node_paths=PackedStringArray("cam", "clickHandler", "gameHud", "mapHolder")]
 script = ExtResource("1_ikcpc")
 cam = NodePath("../CameraHolder")
 clickHandler = NodePath("../ClickPlane")
+gameHud = NodePath("../GameHud")
 mapHolder = NodePath("../MapHolder")
 levelMaps = Array[PackedScene]([ExtResource("2_236hc"), ExtResource("2_236hc"), ExtResource("2_236hc")])
 mapTransfers = Array[PackedScene]([ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3")])
@@ -31,7 +32,8 @@ transform = Transform3D(0.993914, -0.0130512, -0.109382, 0.109382, 0.23457, 0.96
 
 [node name="MapHolder" type="Node3D" parent="."]
 
-[node name="GameHud" parent="." instance=ExtResource("1_q2fht")]
+[node name="GameHud" parent="." node_paths=PackedStringArray("gameplayManager") instance=ExtResource("1_q2fht")]
+gameplayManager = NodePath("../GameplayManager")
 
 [node name="CameraHolder" type="Node3D" parent="."]
 transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 0, 0, 0)
