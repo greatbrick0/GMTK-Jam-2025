@@ -1,4 +1,4 @@
 extends Node
 
-signal end_turn(team: String)
-signal start_turn(team: String)
+signal end_turn(team: Enums.Teams)
+signal start_turn(team: Enums.Teams)

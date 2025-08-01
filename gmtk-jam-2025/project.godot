@@ -19,6 +19,7 @@ config/icon="uid://c720ty7shjn3e"
 
 EventBus="*res://Scripts/event_bus.gd"
 LevelSelector="*res://Scripts/level_selector.gd"
+MusicManager="*res://Scenes/music_manager.tscn"
 
 [display]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://djbmx87xr4b6h"]
+[gd_scene load_steps=4 format=3 uid="uid://djbmx87xr4b6h"]
 
 [ext_resource type="PackedScene" uid="uid://d3mdpfhbust2f" path="res://Scenes/level_map.tscn" id="1_ja1fj"]
 [ext_resource type="PackedScene" uid="uid://8p4dmlrnlsd0" path="res://Scenes/scrap.tscn" id="2_3rp1v"]
+[ext_resource type="PackedScene" uid="uid://bxddsmq0spthh" path="res://Scenes/Characters/princess.tscn" id="3_67x30"]
 
 [node name="LevelMap1" instance=ExtResource("1_ja1fj")]
 
@@ -15,3 +16,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
 
 [node name="Scrap" parent="GridItemHolder" index="0" instance=ExtResource("2_3rp1v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Princess" parent="GridItemHolder" index="1" instance=ExtResource("3_67x30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
