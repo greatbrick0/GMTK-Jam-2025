@@ -18,6 +18,10 @@ var currentTransferRef: LevelMap
 var allActiveTiles: Dictionary
 var successTiles: Array[Vector2i]
 
+enum ClickModes {STANDARD, ACTION_TARGET}
+var clickMode: ClickModes = ClickModes.STANDARD
+var selectedCharacter: GridCharacter
+
 func _ready() -> void:
 	currentLevel = LevelSelector.selectedLevel
 	clickHandler.click_signal.connect(RecieveClick)
@@ -30,9 +34,12 @@ func _ready() -> void:
 	allActiveTiles.merge(prevTransferRef.SetUpTiles())
 
 func _process(delta):
-	if(Input.is_action_just_released("ui_up")):
+	if(Input.is_action_just_pressed("ui_up")):
 		currentLevel += 1
 		LoadNextLevelMap()
+	for ii in range(0, 9):
+		if(Input.is_action_just_pressed("UseAction"+str(ii))):
+			StartUsingAction(ii)
 
 func LoadNextLevelMap() -> void:
 	if(prevTransferRef != null):
@@ -62,9 +69,24 @@ func LoadNextLevelMap() -> void:
 
 func RecieveClick(clickPos: Vector3) -> void:
 	var roundedClickPos: Vector2i = Vector2i(round(clickPos.x), round(clickPos.z))
-	if(roundedClickPos in successTiles):
-		print("success tile")
-	if(allActiveTiles.has(roundedClickPos)):
-		print("pressed ", roundedClickPos)
-		if(allActiveTiles[roundedClickPos] is GridItem):
-			print(allActiveTiles[roundedClickPos].name)
+	match(clickMode):
+		ClickModes.STANDARD:
+			if(allActiveTiles.has(roundedClickPos)):
+				print("pressed ", roundedClickPos)
+				if(allActiveTiles[roundedClickPos] is GridItem):
+					allActiveTiles[roundedClickPos].StandardClickAction(self)
+				else:
+					UnselectCharacter()
+			else:
+				UnselectCharacter()
+
+func UnselectCharacter() -> void:
+	if(selectedCharacter == null): return
+	
+	print("unselected character")
+	selectedCharacter = null
+
+func StartUsingAction(index: int) -> void:
+	if(selectedCharacter == null): return
+	
+	selectedCharacter.AttemptUseAction(index)
