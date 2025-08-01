@@ -20,6 +20,7 @@ func GenerateActionButtons(characterRef: GridCharacter):
 			elif(ii == characterRef.GetActionCount() - 1):
 				SetSprite(actionButtonsRefs[-1], actionButtonSprites[3])
 		actionButtonsRefs[-1].pressed.connect(gameplayManager.StartUsingAction.bind(ii))
+		actionButtonsRefs[-1].get_node("TextureRect").texture = characterRef.AttemptGetAction(ii).actionIcon
 
 func RemoveActionButtons():
 	for ii in actionButtonsRefs:
