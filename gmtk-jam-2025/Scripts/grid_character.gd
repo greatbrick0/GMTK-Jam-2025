@@ -6,6 +6,8 @@ class_name GridCharacter
 @export var maxHealth: int = 3
 @export var health: int = 3
 @export var droppedScrapCount: int = 1
+
+signal actions_available_updated(available: bool)
 var usedActions: Array = []
 
 func _ready():
@@ -19,6 +21,7 @@ func StandardClickAction(manager: GameplayManager) -> void:
 func ResetForTurn(turnTeam: Enums.Teams) -> void:
 	if(turnTeam == team):
 		usedActions.clear()
+		actions_available_updated.emit(true)
 
 func AttemptGetAction(index: int) -> CharacterAction:
 	if($Actions.get_child_count() > index):
@@ -32,3 +35,8 @@ func HasRemainingActions() -> bool:
 	for ii in $Actions.get_children():
 		output = output or ii.CanBeUsed()
 	return output
+
+func AppendUsedActions(appended: Array[String]) -> void:
+	usedActions.append_array(appended)
+	if(not HasRemainingActions()):
+		actions_available_updated.emit(false)

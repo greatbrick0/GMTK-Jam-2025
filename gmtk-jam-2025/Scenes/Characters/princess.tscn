@@ -67,6 +67,7 @@ _data = {
 }
 
 [node name="Princess" instance=ExtResource("1_dgny0")]
+characterClass = 3
 
 [node name="Princess" type="MeshInstance3D" parent="Visuals" index="0"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.07)
@@ -99,3 +100,5 @@ mesh = SubResource("PlaneMesh_ffqpr")
 libraries = {
 &"": SubResource("AnimationLibrary_jlqpc")
 }
+
+[connection signal="actions_available_updated" from="." to="Visuals_Stationary/UnitIndicator" method="set_visible"]

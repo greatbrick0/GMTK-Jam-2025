@@ -31,6 +31,7 @@ func _ready() -> void:
 	clickHandler.click_signal.connect(RecieveClick)
 	clickHandler.start_camera_move.connect(cam.OnStartCameraMove)
 	clickHandler.stop_camera_move.connect(cam.OnStopCameraMove)
+	EventBus.grid_dict_move_item.connect(MoveItemOnGrid)
 	
 	LoadNextLevelMap()
 	prevTransferRef = mapTransfers[0].instantiate()
@@ -70,6 +71,11 @@ func LoadNextLevelMap() -> void:
 	currentTransferRef.get_node("FallAnims").play("FallEnter")
 	allActiveTiles.merge(currentTransferRef.SetUpTiles(connectPoint))
 	successTiles = currentTransferRef.GetTileArray(connectPoint)
+
+func MoveItemOnGrid(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
+	allActiveTiles[newPos] = GridItem
+	if(allActiveTiles.has(oldPos)):
+		allActiveTiles[oldPos] = null
 
 func RecieveClick(clickPos: Vector3) -> void:
 	var roundedClickPos: Vector2i = Vector2i(round(clickPos.x), round(clickPos.z))
@@ -114,6 +120,7 @@ func StartUsingAction(index: int) -> void:
 	if(selectedCharacter == null): return
 	selectedAction = selectedCharacter.AttemptGetAction(index)
 	if(selectedAction == null): return
+	if(not selectedAction.CanBeUsed()): return
 	
 	clickMode = ClickModes.ACTION_TARGET
 	actionTargetTiles = selectedAction.GetTileOptions(allActiveTiles)
@@ -123,5 +130,5 @@ func StartUsingAction(index: int) -> void:
 		tileHighlightRefs[-1].global_position = Vector3(actionTargetTiles[ii].x, 0, actionTargetTiles[ii].y)
 
 func FinishUsingAction(actionPos: Vector2i) -> void:
-	selectedAction.UseAction(actionPos)
+	selectedAction.AttemptUseAction(actionPos)
 	UnselectAction()
