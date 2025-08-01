@@ -14,11 +14,10 @@
 
 [node name="MainLevel" type="Node3D"]
 
-[node name="GameplayManager" type="Node" parent="." node_paths=PackedStringArray("cam", "clickHandler", "mapHolder")]
+[node name="GameplayManager" type="Node" parent="." node_paths=PackedStringArray("cam", "clickHandler")]
 script = ExtResource("1_ikcpc")
 cam = NodePath("../CameraHolder")
 clickHandler = NodePath("../ClickPlane")
-mapHolder = NodePath("../MapHolder")
 levelMaps = Array[PackedScene]([ExtResource("2_236hc"), ExtResource("2_236hc"), ExtResource("2_236hc")])
 mapTransfers = Array[PackedScene]([ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3")])
 tileHighlightObj = ExtResource("4_lwkuy")

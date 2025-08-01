@@ -3,9 +3,11 @@ class_name GameplayManager
 
 @export var cam: CameraMovement
 @export var clickHandler: ClickHandler
-@export var MapHolder: Node3D
+@export var mapHolder: Node3D
 @export var levelMaps: Array[PackedScene]
 @export var mapTransfers: Array[PackedScene]
+@export var tileHighlightObj: PackedScene
+var tileHighlightRefs: Array[Node3D]
 
 var currentLevel: int = 0
 
@@ -21,6 +23,8 @@ var successTiles: Array[Vector2i]
 enum ClickModes {STANDARD, ACTION_TARGET}
 var clickMode: ClickModes = ClickModes.STANDARD
 var selectedCharacter: GridCharacter
+var selectedAction: CharacterAction
+var actionTargetTiles: Array[Vector2i] = []
 
 func _ready() -> void:
 	currentLevel = LevelSelector.selectedLevel
@@ -30,7 +34,7 @@ func _ready() -> void:
 	
 	LoadNextLevelMap()
 	prevTransferRef = mapTransfers[0].instantiate()
-	MapHolder.add_child(prevTransferRef)
+	mapHolder.add_child(prevTransferRef)
 	allActiveTiles.merge(prevTransferRef.SetUpTiles())
 
 func _process(delta):
@@ -53,7 +57,7 @@ func LoadNextLevelMap() -> void:
 		currentLevelMapRef.RemoveFromPlay()
 	
 	currentLevelMapRef = levelMaps[currentLevel].instantiate()
-	MapHolder.add_child(currentLevelMapRef)
+	mapHolder.add_child(currentLevelMapRef)
 	currentLevelMapRef.global_position = Vector3(connectPoint.x, 0, connectPoint.y)
 	currentLevelMapRef.get_node("FallAnims").play("FallEnter")
 	allActiveTiles.merge(currentLevelMapRef.SetUpTiles(connectPoint))
@@ -61,7 +65,7 @@ func LoadNextLevelMap() -> void:
 	connectPoint = currentLevelMapRef.GetConnectPoint()
 	
 	currentTransferRef = mapTransfers[currentLevel + 1].instantiate()
-	MapHolder.add_child(currentTransferRef)
+	mapHolder.add_child(currentTransferRef)
 	currentTransferRef.global_position = Vector3(connectPoint.x, 0, connectPoint.y)
 	currentTransferRef.get_node("FallAnims").play("FallEnter")
 	allActiveTiles.merge(currentTransferRef.SetUpTiles(connectPoint))
@@ -81,19 +85,43 @@ func RecieveClick(clickPos: Vector3) -> void:
 				UnselectCharacter()
 		ClickModes.ACTION_TARGET:
 			if(allActiveTiles.has(roundedClickPos)):
-				pass
+				if(roundedClickPos in actionTargetTiles):
+					FinishUsingAction(roundedClickPos)
 			else:
 				UnselectCharacter()
+
+func UnselectAction() -> void:
+	if(selectedAction == null): return
+	
+	print("unselected action")
+	selectedAction = null
+	actionTargetTiles.clear()
+	for ii in tileHighlightRefs:
+		ii.call_deferred("queue_free")
+	tileHighlightRefs.clear()
+	
+	clickMode = ClickModes.STANDARD
 
 func UnselectCharacter() -> void:
 	if(selectedCharacter == null): return
 	
 	print("unselected character")
 	selectedCharacter = null
+	UnselectAction()
 
 func StartUsingAction(index: int) -> void:
+	UnselectAction()
 	if(selectedCharacter == null): return
-	var selectedAction: CharacterAction = selectedCharacter.AttemptUseAction(index)
+	selectedAction = selectedCharacter.AttemptGetAction(index)
 	if(selectedAction == null): return
 	
 	clickMode = ClickModes.ACTION_TARGET
+	actionTargetTiles = selectedAction.GetTileOptions(allActiveTiles)
+	for ii in range(len(actionTargetTiles)):
+		tileHighlightRefs.append(tileHighlightObj.instantiate())
+		mapHolder.add_child(tileHighlightRefs[-1])
+		tileHighlightRefs[-1].global_position = Vector3(actionTargetTiles[ii].x, 0, actionTargetTiles[ii].y)
+
+func FinishUsingAction(actionPos: Vector2i) -> void:
+	selectedAction.UseAction(actionPos)
+	UnselectAction()

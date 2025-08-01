@@ -1,12 +1,12 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b1mgrqjhsipsm"]
 
-[ext_resource type="Shader" uid="uid://bwlyj7qaj37xd" path="res://Shaders/Indicator.gdshader" id="1_bajuw"]
+[ext_resource type="Shader" path="res://Shaders/Indicator.gdshader" id="1_bajuw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rwmhe"]
 render_priority = 0
 shader = ExtResource("1_bajuw")
 shader_parameter/baseColor = Vector4(0, 1, 0.89, 1)
-shader_parameter/opacity = 0.375185
+shader_parameter/opacity = 1.0
 shader_parameter/timeMod = 0.0
 
 [resource]

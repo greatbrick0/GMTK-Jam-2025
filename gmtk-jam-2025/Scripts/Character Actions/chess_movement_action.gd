@@ -19,4 +19,4 @@ func GetTileOptions(tilesDict: Dictionary) -> Array[Vector2i]:
 	return output
 
 func UseAction(actionPos: Vector2i) -> void:
-	pass
+	print("used action")
