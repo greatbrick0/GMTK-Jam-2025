@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxddsmq0spthh"]
+[gd_scene load_steps=9 format=3 uid="uid://bxddsmq0spthh"]
 
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_dgny0"]
 [ext_resource type="Material" uid="uid://dt6ab5lh8fv4v" path="res://Textures/Princess.tres" id="2_4pjou"]
 [ext_resource type="ArrayMesh" uid="uid://cncbktjjwvsmc" path="res://Models/Robots/Princess.obj" id="3_vt78p"]
+[ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="4_4pjou"]
+[ext_resource type="Shader" uid="uid://dmxdomvmo3vah" path="res://Shaders/Shadow.gdshader" id="5_syuvx"]
+[ext_resource type="Texture2D" uid="uid://bmtr67s1ywr4n" path="res://Textures/VFx/MaterialTest1_outputCircle.png" id="6_q4djc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aayhu"]
+render_priority = 0
+shader = ExtResource("5_syuvx")
+shader_parameter/baseColor = Vector4(0, 0, 0.06, 0)
+shader_parameter/opacity = 0.615
+shader_parameter/TexA = ExtResource("6_q4djc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4pjou"]
 
 [node name="Princess" instance=ExtResource("1_dgny0")]
 
@@ -11,3 +23,13 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.07)
 material_override = ExtResource("2_4pjou")
 mesh = ExtResource("3_vt78p")
 skeleton = NodePath("../..")
+
+[node name="UnitIndicator" parent="Visuals" index="1" instance=ExtResource("4_4pjou")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="Visuals" index="2"]
+transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, 0, 0.111548, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals/Node3D" index="0"]
+material_override = SubResource("ShaderMaterial_aayhu")
+mesh = SubResource("PlaneMesh_4pjou")

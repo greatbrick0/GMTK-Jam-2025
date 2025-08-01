@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=3 uid="uid://dguy8abn6c6up"]
+
+[ext_resource type="Shader" uid="uid://dt5be7rafrep3" path="res://Shaders/UnitIndicator.gdshader" id="1_edce0"]
+[ext_resource type="Texture2D" uid="uid://bg4euw5lpdeil" path="res://Textures/VFx/MaterialTest1_outputStar.png" id="2_8unpj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0ejg"]
+render_priority = 0
+shader = ExtResource("1_edce0")
+shader_parameter/baseColor = Vector4(3, 3, 0.565, 0)
+shader_parameter/opacity = 1.0
+shader_parameter/TexA = ExtResource("2_8unpj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ukbu"]
+
+[sub_resource type="Shader" id="Shader_pvytm"]
+code = "shader_type spatial;
+
+uniform vec4 baseColor;
+uniform float opacity;
+uniform sampler2D TexA;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	EMISSION = baseColor.rgb * texture(TexA, UV).rgb;
+	ALPHA = opacity * texture(TexA, UV).r;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_edce0"]
+render_priority = 0
+shader = SubResource("Shader_pvytm")
+shader_parameter/baseColor = Vector4(-5.195, -6.12, -7.975, 0)
+shader_parameter/opacity = 1.0
+shader_parameter/TexA = ExtResource("2_8unpj")
+
+[sub_resource type="Animation" id="Animation_pvytm"]
+resource_name = "Rotate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 1, 1.05, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.1, 1.1, 1.1), Vector3(1, 1, 1), Vector3(1.1, 1.1, 1.1), Vector3(1, 1, 1), Vector3(1.1, 1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_edce0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8unpj"]
+_data = {
+&"RESET": SubResource("Animation_edce0"),
+&"Rotate": SubResource("Animation_pvytm")
+}
+
+[node name="UnitIndicator" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.355976, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-1.1, 0, 2.7887e-06, 0, 1.1, 0, -2.7887e-06, 0, -1.1, 0, 0.0224499, 0)
+material_override = SubResource("ShaderMaterial_v0ejg")
+mesh = SubResource("PlaneMesh_6ukbu")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1.195, 0, 0, 0, 1.195, 0, 0, 0, 1.195, 0, 0, 0)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_edce0")
+cast_shadow = 0
+lod_bias = 0.001
+mesh = SubResource("PlaneMesh_6ukbu")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/MeshInstance3D2"]
+transform = Transform3D(0.845, 0, 0, 0, 0.845, 0, 0, 0, 0.845, 0.00563819, 0, 0.00209127)
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_edce0")
+cast_shadow = 0
+lod_bias = 0.001
+mesh = SubResource("PlaneMesh_6ukbu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_8unpj")
+}
+autoplay = "Rotate"
