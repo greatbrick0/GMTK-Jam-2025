@@ -8,3 +8,5 @@ script = ExtResource("1_wqe62")
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="Actions" type="Node" parent="."]
+
+[node name="Visuals_Stationary" type="Node3D" parent="."]

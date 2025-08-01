@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v0ejg"]
 render_priority = 0
 shader = ExtResource("1_edce0")
-shader_parameter/baseColor = Vector4(3, 3, 0.565, 0)
+shader_parameter/baseColor = Vector4(3, 3, 1.195, 0)
 shader_parameter/opacity = 1.0
 shader_parameter/TexA = ExtResource("2_8unpj")
 
@@ -41,6 +41,33 @@ shader_parameter/baseColor = Vector4(-5.195, -6.12, -7.975, 0)
 shader_parameter/opacity = 1.0
 shader_parameter/TexA = ExtResource("2_8unpj")
 
+[sub_resource type="Animation" id="Animation_edce0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_pvytm"]
 resource_name = "Rotate"
 length = 2.0
@@ -68,33 +95,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1.1, 1.1, 1.1), Vector3(1, 1, 1), Vector3(1.1, 1.1, 1.1), Vector3(1, 1, 1), Vector3(1.1, 1.1, 1.1)]
-}
-
-[sub_resource type="Animation" id="Animation_edce0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8unpj"]

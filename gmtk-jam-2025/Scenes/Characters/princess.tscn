@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxddsmq0spthh"]
+[gd_scene load_steps=17 format=3 uid="uid://bxddsmq0spthh"]
 
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_dgny0"]
 [ext_resource type="Material" uid="uid://dt6ab5lh8fv4v" path="res://Textures/Princess.tres" id="2_4pjou"]
 [ext_resource type="ArrayMesh" uid="uid://cncbktjjwvsmc" path="res://Models/Robots/Princess.obj" id="3_vt78p"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="4_4pjou"]
-[ext_resource type="Shader" path="res://Shaders/Shadow.gdshader" id="5_syuvx"]
+[ext_resource type="Shader" uid="uid://dmxdomvmo3vah" path="res://Shaders/Shadow.gdshader" id="5_syuvx"]
 [ext_resource type="Texture2D" uid="uid://bmtr67s1ywr4n" path="res://Textures/VFx/MaterialTest1_outputCircle.png" id="6_q4djc"]
+[ext_resource type="Shader" uid="uid://dt5be7rafrep3" path="res://Shaders/UnitIndicator.gdshader" id="7_aayhu"]
 [ext_resource type="Script" uid="uid://bu8m04w83xwfk" path="res://Scripts/Character Actions/chess_movement_action.gd" id="7_q4djc"]
+[ext_resource type="Texture2D" uid="uid://cf1uqmqnk53d4" path="res://Textures/VFx/MaterialTest1_Corners.png" id="8_4grcs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aayhu"]
 render_priority = 0
@@ -17,7 +19,60 @@ shader_parameter/TexA = ExtResource("6_q4djc")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4pjou"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4grcs"]
+render_priority = 0
+shader = ExtResource("7_aayhu")
+shader_parameter/baseColor = Vector4(3, 3, 0.3, 0)
+shader_parameter/opacity = 0.6
+shader_parameter/TexA = ExtResource("8_4grcs")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ffqpr"]
+
+[sub_resource type="Animation" id="Animation_o8r2j"]
+resource_name = "Swell"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.997433, 1.99792),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5, 1.5, 1.5), Vector3(1.3, 1.3, 1.3), Vector3(1.5, 1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_26mj6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5, 1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlqpc"]
+_data = {
+&"RESET": SubResource("Animation_26mj6"),
+&"Swell": SubResource("Animation_o8r2j")
+}
+
 [node name="Princess" instance=ExtResource("1_dgny0")]
+
+[node name="Actions#ChessMovementAction" type="Node" parent="." index="0"]
+script = ExtResource("7_q4djc")
+directions = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, 0), Vector2i(1, -1), Vector2i(0, -1), Vector2i(-1, -1), Vector2i(-1, 0), Vector2i(-1, 1)])
+ranges = Array[int]([3, 2, 3, 2, 3, 2, 3, 2])
+metadata/_custom_type_script = "uid://bu8m04w83xwfk"
 
 [node name="Princess" type="MeshInstance3D" parent="Visuals" index="0"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.07)
@@ -25,18 +80,22 @@ material_override = ExtResource("2_4pjou")
 mesh = ExtResource("3_vt78p")
 skeleton = NodePath("../..")
 
-[node name="UnitIndicator" parent="Visuals" index="1" instance=ExtResource("4_4pjou")]
+[node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("4_4pjou")]
 transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
 
-[node name="Node3D" type="Node3D" parent="Visuals" index="2"]
+[node name="Node3D" type="Node3D" parent="Visuals_Stationary" index="1"]
 transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, 0, 0.111548, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals/Node3D" index="0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals_Stationary/Node3D" index="0"]
 material_override = SubResource("ShaderMaterial_aayhu")
 mesh = SubResource("PlaneMesh_4pjou")
 
-[node name="ChessMovementAction" type="Node" parent="Actions" index="0"]
-script = ExtResource("7_q4djc")
-directions = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, 0), Vector2i(1, -1), Vector2i(0, -1), Vector2i(-1, -1), Vector2i(-1, 0), Vector2i(-1, 1)])
-ranges = Array[int]([3, 2, 3, 2, 3, 2, 3, 2])
-metadata/_custom_type_script = "uid://bu8m04w83xwfk"
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals_Stationary" index="2"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_4grcs")
+mesh = SubResource("PlaneMesh_ffqpr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals_Stationary/MeshInstance3D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_jlqpc")
+}
