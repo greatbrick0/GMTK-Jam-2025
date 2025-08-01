@@ -1,12 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxddsmq0spthh"]
+[gd_scene load_steps=16 format=3 uid="uid://bxddsmq0spthh"]
 
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_dgny0"]
-[ext_resource type="Material" uid="uid://dt6ab5lh8fv4v" path="res://Textures/Princess.tres" id="2_4pjou"]
-[ext_resource type="ArrayMesh" uid="uid://cncbktjjwvsmc" path="res://Models/Robots/Princess.obj" id="3_vt78p"]
+[ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="2_aayhu"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="4_4pjou"]
-[ext_resource type="Shader" path="res://Shaders/Shadow.gdshader" id="5_syuvx"]
+[ext_resource type="Shader" uid="uid://dmxdomvmo3vah" path="res://Shaders/Shadow.gdshader" id="5_syuvx"]
 [ext_resource type="Texture2D" uid="uid://bmtr67s1ywr4n" path="res://Textures/VFx/MaterialTest1_outputCircle.png" id="6_q4djc"]
-[ext_resource type="Shader" path="res://Shaders/UnitIndicator.gdshader" id="7_aayhu"]
+[ext_resource type="Shader" uid="uid://dt5be7rafrep3" path="res://Shaders/UnitIndicator.gdshader" id="7_aayhu"]
 [ext_resource type="Script" uid="uid://bu8m04w83xwfk" path="res://Scripts/Character Actions/chess_movement_action.gd" id="7_q4djc"]
 [ext_resource type="Texture2D" uid="uid://cf1uqmqnk53d4" path="res://Textures/VFx/MaterialTest1_Corners.png" id="8_4grcs"]
 
@@ -69,11 +68,8 @@ _data = {
 [node name="Princess" instance=ExtResource("1_dgny0")]
 characterClass = 3
 
-[node name="Princess" type="MeshInstance3D" parent="Visuals" index="0"]
+[node name="PrincessAnims" parent="Visuals" index="0" instance=ExtResource("2_aayhu")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.07)
-material_override = ExtResource("2_4pjou")
-mesh = ExtResource("3_vt78p")
-skeleton = NodePath("../..")
 
 [node name="ChessMovementAction" type="Node" parent="Actions" index="0"]
 script = ExtResource("7_q4djc")

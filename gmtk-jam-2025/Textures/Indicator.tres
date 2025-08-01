@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b1mgrqjhsipsm"]
 
-[ext_resource type="Shader" path="res://Shaders/Indicator.gdshader" id="1_bajuw"]
+[ext_resource type="Shader" uid="uid://bwlyj7qaj37xd" path="res://Shaders/Indicator.gdshader" id="1_bajuw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rwmhe"]
 render_priority = 0
