@@ -1,8 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuvfu8kv8gl2s"]
+[gd_scene load_steps=12 format=3 uid="uid://cuvfu8kv8gl2s"]
 
 [ext_resource type="Script" uid="uid://dtwj8gd4r3o4" path="res://Scripts/scene_transition.gd" id="1_rrs8s"]
+[ext_resource type="Shader" uid="uid://cw1ivb18usivw" path="res://Shaders/BackGroundGMTK2.gdshader" id="1_twnyg"]
 [ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="2_414dn"]
 [ext_resource type="PackedScene" uid="uid://c1ut1ou3bio5v" path="res://Scenes/main_level.tscn" id="3_4gxqj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_55kwv"]
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_12m1t"]
+seamless = true
+noise = SubResource("FastNoiseLite_55kwv")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6vd4x"]
+noise_type = 0
+frequency = 0.0064
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n82rj"]
+seamless = true
+noise = SubResource("FastNoiseLite_6vd4x")
+
+[sub_resource type="Gradient" id="Gradient_0061g"]
+colors = PackedColorArray(0, 0, 0, 0, 0.0596309, 0.0648687, 0.215861, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8mikk"]
+gradient = SubResource("Gradient_0061g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sqelc"]
+shader = ExtResource("1_twnyg")
+shader_parameter/colorMain = Color(0.025704, 0.0218282, 0.126169, 1)
+shader_parameter/gradientA = SubResource("GradientTexture1D_8mikk")
+shader_parameter/TexA = SubResource("NoiseTexture2D_12m1t")
+shader_parameter/TilingA = Vector2(0.3, 0.3)
+shader_parameter/OffsetA = Vector2(0.1, 0.06)
+shader_parameter/TexB = SubResource("NoiseTexture2D_n82rj")
+shader_parameter/TilingB = Vector2(0.5, 0.5)
+shader_parameter/OffsetB = Vector2(0.02, 0.02)
+shader_parameter/transparency = 0.0
 
 [node name="TitleScreen" type="Node2D"]
 
@@ -19,6 +54,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_sqelc")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
