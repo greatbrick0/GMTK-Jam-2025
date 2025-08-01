@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dguy8abn6c6up"]
 
-[ext_resource type="Shader" uid="uid://dt5be7rafrep3" path="res://Shaders/UnitIndicator.gdshader" id="1_edce0"]
+[ext_resource type="Shader" path="res://Shaders/UnitIndicator.gdshader" id="1_edce0"]
 [ext_resource type="Texture2D" uid="uid://bg4euw5lpdeil" path="res://Textures/VFx/MaterialTest1_outputStar.png" id="2_8unpj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v0ejg"]

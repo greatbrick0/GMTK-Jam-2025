@@ -79,6 +79,11 @@ func RecieveClick(clickPos: Vector3) -> void:
 					UnselectCharacter()
 			else:
 				UnselectCharacter()
+		ClickModes.ACTION_TARGET:
+			if(allActiveTiles.has(roundedClickPos)):
+				pass
+			else:
+				UnselectCharacter()
 
 func UnselectCharacter() -> void:
 	if(selectedCharacter == null): return
@@ -88,5 +93,7 @@ func UnselectCharacter() -> void:
 
 func StartUsingAction(index: int) -> void:
 	if(selectedCharacter == null): return
+	var selectedAction: CharacterAction = selectedCharacter.AttemptUseAction(index)
+	if(selectedAction == null): return
 	
-	selectedCharacter.AttemptUseAction(index)
+	clickMode = ClickModes.ACTION_TARGET

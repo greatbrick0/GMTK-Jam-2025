@@ -20,9 +20,12 @@ func ResetForTurn(turnTeam: Enums.Teams) -> void:
 	if(turnTeam == team):
 		usedActions.clear()
 
-func AttemptUseAction(index: int) -> void:
+func AttemptUseAction(index: int) -> CharacterAction:
 	if($Actions.get_child_count() > index):
 		print(index)
+		return $Actions.get_child(index)
+	else:
+		return null
 
 func HasRemainingActions() -> bool:
 	var output: bool = false
