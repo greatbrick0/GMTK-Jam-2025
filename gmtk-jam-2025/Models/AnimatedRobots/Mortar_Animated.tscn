@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmnqscyj7s2gn"]
+
+[ext_resource type="PackedScene" uid="uid://dx34igxmyflbq" path="res://Models/Animation_Test/Mortar_idle.glb" id="1_tehj6"]
+[ext_resource type="Material" uid="uid://ctd16egth8j6a" path="res://Textures/Mortar.tres" id="2_ngki2"]
+
+[node name="Mortar_idle" instance=ExtResource("1_tehj6")]
+
+[node name="Skeleton3D" parent="Armature_003" index="0"]
+bones/2/rotation = Quaternion(0.707107, 3.09086e-08, -3.09086e-08, 0.707107)
+bones/4/rotation = Quaternion(0.936099, -4.19304e-08, 1.11592e-07, -0.351738)
+bones/5/scale = Vector3(1, 1, 1)
+
+[node name="Gun3_2" parent="Armature_003/Skeleton3D" index="0"]
+transform = Transform3D(1, -1.45927e-14, 1.38185e-14, -5.87569e-15, -0.615661, 0.78801, 1.24798e-13, -0.78801, -0.615661, 1.8604e-15, 0.262872, -0.682117)
+
+[node name="Gun3_2" parent="Armature_003/Skeleton3D/Gun3_2" index="0"]
+material_override = ExtResource("2_ngki2")
+
+[node name="Gun2_2" parent="Armature_003/Skeleton3D" index="1"]
+transform = Transform3D(1, -1.45927e-14, 1.38185e-14, -5.87568e-15, -0.615661, 0.78801, 1.24798e-13, -0.78801, -0.615661, 1.86041e-15, 0.262872, -0.682117)
+
+[node name="Gun2_2" parent="Armature_003/Skeleton3D/Gun2_2" index="0"]
+material_override = ExtResource("2_ngki2")
+
+[node name="Gun1_2" parent="Armature_003/Skeleton3D" index="2"]
+transform = Transform3D(1, -1.34314e-14, -2.87983e-14, 2.84217e-14, -0.615661, 0.788011, 9.9476e-14, -0.78801, -0.615661, 1.86937e-15, 0.262872, -0.682117)
+
+[node name="Gun1_2" parent="Armature_003/Skeleton3D/Gun1_2" index="0"]
+material_override = ExtResource("2_ngki2")
+
+[node name="Shield" parent="Armature_003/Skeleton3D" index="3"]
+transform = Transform3D(1, -7.10543e-14, -2.84217e-14, 3.38813e-21, -0.615662, 0.78801, 7.10543e-14, -0.788011, -0.615662, 3.95187e-14, 0.0598243, -0.887022)
+
+[node name="Shield" parent="Armature_003/Skeleton3D/Shield" index="0"]
+material_override = ExtResource("2_ngki2")
+
+[node name="Frame" parent="Armature_003/Skeleton3D" index="4"]
+transform = Transform3D(1, 7.10543e-15, -8.96831e-44, 8.96831e-44, 0, 1, 7.10543e-15, -1, 0, 2.53178e-15, 0, -0.356317)
+
+[node name="Frame" parent="Armature_003/Skeleton3D/Frame" index="0"]
+material_override = ExtResource("2_ngki2")
+
+[node name="Tread1" parent="Armature_003/Skeleton3D" index="5"]
+transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, 0.572157, -8.47612e-09, -0.193911)
+
+[node name="Tread1" parent="Armature_003/Skeleton3D/Tread1" index="0"]
+material_override = ExtResource("2_ngki2")
+
+[node name="Tread2" parent="Armature_003/Skeleton3D" index="6"]
+transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, -0.587285, -8.47612e-09, -0.193911)
+
+[node name="Tread2" parent="Armature_003/Skeleton3D/Tread2" index="0"]
+material_override = ExtResource("2_ngki2")
