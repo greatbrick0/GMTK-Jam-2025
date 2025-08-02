@@ -90,7 +90,6 @@ func MoveItemOnGrid(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
 	allActiveTiles[newPos] = item
 	if(allActiveTiles.has(oldPos)):
 		allActiveTiles[oldPos] = null
-	print(allActiveTiles[newPos].name)
 
 func RemoveItemFromGrid(oldPos: Vector2i, item: GridItem) -> void:
 	if(allActiveTiles.has(oldPos)):
@@ -98,7 +97,6 @@ func RemoveItemFromGrid(oldPos: Vector2i, item: GridItem) -> void:
 
 func AdjustPlayerInputBlockers(adjust: int) -> void:
 	playerInputBlockers += adjust
-	print("blockers ", playerInputBlockers)
 
 func RecieveClick(clickPos: Vector3) -> void:
 	if(playerInputBlockers > 0): return

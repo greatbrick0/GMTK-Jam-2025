@@ -5,6 +5,7 @@ class_name CharacterAction
 @export var actionIcon: Texture
 @export var canTargetSelf: bool = false
 
+signal action_use_success()
 var actionOwner: GridCharacter
 
 func _ready() -> void:

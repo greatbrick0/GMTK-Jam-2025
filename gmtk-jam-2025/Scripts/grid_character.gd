@@ -9,12 +9,14 @@ class_name GridCharacter
 @export var deathExplosionObj: PackedScene
 signal character_died(oldPos: Vector2i, item: GridItem)
 
+@export var actionAnimPlayer: AnimationPlayer
 signal actions_available_updated(available: bool)
 var usedActions: Array = []
 
 func _ready():
 	character_died.connect(EventBus.GridDictRemoveItem)
 	EventBus.start_turn.connect(ResetForTurn)
+	actionAnimPlayer.animation_finished.connect(func(animName: String): if(animName.begins_with("Action")): actionAnimPlayer.play("Idle"))
 
 func StandardClickAction(manager: GameplayManager) -> void:
 	if(team == Enums.Teams.PLAYER):
@@ -26,6 +28,10 @@ func StandardClickAction(manager: GameplayManager) -> void:
 func RotateTowards(focusPos: Vector2i) -> void:
 	$Visuals.look_at(Vector3(focusPos.x, 0, focusPos.y))
 	$Visuals.rotate_y(PI)
+
+func PlayActionAnimation(animIndex: int) -> void:
+	actionAnimPlayer.stop()
+	actionAnimPlayer.play("Action"+str(animIndex))
 
 func ResetForTurn(turnTeam: Enums.Teams) -> void:
 	if(turnTeam == team):
@@ -57,7 +63,11 @@ func TakeSelfDamage(damageAmount: int) -> bool:
 	if(health <= 0): Die()
 	return health <= 0
 
-func TakeDamage(damageAmount: int) -> bool:
+func TakeDamage(damageAmount: int, delay: float = 0.0) -> bool:
+	if(delay > 0):
+		EventBus.adjust_player_blockers.emit(1)
+		await get_tree().create_timer(delay).timeout
+		EventBus.adjust_player_blockers.emit(-1)
 	health -= damageAmount
 	if(health <= 0):
 		Die()

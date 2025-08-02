@@ -22,13 +22,13 @@ func GetTileOptions(tilesDict: Dictionary) -> Array[Vector2i]:
 	return output
 
 func UseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> void:
+	action_use_success.emit()
 	EventBus.adjust_player_blockers.emit(1)
 	if(chainsOfMovement.has(actionPos)):
 		await RepeatAcrossTiles(CreateChain(actionPos), 0.1, actionOwner.MoveOnGrid)
 	actionOwner.MoveOnGrid(actionPos)
 	await get_tree().create_timer(0.1).timeout
 	EventBus.adjust_player_blockers.emit(-1)
-	print("used action")
 
 func CreateChain(originPos: Vector2i) -> Array[Vector2i]:
 	var chain: Array[Vector2i] = []
