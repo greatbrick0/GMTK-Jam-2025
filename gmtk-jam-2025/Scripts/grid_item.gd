@@ -3,6 +3,10 @@ class_name GridItem
 
 var gridPos: Vector2i = Vector2i.ZERO
 
+func _ready() -> void:
+	gridPos = Vector2i(round(global_position.x), round(global_position.z))
+	EventBus.grid_dict_add_item.emit(gridPos, self)
+
 func MoveOnGrid(newPos: Vector2i) -> void:
 	EventBus.grid_dict_move_item.emit(gridPos, newPos, self)
 	gridPos = newPos

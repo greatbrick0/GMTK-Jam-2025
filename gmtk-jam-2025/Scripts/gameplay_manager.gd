@@ -38,6 +38,7 @@ func _ready() -> void:
 	clickHandler.start_camera_move.connect(cam.OnStartCameraMove)
 	clickHandler.stop_camera_move.connect(cam.OnStopCameraMove)
 	EventBus.adjust_player_blockers.connect(AdjustPlayerInputBlockers)
+	EventBus.grid_dict_add_item.connect(AddItemToGrid)
 	EventBus.grid_dict_move_item.connect(MoveItemOnGrid)
 	EventBus.grid_dict_remove_item.connect(RemoveItemFromGrid)
 	
@@ -49,6 +50,7 @@ func _ready() -> void:
 func _process(delta):
 	if(Input.is_action_just_pressed("ui_up")):
 		currentLevel += 1
+		TransferGridItems()
 		LoadNextLevelMap()
 	if(playerInputBlockers > 0): return
 	for ii in range(0, 9):
@@ -62,6 +64,11 @@ func CheckForLevelVictory() -> bool:
 			if(allActiveTiles[ii].team == Enums.Teams.PLAYER and allActiveTiles[ii].characterClass == Enums.CharacterClasses.ROYALTY):
 				output = true
 	return output
+
+func TransferGridItems() -> void:
+	for ii in successTiles:
+		if(allActiveTiles[ii] is Node3D):
+			allActiveTiles[ii].reparent(currentTransferRef.get_node("GridItemHolder"))
 
 func LoadNextLevelMap() -> void:
 	if(prevTransferRef != null):
@@ -90,6 +97,7 @@ func LoadNextLevelMap() -> void:
 	successTiles = currentTransferRef.GetTileArray(connectPoint)
 
 func AddItemToGrid(newPos: Vector2i, item: GridItem) -> void:
+	print("added item " + item.name)
 	allActiveTiles[newPos] = item
 
 func MoveItemOnGrid(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:

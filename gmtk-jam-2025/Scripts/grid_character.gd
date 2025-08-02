@@ -16,6 +16,7 @@ signal actions_available_updated(available: bool)
 var usedActions: Array = []
 
 func _ready():
+	super._ready()
 	character_died.connect(EventBus.GridDictRemoveItem)
 	EventBus.start_turn.connect(ResetForTurn)
 	actionAnimPlayer.animation_finished.connect(func(animName: String): if(animName.begins_with(actionAnimPrefix+"Action")): actionAnimPlayer.play(actionAnimPrefix+"Idle"))

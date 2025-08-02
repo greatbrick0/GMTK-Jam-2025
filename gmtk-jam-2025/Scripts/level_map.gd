@@ -10,9 +10,9 @@ func SetUpTiles(offset: Vector2i = Vector2i.ZERO) -> Dictionary:
 			output[Vector2i(ii.x, ii.z) + offset] = 1
 		else:
 			output[Vector2i(ii.x, ii.z) + offset] = null
-	for ii in $GridItemHolder.get_children():
-		ii.gridPos = Vector2i(round(ii.position.x), round(ii.position.z)) + offset
-		output[ii.gridPos] = ii
+	#for ii in $GridItemHolder.get_children():
+		#ii.gridPos = Vector2i(round(ii.position.x), round(ii.position.z)) + offset
+		#output[ii.gridPos] = ii
 	return output
 
 func GetTileArray(offset: Vector2i = Vector2i.ZERO) -> Array[Vector2i]:

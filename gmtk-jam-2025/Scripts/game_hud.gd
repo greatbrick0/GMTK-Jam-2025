@@ -6,6 +6,9 @@ class_name GameHud
 var actionButtonsRefs: Array[TextureButton]
 @export var actionButtonSprites: Array[Texture]
 
+func EndTurnButtonPressed() -> void:
+	print("trying to end turn")
+
 func GenerateActionButtons(characterRef: GridCharacter):
 	RemoveActionButtons()
 	if(characterRef.GetActionCount() == 0): return

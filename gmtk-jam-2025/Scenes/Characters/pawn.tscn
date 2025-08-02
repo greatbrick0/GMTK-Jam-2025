@@ -18,21 +18,8 @@ actionAnimPlayer = NodePath("Visuals/pawn_animate/AnimationPlayer")
 transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, 0, 0.02, 0)
 
 [node name="Skeleton3D" parent="Visuals/pawn_animate/Armature" index="0"]
-bones/0/position = Vector3(7.83837e-10, 1.15908, 8.34539e-09)
 bones/1/position = Vector3(4.88498e-15, -5.96047e-08, 1.80754e-15)
-bones/3/rotation = Quaternion(-0.284293, -0.190146, 0.522421, 0.781088)
-bones/4/rotation = Quaternion(0.642788, 9.08931e-08, -1.68935e-07, 0.766044)
-bones/5/rotation = Quaternion(-0.906308, -2.49436e-07, 9.93281e-08, 0.422618)
-bones/7/rotation = Quaternion(0.422618, 1.50925e-08, 1.5481e-07, 0.906308)
-bones/16/rotation = Quaternion(-0.284293, 0.190146, -0.522421, 0.781088)
-bones/17/rotation = Quaternion(0.642788, 2.03331e-07, -2.58594e-07, 0.766044)
-bones/18/rotation = Quaternion(0.640856, -0.298836, 0.640857, -0.298836)
-bones/20/rotation = Quaternion(-0.298836, 0.640856, 0.298836, -0.640857)
-bones/28/rotation = Quaternion(-3.55271e-15, 1.24345e-14, 4.76456e-22, 1)
-bones/29/rotation = Quaternion(-2.39796e-08, 3.24117e-08, 0.707107, 0.707107)
-bones/30/rotation = Quaternion(-5.27161e-08, -3.67521e-09, 0.707107, 0.707107)
 bones/31/rotation = Quaternion(-0.258819, -1.01532e-07, 3.76821e-08, 0.965926)
-bones/37/rotation = Quaternion(2.66926e-08, 3.51247e-08, -0.707107, 0.707107)
 bones/39/rotation = Quaternion(-0.258819, -2.5054e-08, 7.69548e-08, 0.965926)
 
 [node name="Torus_021" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="0"]

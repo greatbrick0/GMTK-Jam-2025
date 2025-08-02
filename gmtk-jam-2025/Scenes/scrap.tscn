@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://8p4dmlrnlsd0"]
 
-[ext_resource type="Script" uid="uid://dp3w84s74ndsw" path="res://Scripts/grid_item.gd" id="1_itaa7"]
+[ext_resource type="Script" uid="uid://bcof6v00cstpe" path="res://Scripts/scrap.gd" id="1_itaa7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_itaa7"]
 size = Vector3(0.5, 0.1, 0.5)
