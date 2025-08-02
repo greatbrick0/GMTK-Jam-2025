@@ -11,7 +11,7 @@ func GenerateActionButtons(characterRef: GridCharacter):
 	if(characterRef.GetActionCount() == 0): return
 	
 	for ii in range(characterRef.GetActionCount()):
-		actionButtonsRefs.append(actionButtonObj.instantiate())
+		actionButtonsRefs.append(actionButtonObj.instantiate() as TextureButton)
 		$Control/ActionButtonHolder.add_child(actionButtonsRefs[-1])
 		if(characterRef.GetActionCount() == 1):
 			SetSprite(actionButtonsRefs[-1], actionButtonSprites[1])

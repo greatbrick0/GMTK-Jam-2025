@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmms4nj1mw5md"]
+[gd_scene load_steps=8 format=3 uid="uid://dmms4nj1mw5md"]
 
 [ext_resource type="Script" uid="uid://cn6d2mlkmx2n8" path="res://Scripts/music_manager.gd" id="1_h6rv6"]
 [ext_resource type="AudioStream" uid="uid://b4jr2yk0nvtwx" path="res://Sounds/Music/SciFiDraft1.mp3" id="2_sdmu8"]
 [ext_resource type="AudioStream" uid="uid://7xub1hgmu2no" path="res://Sounds/Music/TheThreatIncomingDraft1.mp3" id="3_b40f5"]
-[ext_resource type="AudioStream" uid="uid://dxyxa5qwvk01h" path="res://Sounds/blipSelect.wav" id="4_b40f5"]
+[ext_resource type="AudioStream" uid="uid://dxyxa5qwvk01h" path="res://Sounds/blipSelect1.wav" id="4_b40f5"]
+[ext_resource type="AudioStream" uid="uid://d2vfqh6xcvfoy" path="res://Sounds/blipSelect2.wav" id="5_1u5ih"]
+[ext_resource type="AudioStream" uid="uid://bcs8c0shtisfv" path="res://Sounds/blipSelect3.wav" id="6_m1xhr"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_a0g8o"]
 mix_rate_mode = 0
@@ -25,8 +27,16 @@ stream = ExtResource("3_b40f5")
 
 [node name="GeneralEffects" type="Node" parent="."]
 
-[node name="MenuBlip" type="AudioStreamPlayer" parent="GeneralEffects"]
+[node name="MenuBlip1" type="AudioStreamPlayer" parent="GeneralEffects"]
 stream = ExtResource("4_b40f5")
+volume_db = -10.0
+
+[node name="MenuBlip2" type="AudioStreamPlayer" parent="GeneralEffects"]
+stream = ExtResource("5_1u5ih")
+volume_db = -10.0
+
+[node name="MenuBlip3" type="AudioStreamPlayer" parent="GeneralEffects"]
+stream = ExtResource("6_m1xhr")
 volume_db = -10.0
 
 [connection signal="finished" from="Track0" to="." method="OnTrackFinished" binds= [0]]

@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="2_aayhu"]
 [ext_resource type="Texture2D" uid="uid://dr1r2wvx4qxmd" path="res://Art/Images/flight.png" id="4_4grcs"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="4_4pjou"]
-[ext_resource type="Shader" uid="uid://dmxdomvmo3vah" path="res://Shaders/Shadow.gdshader" id="5_syuvx"]
+[ext_resource type="Shader" path="res://Shaders/Shadow.gdshader" id="5_syuvx"]
 [ext_resource type="Texture2D" uid="uid://bmtr67s1ywr4n" path="res://Textures/VFx/MaterialTest1_outputCircle.png" id="6_q4djc"]
-[ext_resource type="Shader" uid="uid://dt5be7rafrep3" path="res://Shaders/UnitIndicator.gdshader" id="7_aayhu"]
+[ext_resource type="Shader" path="res://Shaders/UnitIndicator.gdshader" id="7_aayhu"]
 [ext_resource type="Script" uid="uid://bu8m04w83xwfk" path="res://Scripts/Character Actions/chess_movement_action.gd" id="7_q4djc"]
 [ext_resource type="Texture2D" uid="uid://cf1uqmqnk53d4" path="res://Textures/VFx/MaterialTest1_Corners.png" id="8_4grcs"]
 

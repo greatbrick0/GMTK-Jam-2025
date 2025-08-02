@@ -1,12 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bij7x1xcx8mw6"]
+[gd_scene load_steps=4 format=3 uid="uid://bij7x1xcx8mw6"]
 
 [ext_resource type="Script" uid="uid://dhbqyon5di6vb" path="res://Scripts/grid_character.gd" id="1_wqe62"]
+[ext_resource type="PackedScene" uid="uid://bqbnoqg7guyub" path="res://Scenes/death_explosion.tscn" id="2_ly2nf"]
+[ext_resource type="AudioStream" uid="uid://bcv5jtmhilreq" path="res://Sounds/explode2.wav" id="3_feqqm"]
 
 [node name="GridCharacter" type="Node3D"]
 script = ExtResource("1_wqe62")
+deathExplosionObj = ExtResource("2_ly2nf")
 
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="Actions" type="Node" parent="."]
 
 [node name="Visuals_Stationary" type="Node3D" parent="."]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_feqqm")

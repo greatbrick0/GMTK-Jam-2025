@@ -6,6 +6,7 @@ class_name GridCharacter
 @export var maxHealth: int = 3
 @export var health: int = 3
 @export var droppedScrapCount: int = 1
+@export var deathExplosionObj: PackedScene
 signal character_died(oldPos: Vector2i, item: GridItem)
 
 signal actions_available_updated(available: bool)
@@ -17,6 +18,7 @@ func _ready():
 
 func StandardClickAction(manager: GameplayManager) -> void:
 	if(team == Enums.Teams.PLAYER):
+		MusicManager.PlayGeneral(1)
 		manager.selectedCharacter = self
 		manager.gameHud.GenerateActionButtons(self)
 		character_died.connect(manager.UnselectCharacter)
@@ -53,8 +55,12 @@ func TakeDamage(damageAmount: int) -> bool:
 		Die()
 		return true
 	else:
+		$Sounds/HurtSound.play()
 		return false 
 
 func Die() -> void:
 	character_died.emit(gridPos, self)
+	var deathExplosionRef: Node3D = deathExplosionObj.instantiate() as Node3D
+	get_parent().add_child(deathExplosionRef)
+	deathExplosionRef.global_position = global_position
 	queue_free()

@@ -36,7 +36,7 @@ func _ready() -> void:
 	EventBus.grid_dict_remove_item.connect(RemoveItemFromGrid)
 	
 	LoadNextLevelMap()
-	prevTransferRef = mapTransfers[0].instantiate()
+	prevTransferRef = mapTransfers[0].instantiate() as LevelMap
 	mapHolder.add_child(prevTransferRef)
 	allActiveTiles.merge(prevTransferRef.SetUpTiles())
 
@@ -59,7 +59,7 @@ func LoadNextLevelMap() -> void:
 			allActiveTiles.erase(ii)
 		currentLevelMapRef.RemoveFromPlay()
 	
-	currentLevelMapRef = levelMaps[currentLevel].instantiate()
+	currentLevelMapRef = levelMaps[currentLevel].instantiate() as LevelMap
 	mapHolder.add_child(currentLevelMapRef)
 	currentLevelMapRef.global_position = Vector3(connectPoint.x, 0, connectPoint.y)
 	currentLevelMapRef.get_node("FallAnims").play("FallEnter")
@@ -67,7 +67,7 @@ func LoadNextLevelMap() -> void:
 	prevConnectPoint = connectPoint
 	connectPoint = currentLevelMapRef.GetConnectPoint()
 	
-	currentTransferRef = mapTransfers[currentLevel + 1].instantiate()
+	currentTransferRef = mapTransfers[currentLevel + 1].instantiate() as LevelMap
 	mapHolder.add_child(currentTransferRef)
 	currentTransferRef.global_position = Vector3(connectPoint.x, 0, connectPoint.y)
 	currentTransferRef.get_node("FallAnims").play("FallEnter")
@@ -98,6 +98,8 @@ func RecieveClick(clickPos: Vector3) -> void:
 			if(allActiveTiles.has(roundedClickPos)):
 				if(roundedClickPos in actionTargetTiles):
 					FinishUsingAction(roundedClickPos)
+				else:
+					MusicManager.PlayGeneral(2)
 			else:
 				UnselectCharacter()
 
@@ -132,7 +134,7 @@ func StartUsingAction(index: int) -> void:
 	clickMode = ClickModes.ACTION_TARGET
 	actionTargetTiles = selectedAction.GetTileOptions(allActiveTiles)
 	for ii in range(len(actionTargetTiles)):
-		tileHighlightRefs.append(tileHighlightObj.instantiate())
+		tileHighlightRefs.append(tileHighlightObj.instantiate() as Node3D)
 		mapHolder.add_child(tileHighlightRefs[-1])
 		tileHighlightRefs[-1].global_position = Vector3(actionTargetTiles[ii].x, 0, actionTargetTiles[ii].y)
 

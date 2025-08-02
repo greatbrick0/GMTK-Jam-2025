@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cuvfu8kv8gl2s"]
 
 [ext_resource type="Script" uid="uid://dtwj8gd4r3o4" path="res://Scripts/scene_transition.gd" id="1_rrs8s"]
-[ext_resource type="Shader" uid="uid://cw1ivb18usivw" path="res://Shaders/BackGroundGMTK2.gdshader" id="1_twnyg"]
+[ext_resource type="Shader" path="res://Shaders/BackGroundGMTK2.gdshader" id="1_twnyg"]
 [ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="2_414dn"]
 [ext_resource type="PackedScene" uid="uid://c1ut1ou3bio5v" path="res://Scenes/main_level.tscn" id="3_4gxqj"]
 

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqbnoqg7guyub"]
+
+[ext_resource type="Script" uid="uid://b4pyijttkoicv" path="res://Scripts/death_explosion.gd" id="1_mmnyt"]
+[ext_resource type="PackedScene" uid="uid://gj3ymg4q8k5y" path="res://Scenes/VFXScene/test_smoke_1.tscn" id="2_1d0rb"]
+[ext_resource type="AudioStream" uid="uid://c27vd3pjjguva" path="res://Sounds/explode1.wav" id="3_xmhlb"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mmnyt"]
+random_pitch = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("3_xmhlb")
+
+[node name="DeathExplosion" type="Node3D"]
+script = ExtResource("1_mmnyt")
+maxLifespan = 4.0
+explosionSoundFrequency = 0.15
+explosionSoundMax = 5
+
+[node name="TestSmoke1" parent="." instance=ExtResource("2_1d0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_mmnyt")
+volume_db = -2.0
+max_polyphony = 8
+
+[editable path="TestSmoke1"]
