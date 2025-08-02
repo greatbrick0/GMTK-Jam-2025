@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c7e6xjybciiu0"]
+
+[ext_resource type="Texture2D" uid="uid://c0gtinm0lnn1p" path="res://Textures/DefaultMaterial_Base_color_Pawn.png" id="1_kcq4v"]
+[ext_resource type="Texture2D" uid="uid://cm22x1q7vq66j" path="res://Textures/Zoomer_emission.png" id="2_afws7"]
+
+[resource]
+albedo_texture = ExtResource("1_kcq4v")
+emission_energy_multiplier = 3.0
+emission_texture = ExtResource("2_afws7")
