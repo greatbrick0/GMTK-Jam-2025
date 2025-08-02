@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode unshaded;
 
 uniform vec4 baseColor;
 uniform float opacity;
