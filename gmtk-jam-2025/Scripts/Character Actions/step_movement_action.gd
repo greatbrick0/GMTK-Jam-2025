@@ -1,8 +1,8 @@
 extends CharacterAction
-class_name ChessMovementAction
+class_name StepMovementAction
 
 @export var directions: Array[Vector2i]
-@export var ranges: Array[int]
+@export var stepRange: int
 var chainsOfMovement: Dictionary[Vector2i, Vector2i]
 
 func GetTileOptions(tilesDict: Dictionary) -> Array[Vector2i]:
@@ -11,14 +11,19 @@ func GetTileOptions(tilesDict: Dictionary) -> Array[Vector2i]:
 	if(canTargetSelf): output.append(actionOwner.gridPos)
 	
 	var tile: Vector2i
-	for ii in range(len(directions)):
-		for jj in range(1, ranges[ii] + 1):
-			tile = actionOwner.gridPos + (directions[ii] * jj)
-			if(tilesDict.has(tile) and tilesDict[tile] == null):
-				chainsOfMovement[tile] = tile - directions[ii]
-				output.append(tile)
-			else:
-				break
+	var outerTiles: Array[Vector2i] = [actionOwner.gridPos]
+	
+	for ii in range(stepRange):
+		var newOuterTiles: Array[Vector2i] = []
+		for jj in outerTiles:
+			for kk in directions:
+				tile = jj + kk
+				if(tilesDict.has(tile) and tilesDict[tile] == null and not output.has(tile) and not newOuterTiles.has(tile)):
+					newOuterTiles.append(tile)
+					chainsOfMovement[tile] = jj
+					output.append(tile)
+		outerTiles = newOuterTiles
+	
 	return output
 
 func UseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> void:

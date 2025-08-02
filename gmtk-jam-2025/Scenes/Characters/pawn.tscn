@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_qouxg"]
 [ext_resource type="PackedScene" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="2_qouxg"]
-[ext_resource type="Script" uid="uid://bu8m04w83xwfk" path="res://Scripts/Character Actions/chess_movement_action.gd" id="3_ev3e2"]
+[ext_resource type="Script" uid="uid://bqm4vddppofoy" path="res://Scripts/Character Actions/step_movement_action.gd" id="3_kqsvd"]
 [ext_resource type="Texture2D" uid="uid://c8ofc3ddbw0od" path="res://Art/Images/walk.png" id="4_kqsvd"]
 [ext_resource type="Script" uid="uid://d2egqo3bcnnu8" path="res://Scripts/Character Actions/gun_attack_action.gd" id="5_wknaq"]
 [ext_resource type="Texture2D" uid="uid://dqhygawwwvqeo" path="res://Art/Images/bomb.png" id="6_qouxg"]
@@ -119,12 +119,12 @@ transform = Transform3D(1, -4.37114e-08, 6.97913e-15, 4.37114e-08, 1, -4.37114e-
 [node name="Torus_011" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="27"]
 transform = Transform3D(1, -4.37114e-08, 6.97913e-15, 4.37114e-08, 1, -4.37114e-08, -5.06844e-15, 4.37114e-08, 1, 5.0665e-08, 4.76837e-07, -1.1027e-07)
 
-[node name="ChessMovementAction" type="Node" parent="Actions" index="0"]
-script = ExtResource("3_ev3e2")
-directions = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, 0), Vector2i(1, -1), Vector2i(0, -1), Vector2i(-1, -1), Vector2i(-1, 0), Vector2i(-1, 1)])
-ranges = Array[int]([2, 1, 2, 1, 2, 1, 2, 1])
+[node name="StepMovementAction" type="Node" parent="Actions" index="0"]
+script = ExtResource("3_kqsvd")
+directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
+stepRange = 2
 actionIcon = ExtResource("4_kqsvd")
-metadata/_custom_type_script = "uid://bu8m04w83xwfk"
+metadata/_custom_type_script = "uid://bqm4vddppofoy"
 
 [node name="GunAttackAction" type="Node" parent="Actions" index="1"]
 script = ExtResource("5_wknaq")

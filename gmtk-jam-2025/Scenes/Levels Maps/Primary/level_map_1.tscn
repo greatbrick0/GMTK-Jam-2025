@@ -21,11 +21,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="Princess" parent="GridItemHolder" index="1" instance=ExtResource("3_67x30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
-deathScrapObj = null
 
 [node name="Mortar" parent="GridItemHolder" index="2" instance=ExtResource("4_waksq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
-deathScrapObj = null
 
 [node name="Pawn" parent="GridItemHolder" index="3" instance=ExtResource("5_5bjlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
