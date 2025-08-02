@@ -17,7 +17,6 @@ func GetTileOptions(tilesDict: Dictionary) -> Array[Vector2i]:
 
 func AttemptUseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> bool:
 	if(CanBeUsed()):
-		print(actionOwner.usedActions)
 		actionOwner.AppendUsedActions(actionTags)
 		UseAction(actionPos, gameplayManager)
 		return true
@@ -32,3 +31,10 @@ func CanBeUsed() -> bool:
 	for ii in actionTags:
 		output = output and (not ii in actionOwner.usedActions)
 	return output
+
+func RepeatAcrossTiles(tileArray: Array[Vector2i], spacing: float, function: Callable) -> void:
+	EventBus.adjust_player_blockers.emit(1)
+	for ii in tileArray:
+		function.call(ii)
+		await get_tree().create_timer(spacing).timeout
+	EventBus.adjust_player_blockers.emit(-1)

@@ -23,6 +23,10 @@ func StandardClickAction(manager: GameplayManager) -> void:
 		manager.gameHud.GenerateActionButtons(self)
 		character_died.connect(manager.UnselectCharacter)
 
+func RotateTowards(focusPos: Vector2i) -> void:
+	$Visuals.look_at(Vector3(focusPos.x, 0, focusPos.y))
+	$Visuals.rotate_y(PI)
+
 func ResetForTurn(turnTeam: Enums.Teams) -> void:
 	if(turnTeam == team):
 		usedActions.clear()
@@ -33,7 +37,6 @@ func GetActionCount() -> int:
 
 func AttemptGetAction(index: int) -> CharacterAction:
 	if($Actions.get_child_count() > index):
-		print(index)
 		return $Actions.get_child(index)
 	else:
 		return null
@@ -48,6 +51,11 @@ func AppendUsedActions(appended: Array[String]) -> void:
 	usedActions.append_array(appended)
 	if(not HasRemainingActions()):
 		actions_available_updated.emit(false)
+
+func TakeSelfDamage(damageAmount: int) -> bool:
+	health -= damageAmount
+	if(health <= 0): Die()
+	return health <= 0
 
 func TakeDamage(damageAmount: int) -> bool:
 	health -= damageAmount

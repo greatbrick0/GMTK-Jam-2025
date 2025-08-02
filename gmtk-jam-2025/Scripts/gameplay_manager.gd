@@ -23,6 +23,7 @@ var successTiles: Array[Vector2i]
 
 enum ClickModes {STANDARD, ACTION_TARGET}
 var clickMode: ClickModes = ClickModes.STANDARD
+var playerInputBlockers: int = 0
 var selectedCharacter: GridCharacter
 var selectedAction: CharacterAction
 var actionTargetTiles: Array[Vector2i] = []
@@ -32,6 +33,7 @@ func _ready() -> void:
 	clickHandler.click_signal.connect(RecieveClick)
 	clickHandler.start_camera_move.connect(cam.OnStartCameraMove)
 	clickHandler.stop_camera_move.connect(cam.OnStopCameraMove)
+	EventBus.adjust_player_blockers.connect(AdjustPlayerInputBlockers)
 	EventBus.grid_dict_move_item.connect(MoveItemOnGrid)
 	EventBus.grid_dict_remove_item.connect(RemoveItemFromGrid)
 	
@@ -44,9 +46,18 @@ func _process(delta):
 	if(Input.is_action_just_pressed("ui_up")):
 		currentLevel += 1
 		LoadNextLevelMap()
+	if(playerInputBlockers > 0): return
 	for ii in range(0, 9):
 		if(Input.is_action_just_pressed("UseAction"+str(ii))):
 			StartUsingAction(ii)
+
+func CheckForLevelVictory() -> bool:
+	var output: bool = false
+	for ii in successTiles:
+		if(allActiveTiles[ii] is GridCharacter):
+			if(allActiveTiles[ii].team == Enums.Teams.PLAYER and allActiveTiles[ii].characterClass == Enums.CharacterClasses.ROYALTY):
+				output = true
+	return output
 
 func LoadNextLevelMap() -> void:
 	if(prevTransferRef != null):
@@ -75,21 +86,29 @@ func LoadNextLevelMap() -> void:
 	successTiles = currentTransferRef.GetTileArray(connectPoint)
 
 func MoveItemOnGrid(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
+	if(oldPos == newPos): return
 	allActiveTiles[newPos] = item
 	if(allActiveTiles.has(oldPos)):
 		allActiveTiles[oldPos] = null
+	print(allActiveTiles[newPos].name)
 
 func RemoveItemFromGrid(oldPos: Vector2i, item: GridItem) -> void:
 	if(allActiveTiles.has(oldPos)):
 		allActiveTiles[oldPos] = null
 
+func AdjustPlayerInputBlockers(adjust: int) -> void:
+	playerInputBlockers += adjust
+	print("blockers ", playerInputBlockers)
+
 func RecieveClick(clickPos: Vector3) -> void:
+	if(playerInputBlockers > 0): return
+	
 	var roundedClickPos: Vector2i = Vector2i(round(clickPos.x), round(clickPos.z))
 	match(clickMode):
 		ClickModes.STANDARD:
 			if(allActiveTiles.has(roundedClickPos)):
 				UnselectCharacter()
-				print("pressed ", roundedClickPos)
+				print("standard pressed ", roundedClickPos)
 				if(allActiveTiles[roundedClickPos] is GridItem):
 					allActiveTiles[roundedClickPos].StandardClickAction(self)
 			else:
@@ -118,7 +137,6 @@ func UnselectAction() -> void:
 func UnselectCharacter(_val1 = null, _val2 = null) -> void:
 	if(selectedCharacter == null): return
 	
-	print("unselected character")
 	selectedCharacter.character_died.disconnect(UnselectCharacter)
 	gameHud.RemoveActionButtons()
 	selectedCharacter = null

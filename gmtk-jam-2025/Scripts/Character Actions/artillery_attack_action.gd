@@ -19,7 +19,8 @@ func GetTileOptions(tilesDict: Dictionary) -> Array[Vector2i]:
 	return output
 
 func UseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> void:
-	actionOwner.TakeDamage(selfDamage)
+	actionOwner.RotateTowards(actionPos)
+	actionOwner.TakeSelfDamage(selfDamage)
 	if(gameplayManager.allActiveTiles[actionPos] is GridCharacter):
 		gameplayManager.allActiveTiles[actionPos].TakeDamage(damage)
 	print("used action")
