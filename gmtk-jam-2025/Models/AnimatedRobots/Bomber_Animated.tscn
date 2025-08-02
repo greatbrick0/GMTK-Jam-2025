@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://ens5fuoavm7y"]
+
+[ext_resource type="PackedScene" uid="uid://l8sjah05ohwx" path="res://Models/Animation_Test/Bomber_animations.glb" id="1_gs41n"]
+[ext_resource type="Material" uid="uid://bo7623511qeic" path="res://Textures/Bomber.tres" id="2_tnmwf"]
+[ext_resource type="Animation" uid="uid://ca1n0bx8y3t2v" path="res://Animations/Bomber/Action0.res" id="3_y57kt"]
+[ext_resource type="Animation" uid="uid://djtjc6igoqykn" path="res://Animations/Bomber/Idle.res" id="4_yejra"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e5jcs"]
+_data = {
+&"Action0": ExtResource("3_y57kt"),
+&"Idle": ExtResource("4_yejra")
+}
+
+[node name="Bomber_animations" instance=ExtResource("1_gs41n")]
+
+[node name="Skeleton3D" parent="Armature_001" index="0"]
+bones/1/position = Vector3(0.0561405, -2.4979e-23, 3.30857e-16)
+bones/1/rotation = Quaternion(-0.5, 0.5, 0.5, 0.5)
+bones/3/rotation = Quaternion(0.0144939, -0.000940978, 0.0647789, 0.997794)
+bones/6/rotation = Quaternion(-0.707107, 0.707107, 2.24765e-08, -3.09086e-08)
+bones/7/rotation = Quaternion(-0.00529871, 0.000343951, 0.0647848, 0.997885)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(0.0532104, -0.00345462, 0.0646936, 0.99648)
+bones/11/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(-0.0537787, 0.00349152, 0.0646916, 0.996449)
+bones/15/scale = Vector3(1, 1, 1)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.0449111, 0.00291575, 0.0647201, 0.996888)
+bones/19/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(0.0916485, -0.00595, 0.0645119, 0.993682)
+
+[node name="R_Leg2" parent="Armature_001/Skeleton3D" index="0"]
+transform = Transform3D(-0.000715886, -0.189011, 0.0246355, 0.190609, -0.000715871, 4.6446e-05, 4.64674e-05, 0.0246355, 0.189012, 0.258434, 0.000682359, -0.023483)
+
+[node name="R_Leg2" parent="Armature_001/Skeleton3D/R_Leg2" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Icosphere_010" parent="Armature_001/Skeleton3D" index="1"]
+transform = Transform3D(-3.0586e-09, -0.102629, 1.22344e-08, 0.102629, 3.64613e-16, 4.68972e-09, -1.63112e-09, 1.22344e-08, 0.102629, 0.215709, -1.20471e-08, -1.90221e-08)
+
+[node name="Icosphere_010" parent="Armature_001/Skeleton3D/Icosphere_010" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="L_Leg2" parent="Armature_001/Skeleton3D" index="2"]
+transform = Transform3D(-0.000261716, -0.189011, -0.0246444, 0.190611, -0.000261723, -1.69913e-05, -1.69943e-05, -0.0246444, 0.189011, 0.257216, 0.00024863, 0.0234124)
+
+[node name="L_Leg2" parent="Armature_001/Skeleton3D/L_Leg2" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Icosphere_011" parent="Armature_001/Skeleton3D" index="3"]
+transform = Transform3D(-4.28244e-09, -0.102629, -6.1172e-09, 0.102629, 4.89335e-09, 1.69241e-08, -7.74831e-09, -1.22344e-08, 0.102629, 0.215709, -1.20471e-08, -1.90221e-08)
+
+[node name="Icosphere_011" parent="Armature_001/Skeleton3D/Icosphere_011" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="L_Leg1" parent="Armature_001/Skeleton3D" index="4"]
+transform = Transform3D(0.0202374, -0.189011, -0.0140664, 0.189532, 0.0202374, 0.000749931, 0.000749908, -0.0140664, 0.19009, 0.257275, -0.0192288, 0.0133654)
+
+[node name="L_Leg1" parent="Armature_001/Skeleton3D/L_Leg1" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Hip1" parent="Armature_001/Skeleton3D" index="5"]
+transform = Transform3D(2.00525e-08, -0.102629, 1.72569e-08, 0.10263, 1.13737e-08, 3.35276e-08, 2.23517e-08, 1.87685e-08, 0.102629, 0.215709, 8.28022e-09, -4.88244e-08)
+
+[node name="Hip1" parent="Armature_001/Skeleton3D/Hip1" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="L_Leg3" parent="Armature_001/Skeleton3D" index="6"]
+transform = Transform3D(-0.0201008, -0.189011, -0.0142608, 0.189546, -0.0201008, -0.000755079, -0.000755124, -0.0142609, 0.190075, 0.257061, 0.0190878, 0.0135422)
+
+[node name="L_Leg3" parent="Armature_001/Skeleton3D/L_Leg3" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Icosphere_004" parent="Armature_001/Skeleton3D" index="7"]
+transform = Transform3D(3.98263e-08, -0.102629, 4.60061e-08, 0.102629, 3.80893e-08, 7.45058e-09, 1.49012e-08, 3.6377e-08, 0.102629, 0.215709, -3.57886e-08, -2.3143e-08)
+
+[node name="Icosphere_004" parent="Armature_001/Skeleton3D/Icosphere_004" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="R_Leg1" parent="Armature_001/Skeleton3D" index="8"]
+transform = Transform3D(0.0202268, -0.189011, 0.0140818, 0.189533, 0.0202268, -0.000750214, -0.000750311, 0.0140818, 0.190089, 0.260431, -0.0193867, -0.013497)
+
+[node name="R_Leg1" parent="Armature_001/Skeleton3D/R_Leg1" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Icosphere_003" parent="Armature_001/Skeleton3D" index="9"]
+transform = Transform3D(1.77715e-08, -0.102629, -7.6148e-10, 0.10263, 2.09954e-08, 2.23517e-08, 0, -4.87329e-09, 0.10263, 0.215709, -2.62776e-08, 4.20123e-09)
+
+[node name="Icosphere_003" parent="Armature_001/Skeleton3D/Icosphere_003" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="R_Leg3" parent="Armature_001/Skeleton3D" index="10"]
+transform = Transform3D(-0.0207282, -0.189011, 0.0133327, 0.189479, -0.0207282, 0.000728033, 0.000727966, 0.0133327, 0.190143, 0.256046, 0.019628, -0.0126251)
+
+[node name="R_Leg3" parent="Armature_001/Skeleton3D/R_Leg3" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Icosphere_002" parent="Armature_001/Skeleton3D" index="11"]
+transform = Transform3D(1.5269e-08, -0.10263, -1.26618e-08, 0.10263, 1.8526e-08, 1.86265e-08, -3.72529e-09, -1.77897e-08, 0.10263, 0.215709, -2.15221e-08, 3.03566e-08)
+
+[node name="Icosphere_002" parent="Armature_001/Skeleton3D/Icosphere_002" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Base" parent="Armature_001/Skeleton3D" index="12"]
+transform = Transform3D(4.56955e-08, -1, 1.19209e-07, 1, 7.54979e-08, 3.27826e-07, -2.98023e-07, 1.19209e-07, 1, 0.0362655, 1.50052e-09, 2.36928e-09)
+
+[node name="Base" parent="Armature_001/Skeleton3D/Base" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Cap" parent="Armature_001/Skeleton3D" index="13"]
+transform = Transform3D(0.0498607, -0.0897035, 9.17579e-09, 0.0897035, 0.0498607, 3.0586e-09, -6.71431e-09, 7.54823e-09, 0.102629, -0.45729, 0.15551, 5.87341e-08)
+
+[node name="Cap" parent="Armature_001/Skeleton3D/Cap" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Fuse" parent="Armature_001/Skeleton3D" index="14"]
+transform = Transform3D(4.56955e-08, -1, 1.19209e-07, 1, 7.54979e-08, 3.27826e-07, -2.98023e-07, 1.19209e-07, 1, 0.215709, -1.20471e-08, -1.90221e-08)
+
+[node name="Fuse" parent="Armature_001/Skeleton3D/Fuse" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Gun_001" parent="Armature_001/Skeleton3D" index="15"]
+transform = Transform3D(8.6576e-08, -0.665315, -0.746563, 1.9842e-09, 0.746563, -0.665315, 1, 7.83683e-08, 4.61266e-08, -0.45972, -0.190684, 6.45259e-08)
+
+[node name="Gun_001" parent="Armature_001/Skeleton3D/Gun_001" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="Head" parent="Armature_001/Skeleton3D" index="16"]
+transform = Transform3D(1.77911e-08, -0.38934, 4.6413e-08, 0.38934, 2.93944e-08, 1.27636e-07, -1.16032e-07, 4.6413e-08, 0.38934, -0.12563, 1.37233e-08, 2.16687e-08)
+
+[node name="Head" parent="Armature_001/Skeleton3D/Head" index="0"]
+material_override = ExtResource("2_tnmwf")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"Bomber": SubResource("AnimationLibrary_e5jcs")
+}
