@@ -89,11 +89,13 @@ func LoadNextLevelMap() -> void:
 	allActiveTiles.merge(currentTransferRef.SetUpTiles(connectPoint))
 	successTiles = currentTransferRef.GetTileArray(connectPoint)
 
+func AddItemToGrid(newPos: Vector2i, item: GridItem) -> void:
+	allActiveTiles[newPos] = item
+
 func MoveItemOnGrid(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
 	if(oldPos == newPos): return
-	allActiveTiles[newPos] = item
-	if(allActiveTiles.has(oldPos)):
-		allActiveTiles[oldPos] = null
+	AddItemToGrid(newPos, item)
+	RemoveItemFromGrid(oldPos, item)
 
 func RemoveItemFromGrid(oldPos: Vector2i, item: GridItem) -> void:
 	if(allActiveTiles.has(oldPos)):
@@ -149,7 +151,11 @@ func StartUsingAction(index: int) -> void:
 	if(selectedCharacter == null): return
 	selectedAction = selectedCharacter.AttemptGetAction(index)
 	if(selectedAction == null): return
-	if(not selectedAction.CanBeUsed()): return
+	if(not selectedAction.CanBeUsed()): 
+		MusicManager.PlayGeneral(2)
+		return
+	else:
+		MusicManager.PlayGeneral(3)
 	
 	clickMode = ClickModes.ACTION_TARGET
 	actionTargetTiles = selectedAction.GetTileOptions(allActiveTiles)

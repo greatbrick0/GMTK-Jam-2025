@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5b7rwc8bl5qk"]
+[gd_scene load_steps=3 format=3 uid="uid://c5b7rwc8bl5qk"]
 
 [ext_resource type="Texture2D" uid="uid://b42x26r0kl0if" path="res://Art/Images/loopMiddle.png" id="1_k8n73"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k8n73"]
 
 [node name="ActionButton" type="TextureButton"]
 anchors_preset = 2
@@ -16,10 +18,21 @@ texture_hover = ExtResource("1_k8n73")
 texture_disabled = ExtResource("1_k8n73")
 texture_focused = ExtResource("1_k8n73")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MaskingTexture" type="TextureRect" parent="."]
+clip_children = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_k8n73")
+
+[node name="TextureRect" type="TextureRect" parent="MaskingTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_k8n73")

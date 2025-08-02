@@ -7,8 +7,10 @@ class_name GridCharacter
 @export var health: int = 3
 @export var droppedScrapCount: int = 1
 @export var deathExplosionObj: PackedScene
+@export var deathScrapObj: PackedScene
 signal character_died(oldPos: Vector2i, item: GridItem)
 
+@export var actionAnimPrefix: String
 @export var actionAnimPlayer: AnimationPlayer
 signal actions_available_updated(available: bool)
 var usedActions: Array = []
@@ -16,7 +18,7 @@ var usedActions: Array = []
 func _ready():
 	character_died.connect(EventBus.GridDictRemoveItem)
 	EventBus.start_turn.connect(ResetForTurn)
-	actionAnimPlayer.animation_finished.connect(func(animName: String): if(animName.begins_with("Action")): actionAnimPlayer.play("Idle"))
+	actionAnimPlayer.animation_finished.connect(func(animName: String): if(animName.begins_with(actionAnimPrefix+"Action")): actionAnimPlayer.play(actionAnimPrefix+"Idle"))
 
 func StandardClickAction(manager: GameplayManager) -> void:
 	if(team == Enums.Teams.PLAYER):
@@ -31,7 +33,7 @@ func RotateTowards(focusPos: Vector2i) -> void:
 
 func PlayActionAnimation(animIndex: int) -> void:
 	actionAnimPlayer.stop()
-	actionAnimPlayer.play("Action"+str(animIndex))
+	actionAnimPlayer.play(actionAnimPrefix+"Action"+str(animIndex))
 
 func ResetForTurn(turnTeam: Enums.Teams) -> void:
 	if(turnTeam == team):
@@ -81,4 +83,7 @@ func Die() -> void:
 	var deathExplosionRef: Node3D = deathExplosionObj.instantiate() as Node3D
 	get_parent().add_child(deathExplosionRef)
 	deathExplosionRef.global_position = global_position
+	var deathScrapRef: GridItem = deathScrapObj.instantiate() as GridItem
+	get_parent().add_child(deathScrapRef)
+	deathScrapRef.global_position = global_position
 	queue_free()

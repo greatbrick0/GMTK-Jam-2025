@@ -75,44 +75,51 @@ actionAnimPlayer = NodePath("Visuals/PrincessAnims/AnimationPlayer")
 [node name="PrincessAnims" parent="Visuals" index="0" instance=ExtResource("2_aayhu")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.07)
 
+[node name="Skeleton3D" parent="Visuals/PrincessAnims/Armature_002" index="0"]
+bones/1/scale = Vector3(0.999306, 0.999109, 0.999109)
+bones/3/rotation = Quaternion(0.557172, 5.97076e-09, -4.60715e-08, 0.830397)
+bones/3/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.557172, -3.23662e-08, 6.37821e-08, 0.830397)
+bones/10/scale = Vector3(1, 1, 1)
+
 [node name="L_Brace11" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="0"]
-transform = Transform3D(1, 1.10269e-06, 2.35003e-08, 4.93475e-08, -4.58831e-08, -1, -1.10269e-06, 1, -5.7938e-08, -1.54972e-06, -9.9476e-14, 1.43051e-06)
+transform = Transform3D(0.999306, 8.9407e-08, 2.34841e-08, 4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, 1.19209e-07, -7.10543e-14, 0.00139129)
 
 [node name="L_Brace2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="1"]
-transform = Transform3D(1, 1.10269e-06, 2.35003e-08, 4.93475e-08, -4.58831e-08, -1, -1.10269e-06, 1, -5.7938e-08, -1.54972e-06, -9.9476e-14, 1.43051e-06)
+transform = Transform3D(0.999306, 8.9407e-08, 2.34841e-08, 4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, 1.19209e-07, -7.10543e-14, 0.00139129)
 
 [node name="L_Wing" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="2"]
-transform = Transform3D(1, 1.10269e-06, 2.35003e-08, 4.93475e-08, -4.58831e-08, -1, -1.10269e-06, 1, -5.7938e-08, -1.54972e-06, -9.9476e-14, 1.43051e-06)
+transform = Transform3D(0.999306, 8.9407e-08, 2.34841e-08, 4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, 1.19209e-07, -7.10543e-14, 0.00139129)
 
 [node name="L_WingNut1" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="3"]
-transform = Transform3D(1, 1.10269e-06, 2.35003e-08, 4.93475e-08, -4.58831e-08, -1, -1.10269e-06, 1, -5.7938e-08, -1.07288e-06, -1.91191e-08, 0.437393)
+transform = Transform3D(0.999306, 8.9407e-08, 2.34841e-08, 4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, 1.19209e-07, -1.9102e-08, 0.438393)
 
 [node name="L_WingNut2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="4"]
-transform = Transform3D(1, 1.10269e-06, 2.35003e-08, 4.93475e-08, -4.58831e-08, -1, -1.10269e-06, 1, -5.7938e-08, -1.07288e-06, -1.91191e-08, 0.437393)
+transform = Transform3D(0.999306, 8.9407e-08, 2.34841e-08, 4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, 1.19209e-07, -1.9102e-08, 0.438393)
 
 [node name="R_Brace1" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="5"]
-transform = Transform3D(1, -1.10269e-06, -2.35003e-08, -4.93474e-08, -4.58832e-08, -1, 1.10269e-06, 1, -5.79381e-08, 1.54972e-06, 5.68434e-14, 1.43051e-06)
+transform = Transform3D(0.999306, -8.9407e-08, -2.34842e-08, -4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, -1.19209e-07, -7.10543e-14, 0.00139129)
 
 [node name="R_Brace2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="6"]
-transform = Transform3D(1, -1.10269e-06, -2.35003e-08, -4.93474e-08, -4.58832e-08, -1, 1.10269e-06, 1, -5.79381e-08, 1.54972e-06, 5.68434e-14, 1.43051e-06)
+transform = Transform3D(0.999306, -8.9407e-08, -2.34842e-08, -4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, -1.19209e-07, -7.10543e-14, 0.00139129)
 
 [node name="R_Wing" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="7"]
-transform = Transform3D(1, -1.10269e-06, -2.35003e-08, -4.93474e-08, -4.58832e-08, -1, 1.10269e-06, 1, -5.79381e-08, 1.54972e-06, 5.68434e-14, 1.43051e-06)
+transform = Transform3D(0.999306, -8.9407e-08, -2.34842e-08, -4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, -1.19209e-07, -7.10543e-14, 0.00139129)
 
 [node name="R_WingNut1" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="8"]
-transform = Transform3D(1, -1.10269e-06, -2.35003e-08, -4.93474e-08, -4.58832e-08, -1, 1.10269e-06, 1, -5.79381e-08, 1.07288e-06, -1.91189e-08, 0.437393)
+transform = Transform3D(0.999306, -8.9407e-08, -2.34842e-08, -4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, -1.19209e-07, -1.9102e-08, 0.438393)
 
 [node name="R_WingNut2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="9"]
-transform = Transform3D(1, -1.10269e-06, -2.35003e-08, -4.93474e-08, -4.58832e-08, -1, 1.10269e-06, 1, -5.79381e-08, 1.07288e-06, -1.91189e-08, 0.437393)
+transform = Transform3D(0.999306, -8.9407e-08, -2.34842e-08, -4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, -1.19209e-07, -1.9102e-08, 0.438393)
 
 [node name="BracesRing" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="10"]
-transform = Transform3D(1, 2.84217e-14, 1.12145e-14, 1.12145e-14, -1.4854e-07, -1, -2.84217e-14, 1, -1.4854e-07, 0, -6.08651e-11, 2.38419e-07)
+transform = Transform3D(0.999306, 2.97575e-11, 1.12045e-14, 1.12023e-14, -1.48408e-07, -0.999109, 2.97007e-11, 0.999109, -1.48408e-07, -4.63984e-11, -6.08082e-11, 0.00139117)
 
 [node name="Core_2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="11"]
-transform = Transform3D(1, 2.84217e-14, 0, -1.72072e-14, 0.412685, -0.910874, -1.42109e-14, 0.910874, 0.412685, 0, -6.08651e-11, 2.38419e-07)
+transform = Transform3D(0.999306, 2.71143e-11, 1.2264e-11, -1.71941e-14, 0.412317, -0.910062, 2.97149e-11, 0.910062, 0.412317, -4.63984e-11, -6.08082e-11, 0.00139117)
 
 [node name="Lens" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="12"]
-transform = Transform3D(1, -1.42109e-14, -2.84217e-14, -1.72072e-14, -0.317208, -0.948356, -1.42109e-14, 0.948356, -0.317208, -4.88498e-15, -1.6803, 1.57599)
+transform = Transform3D(0.999306, 2.81801e-11, -9.45732e-12, -1.71941e-14, -0.316925, -0.947511, 2.97149e-11, 0.947511, -0.316925, 4.31877e-13, -1.67881, 1.57598)
 
 [node name="ChessMovementAction" type="Node" parent="Actions" index="0"]
 script = ExtResource("7_q4djc")

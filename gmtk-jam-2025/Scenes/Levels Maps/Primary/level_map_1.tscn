@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://djbmx87xr4b6h"]
+[gd_scene load_steps=6 format=3 uid="uid://djbmx87xr4b6h"]
 
 [ext_resource type="PackedScene" uid="uid://d3mdpfhbust2f" path="res://Scenes/level_map.tscn" id="1_ja1fj"]
 [ext_resource type="PackedScene" uid="uid://8p4dmlrnlsd0" path="res://Scenes/scrap.tscn" id="2_3rp1v"]
 [ext_resource type="PackedScene" uid="uid://bxddsmq0spthh" path="res://Scenes/Characters/princess.tscn" id="3_67x30"]
 [ext_resource type="PackedScene" uid="uid://yyibwtg1bdg7" path="res://Scenes/Characters/mortar.tscn" id="4_waksq"]
+[ext_resource type="PackedScene" uid="uid://wupfhi85dpdv" path="res://Scenes/Characters/pawn.tscn" id="5_5bjlp"]
 
 [node name="LevelMap1" instance=ExtResource("1_ja1fj")]
 
@@ -20,6 +21,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="Princess" parent="GridItemHolder" index="1" instance=ExtResource("3_67x30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+deathScrapObj = null
 
 [node name="Mortar" parent="GridItemHolder" index="2" instance=ExtResource("4_waksq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+deathScrapObj = null
+
+[node name="Pawn" parent="GridItemHolder" index="3" instance=ExtResource("5_5bjlp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

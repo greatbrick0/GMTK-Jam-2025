@@ -39,6 +39,11 @@ volume_db = -10.0
 stream = ExtResource("6_m1xhr")
 volume_db = -10.0
 
+[node name="MenuBlip4" type="AudioStreamPlayer" parent="GeneralEffects"]
+stream = ExtResource("5_1u5ih")
+volume_db = -10.0
+pitch_scale = 1.5
+
 [connection signal="finished" from="Track0" to="." method="OnTrackFinished" binds= [0]]
 [connection signal="finished" from="Track1" to="." method="OnTrackFinished" binds= [1]]
 [connection signal="finished" from="Track2" to="." method="OnTrackFinished" binds= [2]]
