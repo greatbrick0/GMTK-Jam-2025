@@ -20,6 +20,10 @@ var currentTransferRef: LevelMap
 
 var allActiveTiles: Dictionary
 var successTiles: Array[Vector2i]
+var teamDatas: Dictionary[Enums.Teams, TeamData] = {
+	Enums.Teams.PLAYER: TeamData.new(Enums.Teams.PLAYER),
+	Enums.Teams.ENEMY: TeamData.new(Enums.Teams.ENEMY),
+}
 
 enum ClickModes {STANDARD, ACTION_TARGET}
 var clickMode: ClickModes = ClickModes.STANDARD

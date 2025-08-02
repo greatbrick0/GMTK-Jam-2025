@@ -9,10 +9,7 @@ func _init(newTeam: Enums.Teams):
 	team = newTeam
 
 func CheckForRoyalty() -> bool:
-	var output: bool = false
-	for ii in teamMembers:
-		output = output or ii.characterClass == Enums.CharacterClasses.ROYALTY
-	return output
+	return classCounts[Enums.CharacterClasses.ROYALTY] > 0
 
 func GetClassCount(characterClass: Enums.CharacterClasses) -> int:
 	if(classCounts.has(characterClass)): return classCounts[characterClass]

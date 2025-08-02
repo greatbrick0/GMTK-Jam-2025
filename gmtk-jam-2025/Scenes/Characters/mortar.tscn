@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_sc67c"]
 [ext_resource type="PackedScene" uid="uid://dmnqscyj7s2gn" path="res://Models/AnimatedRobots/Mortar_Animated.tscn" id="3_550gs"]
 [ext_resource type="Script" uid="uid://bu8m04w83xwfk" path="res://Scripts/Character Actions/chess_movement_action.gd" id="3_yawxy"]
-[ext_resource type="Texture2D" uid="uid://dr1r2wvx4qxmd" path="res://Art/Images/flight.png" id="4_3xqxp"]
+[ext_resource type="Texture2D" uid="uid://c8ofc3ddbw0od" path="res://Art/Images/walk.png" id="4_xrpp3"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="5_0g845"]
 [ext_resource type="Script" uid="uid://q2u6hxbk8u86" path="res://Scripts/Character Actions/artillery_attack_action.gd" id="5_5ef2r"]
 [ext_resource type="Texture2D" uid="uid://depfvqrthpp5r" path="res://Art/Images/fire.png" id="6_xrpp3"]
@@ -17,23 +17,21 @@ transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 
 
 [node name="Skeleton3D" parent="Visuals/Mortar_idle/Armature_003" index="0"]
 bones/2/position = Vector3(0, 0, 0)
-bones/2/rotation = Quaternion(0.707107, 3.09086e-08, -3.09086e-08, 0.707107)
-bones/4/rotation = Quaternion(0.936099, -4.19304e-08, 1.11592e-07, -0.351738)
 
 [node name="Gun3_2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="0"]
-transform = Transform3D(1, -1.45927e-14, 1.38185e-14, -5.87569e-15, -0.615661, 0.78801, 1.24798e-13, -0.78801, -0.615661, 1.8604e-15, 0.262872, -0.682117)
+transform = Transform3D(1, 5.79719e-13, 1.1531e-13, 2.78341e-13, -0.615661, 0.788011, 6.22178e-13, -0.78801, -0.615661, 4.33273e-14, 0.262872, -0.682117)
 
 [node name="Gun2_2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(1, -1.45927e-14, 1.38185e-14, -5.87568e-15, -0.615661, 0.78801, 1.24798e-13, -0.78801, -0.615661, 1.86041e-15, 0.262872, -0.682117)
+transform = Transform3D(1, 5.79719e-13, 1.1531e-13, 2.78341e-13, -0.615661, 0.788011, 6.22178e-13, -0.78801, -0.615661, 4.33271e-14, 0.262872, -0.682117)
 
 [node name="Gun1_2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="2"]
-transform = Transform3D(1, -1.34314e-14, -2.87983e-14, 2.84217e-14, -0.615661, 0.788011, 9.9476e-14, -0.78801, -0.615661, 1.86937e-15, 0.262872, -0.682117)
+transform = Transform3D(1, 5.8088e-13, 7.26931e-14, 3.12639e-13, -0.615661, 0.788011, 5.96856e-13, -0.788011, -0.615661, 4.3336e-14, 0.262872, -0.682117)
 
 [node name="Shield" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="3"]
-transform = Transform3D(1, -7.10543e-14, -2.84217e-14, 3.38813e-21, -0.615662, 0.78801, 7.10543e-14, -0.788011, -0.615662, 3.95187e-14, 0.0598243, -0.887022)
+transform = Transform3D(1, 5.11591e-13, 7.10543e-14, 2.84217e-13, -0.615662, 0.788011, 5.68434e-13, -0.788011, -0.615661, 2.47415e-13, 0.0598243, -0.887022)
 
 [node name="Frame" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="4"]
-transform = Transform3D(1, 7.10543e-15, -8.96831e-44, 8.96831e-44, 0, 1, 7.10543e-15, -1, 0, 2.53178e-15, 0, -0.356317)
+transform = Transform3D(1, -7.81597e-14, -8.96831e-44, 8.96831e-44, 0, 1, -7.81597e-14, -1, 0, -2.78496e-14, 0, -0.356317)
 
 [node name="Tread1" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="5"]
 transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, 0.572157, -8.47612e-09, -0.193911)
@@ -45,7 +43,7 @@ transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, -0.58728
 script = ExtResource("3_yawxy")
 directions = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, 0), Vector2i(1, -1), Vector2i(0, -1), Vector2i(-1, -1), Vector2i(-1, 0), Vector2i(-1, 1)])
 ranges = Array[int]([2, 1, 2, 1, 2, 1, 2, 1])
-actionIcon = ExtResource("4_3xqxp")
+actionIcon = ExtResource("4_xrpp3")
 metadata/_custom_type_script = "uid://bu8m04w83xwfk"
 
 [node name="ArtilleryAttackAction" type="Node" parent="Actions" index="1"]
