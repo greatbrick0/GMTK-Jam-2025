@@ -7,6 +7,7 @@ var actionButtonsRefs: Array[TextureButton]
 @export var actionButtonSprites: Array[Texture]
 
 func GenerateActionButtons(characterRef: GridCharacter):
+	RemoveActionButtons()
 	if(characterRef.GetActionCount() == 0): return
 	
 	for ii in range(characterRef.GetActionCount()):
