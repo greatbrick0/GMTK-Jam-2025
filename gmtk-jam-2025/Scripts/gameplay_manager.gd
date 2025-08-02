@@ -33,6 +33,7 @@ func _ready() -> void:
 	clickHandler.start_camera_move.connect(cam.OnStartCameraMove)
 	clickHandler.stop_camera_move.connect(cam.OnStopCameraMove)
 	EventBus.grid_dict_move_item.connect(MoveItemOnGrid)
+	EventBus.grid_dict_remove_item.connect(RemoveItemFromGrid)
 	
 	LoadNextLevelMap()
 	prevTransferRef = mapTransfers[0].instantiate()
@@ -78,16 +79,19 @@ func MoveItemOnGrid(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
 	if(allActiveTiles.has(oldPos)):
 		allActiveTiles[oldPos] = null
 
+func RemoveItemFromGrid(oldPos: Vector2i, item: GridItem) -> void:
+	if(allActiveTiles.has(oldPos)):
+		allActiveTiles[oldPos] = null
+
 func RecieveClick(clickPos: Vector3) -> void:
 	var roundedClickPos: Vector2i = Vector2i(round(clickPos.x), round(clickPos.z))
 	match(clickMode):
 		ClickModes.STANDARD:
 			if(allActiveTiles.has(roundedClickPos)):
+				UnselectCharacter()
 				print("pressed ", roundedClickPos)
 				if(allActiveTiles[roundedClickPos] is GridItem):
 					allActiveTiles[roundedClickPos].StandardClickAction(self)
-				else:
-					UnselectCharacter()
 			else:
 				UnselectCharacter()
 		ClickModes.ACTION_TARGET:
@@ -109,10 +113,11 @@ func UnselectAction() -> void:
 	
 	clickMode = ClickModes.STANDARD
 
-func UnselectCharacter() -> void:
+func UnselectCharacter(_val1 = null, _val2 = null) -> void:
 	if(selectedCharacter == null): return
 	
 	print("unselected character")
+	selectedCharacter.character_died.disconnect(UnselectCharacter)
 	gameHud.RemoveActionButtons()
 	selectedCharacter = null
 	UnselectAction()
@@ -132,5 +137,5 @@ func StartUsingAction(index: int) -> void:
 		tileHighlightRefs[-1].global_position = Vector3(actionTargetTiles[ii].x, 0, actionTargetTiles[ii].y)
 
 func FinishUsingAction(actionPos: Vector2i) -> void:
-	selectedAction.AttemptUseAction(actionPos)
+	selectedAction.AttemptUseAction(actionPos, self)
 	UnselectAction()

@@ -6,17 +6,20 @@ class_name GridCharacter
 @export var maxHealth: int = 3
 @export var health: int = 3
 @export var droppedScrapCount: int = 1
+signal character_died(oldPos: Vector2i, item: GridItem)
 
 signal actions_available_updated(available: bool)
 var usedActions: Array = []
 
 func _ready():
+	character_died.connect(EventBus.GridDictRemoveItem)
 	EventBus.start_turn.connect(ResetForTurn)
 
 func StandardClickAction(manager: GameplayManager) -> void:
 	if(team == Enums.Teams.PLAYER):
 		manager.selectedCharacter = self
 		manager.gameHud.GenerateActionButtons(self)
+		character_died.connect(manager.UnselectCharacter)
 
 func ResetForTurn(turnTeam: Enums.Teams) -> void:
 	if(turnTeam == team):
@@ -43,3 +46,15 @@ func AppendUsedActions(appended: Array[String]) -> void:
 	usedActions.append_array(appended)
 	if(not HasRemainingActions()):
 		actions_available_updated.emit(false)
+
+func TakeDamage(damageAmount: int) -> bool:
+	health -= damageAmount
+	if(health <= 0):
+		Die()
+		return true
+	else:
+		return false 
+
+func Die() -> void:
+	character_died.emit(gridPos, self)
+	queue_free()

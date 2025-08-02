@@ -15,16 +15,16 @@ func GetTileOptions(tilesDict: Dictionary) -> Array[Vector2i]:
 	if(canTargetSelf): output.append(actionOwner.gridPos)
 	return output
 
-func AttemptUseAction(actionPos: Vector2i) -> bool:
+func AttemptUseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> bool:
 	if(CanBeUsed()):
 		print(actionOwner.usedActions)
 		actionOwner.AppendUsedActions(actionTags)
-		UseAction(actionPos)
+		UseAction(actionPos, gameplayManager)
 		return true
 	else:
 		return false
 
-func UseAction(actionPos: Vector2i) -> void:
+func UseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> void:
 	pass
 
 func CanBeUsed() -> bool:

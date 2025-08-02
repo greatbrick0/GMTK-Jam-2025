@@ -68,6 +68,8 @@ _data = {
 
 [node name="Princess" instance=ExtResource("1_dgny0")]
 characterClass = 3
+maxHealth = 4
+health = 4
 
 [node name="PrincessAnims" parent="Visuals" index="0" instance=ExtResource("2_aayhu")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.07)
