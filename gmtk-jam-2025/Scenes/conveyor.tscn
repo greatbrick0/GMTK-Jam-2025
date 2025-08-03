@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://vyl2lvfmqryk"]
+[gd_scene load_steps=13 format=3 uid="uid://vyl2lvfmqryk"]
 
 [ext_resource type="Script" uid="uid://dfui5s3xwrtpg" path="res://Scripts/conveyor.gd" id="1_5xoq8"]
 [ext_resource type="Texture2D" uid="uid://w568fg7ywbft" path="res://Art/Images/Generated Icons/Conveyor.png" id="2_vkl7l"]
 [ext_resource type="PackedScene" uid="uid://cvcbu6cpr35lq" path="res://Scenes/Placeables/placeable_mortar.tscn" id="3_247tj"]
 [ext_resource type="PackedScene" uid="uid://b3f7uw5siawlq" path="res://Scenes/Placeables/placeable_pawn.tscn" id="4_g8mpg"]
+[ext_resource type="PackedScene" uid="uid://cytqo4o0vo1xx" path="res://Scenes/Placeables/placeable_looper.tscn" id="5_247tj"]
 [ext_resource type="PackedScene" uid="uid://d1smg8pi88yd8" path="res://Scenes/Placeables/placeable_princess.tscn" id="5_jhnkp"]
 [ext_resource type="Texture2D" uid="uid://b8ug3ij5dec4q" path="res://Art/Images/ConveyorGlass.png" id="6_6nye6"]
 [ext_resource type="Texture2D" uid="uid://c5q0fpx6x5cng" path="res://Art/Images/scrap.png" id="7_2rft0"]
@@ -69,7 +70,7 @@ _data = {
 [node name="ConveyorHolder" type="Node2D" node_paths=PackedStringArray("stockHolder")]
 script = ExtResource("1_5xoq8")
 stockHolder = NodePath("PlaceableHolder")
-placeableOptions = Array[PackedScene]([ExtResource("5_jhnkp"), ExtResource("4_g8mpg"), ExtResource("3_247tj")])
+placeableOptions = Array[PackedScene]([ExtResource("5_jhnkp"), ExtResource("4_g8mpg"), ExtResource("3_247tj"), ExtResource("5_247tj")])
 
 [node name="ConveyorBase" type="Sprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
