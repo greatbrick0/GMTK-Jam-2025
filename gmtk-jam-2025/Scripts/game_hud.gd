@@ -16,6 +16,8 @@ var actionButtonsRefs: Array[TextureButton]
 var playerInputBlockers: int = 0
 
 func _ready() -> void:
+	SetRemainingTurns(remainingTurns)
+	scrapCountLabel.text = str(playerScrapCount)
 	EventBus.adjust_player_blockers.connect(AdjustPlayerInputBlockers)
 	EventBus.add_scrap.connect(AddScrap)
 	EventBus.mouse_message.connect(DisplayDescription)
