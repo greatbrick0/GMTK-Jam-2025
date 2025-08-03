@@ -1,14 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4lw1ndi0lte1"]
+[gd_scene load_steps=14 format=3 uid="uid://b4lw1ndi0lte1"]
 
 [ext_resource type="PackedScene" uid="uid://bylqpmy7aurtl" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="1_80mg6"]
 [ext_resource type="Script" uid="uid://mcx0nbu74qr1" path="res://Scripts/sub_view_port_test.gd" id="1_ix3m6"]
 [ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="2_pyb8s"]
 [ext_resource type="PackedScene" uid="uid://co57vocr4es8c" path="res://Models/AnimatedRobots/Zoomer_Animated.tscn" id="3_n3bsi"]
 [ext_resource type="PackedScene" uid="uid://dmnqscyj7s2gn" path="res://Models/AnimatedRobots/Mortar_Animated.tscn" id="5_132he"]
+[ext_resource type="Texture2D" uid="uid://c04itadefj0wv" path="res://Textures/DefaultMaterial_Base_color_grass3.png" id="6_wmafr"]
+[ext_resource type="ArrayMesh" uid="uid://bmpm6k7ysdpp1" path="res://Models/BaseTile1.obj" id="7_74wqw"]
+[ext_resource type="PackedScene" uid="uid://8p4dmlrnlsd0" path="res://Scenes/scrap.tscn" id="8_74wqw"]
 
-[sub_resource type="Environment" id="Environment_gmvvq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwjy5"]
+albedo_texture = ExtResource("6_wmafr")
+
+[sub_resource type="Environment" id="Environment_vwjy5"]
 ambient_light_source = 3
-ambient_light_color = Color(0.436707, 0, 0.527344, 1)
+ambient_light_color = Color(0.391026, 0.333099, 0.460938, 1)
 
 [sub_resource type="Gradient" id="Gradient_qu8tu"]
 colors = PackedColorArray(0.635294, 0.635294, 0.635294, 1, 0.635294, 0.635294, 0.635294, 1)
@@ -21,7 +27,7 @@ viewport_path = NodePath("SubViewport")
 
 [node name="SubViewPortTest" type="Node2D"]
 script = ExtResource("1_ix3m6")
-iconName = "Fused"
+iconName = "Scrap"
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -30,14 +36,28 @@ transparent_bg = true
 
 [node name="PrincessAnims" parent="SubViewport/Holder" instance=ExtResource("2_pyb8s")]
 transform = Transform3D(-0.55, 0, -4.80825e-08, 0, 0.55, 0, 4.80825e-08, 0, -0.55, 0, 0, 0)
+visible = false
 
 [node name="Zoomer_animations" parent="SubViewport/Holder" instance=ExtResource("3_n3bsi")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.265, 0)
 
 [node name="pawn_animate" parent="SubViewport/Holder" instance=ExtResource("1_80mg6")]
+visible = false
 
 [node name="Mortar_idle" parent="SubViewport/Holder" instance=ExtResource("5_132he")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.425, 0)
+visible = false
+
+[node name="BaseTile1" type="MeshInstance3D" parent="SubViewport/Holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_vwjy5")
+mesh = ExtResource("7_74wqw")
+skeleton = NodePath("../..")
+
+[node name="Scrap" parent="SubViewport/Holder" instance=ExtResource("8_74wqw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(-0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, 0.353553, -0.612372, 2.6, 3.05, -2.6)
@@ -50,7 +70,7 @@ far = 8.0
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
-environment = SubResource("Environment_gmvvq")
+environment = SubResource("Environment_vwjy5")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

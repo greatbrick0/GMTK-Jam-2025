@@ -55,3 +55,9 @@ func _on_button_mouse_exited() -> void:
 	hovered = false
 	timeHovered = 0.0
 	detailStage = 0
+
+func UsePlaceable(newPos: Vector2i, gameplayManager: GameplayManager) -> void:
+	var placedRef: GridCharacter = placedObj.instantiate()
+	gameplayManager.prevTransferRef.get_node("GridItemHolder").add_child(placedRef)
+	placedRef.global_position = Vector3(newPos.x, 0, newPos.y)
+	queue_free()
