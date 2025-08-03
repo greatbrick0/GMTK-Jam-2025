@@ -18,7 +18,7 @@ func StartUsingCharacters() -> void:
 		gameManager.AttemptToEndTurn()
 		return
 	for ii in gameManager.teamDatas[myTeam].teamMembers:
-		while ii.HasRemainingActions():
+		while ii != null and ii.HasRemainingActions():
 			var selectedAction: CharacterAction = ii.GetFirstRemainingAction()
 			var targets: Array[Vector2i] = selectedAction.GetTileOptions(gameManager.allActiveTiles)
 			var choice: Vector2i = ChoosePlayerTile(targets, gameManager.allActiveTiles)

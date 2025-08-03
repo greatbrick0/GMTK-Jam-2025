@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://v6qibkqc4nn5" path="res://Scripts/Character Actions/combust_attack_action.gd" id="5_8ears"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="7_wga1m"]
 
-[node name="Bomber" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_mowxs")]
+[node name="Bomber2" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_mowxs")]
 maxHealth = 1
 health = 1
 droppedScrapCount = 0
@@ -19,70 +19,63 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 
 [node name="Skeleton3D" parent="Visuals/Bomber_animations/Armature_001" index="0"]
 bones/1/position = Vector3(0, -3.61009e-11, 3.28131e-16)
-bones/1/rotation = Quaternion(-0.5, 0.5, 0.5, 0.5)
 bones/3/rotation = Quaternion(0.0145171, 0.000461039, -0.0317388, 0.999391)
-bones/6/rotation = Quaternion(-0.707107, 0.707107, 2.24765e-08, -3.09086e-08)
 bones/7/rotation = Quaternion(-0.00530719, -0.000168599, -0.0317417, 0.999482)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0533224, -6.70167e-08, 1.52889e-08, 0.998577)
-bones/11/scale = Vector3(1, 1, 1)
 bones/15/rotation = Quaternion(-0.0538649, -0.00171055, -0.031696, 0.998044)
-bones/15/scale = Vector3(1, 1, 1)
-bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.0450056, 2.33059e-08, -2.43214e-08, 0.998987)
-bones/19/scale = Vector3(1, 1, 1)
 bones/23/rotation = Quaternion(0.0917952, 0.00291527, -0.0316081, 0.995272)
 
 [node name="R_Leg2" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="0"]
-transform = Transform3D(0.000351273, -0.190227, -0.0120896, 0.19061, 0.000351289, 1.11423e-05, 1.116e-05, -0.0120895, 0.190227, 0.137623, -0.000274155, 0.00943434)
+transform = Transform3D(0.000351278, -0.190227, -0.0120896, 0.19061, 0.000351287, 1.11661e-05, 1.11307e-05, -0.0120895, 0.190227, 0.137623, -0.000274122, 0.00943434)
 
 [node name="Icosphere_010" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="1"]
-transform = Transform3D(-3.0586e-09, -0.102629, 1.22344e-08, 0.102629, 3.64613e-16, 4.68972e-09, -1.63112e-09, 1.22344e-08, 0.102629, 0.159569, -1.20832e-08, -1.90221e-08)
+transform = Transform3D(-3.64613e-16, -0.102629, 0, 0.102629, 3.64613e-16, 7.74831e-09, -7.74831e-09, 0, 0.102629, 0.159569, -1.20832e-08, -6.35275e-22)
 
 [node name="L_Leg2" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="2"]
-transform = Transform3D(0.000128453, -0.190227, 0.012094, 0.190611, 0.000128448, -4.08222e-06, -4.08269e-06, 0.012094, 0.190227, 0.138221, -0.000100443, -0.00945681)
+transform = Transform3D(0.000128458, -0.190227, 0.012094, 0.190611, 0.000128448, -4.0764e-06, -4.09409e-06, 0.012094, 0.190227, 0.138221, -0.000100443, -0.00945678)
 
 [node name="Icosphere_011" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="3"]
-transform = Transform3D(-4.28244e-09, -0.102629, -6.1172e-09, 0.102629, 4.89335e-09, 1.69241e-08, -7.74831e-09, -1.22344e-08, 0.102629, 0.159569, -1.20832e-08, -1.90221e-08)
+transform = Transform3D(-1.22383e-09, -0.102629, -1.83516e-08, 0.102629, 4.89336e-09, 1.99827e-08, -1.38655e-08, -2.44688e-08, 0.102629, 0.159569, -1.20832e-08, 1.4366e-16)
 
 [node name="L_Leg1" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="4"]
-transform = Transform3D(-3.33663e-08, -0.190611, 3.72834e-08, 0.190611, -2.11543e-08, 8.9407e-08, 7.45058e-09, 2.66986e-08, 0.190611, 0.159569, 5.96046e-08, -1.04308e-07)
+transform = Transform3D(-2.76856e-08, -0.190611, 1.45608e-08, 0.190611, -2.11543e-08, 5.21541e-08, -4.47035e-08, 3.97605e-09, 0.190611, 0.159569, 5.96046e-08, -8.9407e-08)
 
 [node name="Hip1" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="5"]
-transform = Transform3D(2.00525e-08, -0.102629, 1.72569e-08, 0.10263, 1.13737e-08, 3.35276e-08, 2.23517e-08, 1.87685e-08, 0.102629, 0.159569, 8.24412e-09, -4.88244e-08)
+transform = Transform3D(2.31111e-08, -0.102629, 5.02247e-09, 0.10263, 1.13737e-08, 1.86265e-08, -7.45058e-09, 6.53414e-09, 0.102629, 0.159569, 8.24414e-09, -2.98023e-08)
 
 [node name="L_Leg3" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="6"]
-transform = Transform3D(0.00986431, -0.190227, 0.00699847, 0.190355, 0.00986432, -0.000181176, -0.000181325, 0.00699845, 0.190482, 0.138297, -0.00771526, -0.00547366)
+transform = Transform3D(0.00986431, -0.190227, 0.00699844, 0.190355, 0.00986431, -0.000181176, -0.00018134, 0.00699842, 0.190482, 0.138297, -0.00771531, -0.00547364)
 
 [node name="Icosphere_004" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="7"]
-transform = Transform3D(3.98263e-08, -0.102629, 4.60061e-08, 0.102629, 3.80893e-08, 7.45058e-09, 1.49012e-08, 3.6377e-08, 0.102629, 0.159569, -3.58247e-08, -2.3143e-08)
+transform = Transform3D(4.28849e-08, -0.102629, 3.37717e-08, 0.102629, 3.80893e-08, 7.45058e-09, 7.45058e-09, 2.41426e-08, 0.102629, 0.159569, -3.58247e-08, -4.12093e-09)
 
 [node name="R_Leg1" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="8"]
-transform = Transform3D(5.37653e-08, -0.190611, 4.83823e-08, 0.190611, 6.21094e-08, 8.19564e-08, -1.49012e-08, 4.61834e-08, 0.190611, 0.159569, 1.49012e-07, 1.49012e-08)
+transform = Transform3D(5.9446e-08, -0.190611, 2.56597e-08, 0.190611, 6.21094e-08, 3.72529e-08, -3.72529e-08, 2.34608e-08, 0.190611, 0.159569, 5.96046e-08, 4.47035e-08)
 
 [node name="Icosphere_003" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="9"]
-transform = Transform3D(1.77715e-08, -0.102629, -7.6148e-10, 0.10263, 2.09954e-08, 2.23517e-08, 0, -4.87329e-09, 0.10263, 0.159569, -2.63137e-08, 4.20123e-09)
+transform = Transform3D(2.08301e-08, -0.102629, -1.29959e-08, 0.10263, 2.09954e-08, 1.49012e-08, -1.49012e-08, -1.71077e-08, 0.10263, 0.159569, -2.63137e-08, 2.32233e-08)
 
 [node name="R_Leg3" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="10"]
-transform = Transform3D(0.0101721, -0.190227, -0.0065429, 0.190339, 0.0101722, 0.00017482, 0.000174731, -0.0065429, 0.190498, 0.138795, -0.00796936, 0.00512603)
+transform = Transform3D(0.0101722, -0.190227, -0.00654293, 0.190339, 0.0101722, 0.000174806, 0.000174716, -0.00654293, 0.190498, 0.138795, -0.00796936, 0.00512607)
 
 [node name="Icosphere_002" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="11"]
-transform = Transform3D(1.5269e-08, -0.10263, -1.26618e-08, 0.10263, 1.8526e-08, 1.86265e-08, -3.72529e-09, -1.77897e-08, 0.10263, 0.159569, -2.15582e-08, 3.03566e-08)
+transform = Transform3D(1.83276e-08, -0.10263, -2.48962e-08, 0.10263, 1.8526e-08, 1.86265e-08, -1.49012e-08, -3.00241e-08, 0.10263, 0.159569, -2.15582e-08, 4.93787e-08)
 
 [node name="Base" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="12"]
-transform = Transform3D(4.56955e-08, -1, 1.19209e-07, 1, 7.54979e-08, 3.27826e-07, -2.98023e-07, 1.19209e-07, 1, -0.0198749, 1.46442e-09, 2.36928e-09)
+transform = Transform3D(7.54979e-08, -1, 1.06581e-14, 1, 7.54979e-08, 3.57628e-07, -3.57628e-07, -1.06581e-14, 1, -0.0198749, 1.46442e-09, 2.14845e-16)
 
 [node name="Cap" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="13"]
-transform = Transform3D(0.0498607, -0.0897035, 9.17579e-09, 0.0897035, 0.0498607, 3.0586e-09, -6.71431e-09, 7.54823e-09, 0.102629, -0.51343, 0.15551, 5.87341e-08)
+transform = Transform3D(0.0498607, -0.0897035, -3.0586e-09, 0.0897035, 0.0498607, 6.11719e-09, -6.11719e-09, -6.11719e-09, 0.102629, -0.51343, 0.15551, -1.17407e-08)
 
 [node name="Fuse" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="14"]
-transform = Transform3D(4.56955e-08, -1, 1.19209e-07, 1, 7.54979e-08, 3.27826e-07, -2.98023e-07, 1.19209e-07, 1, 0.159569, -1.20832e-08, -1.90221e-08)
+transform = Transform3D(7.54979e-08, -1, 1.06581e-14, 1, 7.54979e-08, 3.57628e-07, -3.57628e-07, -1.06581e-14, 1, 0.159569, -1.20832e-08, 1.23766e-15)
 
 [node name="Gun_001" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="15"]
-transform = Transform3D(8.6576e-08, -0.665315, -0.746563, 1.9842e-09, 0.746563, -0.665315, 1, 7.83683e-08, 4.61266e-08, -0.51586, -0.190684, 6.45259e-08)
+transform = Transform3D(-3.26333e-08, -0.665315, -0.746563, 3.17865e-08, 0.746563, -0.665315, 1, -4.54421e-08, -3.21474e-09, -0.51586, -0.190684, 1.43962e-08)
 
 [node name="Head" parent="Visuals/Bomber_animations/Armature_001/Skeleton3D" index="16"]
-transform = Transform3D(1.77911e-08, -0.38934, 4.6413e-08, 0.38934, 2.93944e-08, 1.27636e-07, -1.16032e-07, 4.6413e-08, 0.38934, -0.18177, 1.36872e-08, 2.16687e-08)
+transform = Transform3D(2.93944e-08, -0.38934, 4.14964e-15, 0.38934, 2.93944e-08, 1.39239e-07, -1.39239e-07, -6.91607e-15, 0.38934, -0.18177, 1.36872e-08, -7.07949e-16)
 
 [node name="StepMovementAction" type="Node" parent="Actions" index="0"]
 script = ExtResource("3_mj47s")
