@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://ens5fuoavm7y"]
+[gd_scene load_steps=9 format=3 uid="uid://ens5fuoavm7y"]
 
 [ext_resource type="PackedScene" uid="uid://l8sjah05ohwx" path="res://Models/Animation_Test/Bomber_animations.glb" id="1_gs41n"]
 [ext_resource type="Material" uid="uid://bo7623511qeic" path="res://Textures/Bomber.tres" id="2_tnmwf"]
 [ext_resource type="PackedScene" uid="uid://ds2ohidyf6q2g" path="res://Scenes/VFXScene/Fire.tscn" id="3_tnmwf"]
 [ext_resource type="Animation" uid="uid://ca1n0bx8y3t2v" path="res://Animations/Bomber/Action0.res" id="3_y57kt"]
+[ext_resource type="Texture2D" uid="uid://cdleqnsgguswp" path="res://Textures/BomberBaseColor.png" id="4_y57kt"]
 [ext_resource type="Animation" uid="uid://djtjc6igoqykn" path="res://Animations/Bomber/Idle.res" id="4_yejra"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yejra"]
+albedo_texture = ExtResource("4_y57kt")
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e5jcs"]
 _data = {
@@ -135,7 +139,7 @@ material_override = ExtResource("2_tnmwf")
 transform = Transform3D(2.93944e-08, -0.38934, 4.14964e-15, 0.38934, 2.93944e-08, 1.39239e-07, -1.39239e-07, -6.91607e-15, 0.38934, -0.180108, 1.37233e-08, -1.03608e-15)
 
 [node name="Head" parent="Armature_001/Skeleton3D/Head" index="0"]
-material_override = ExtResource("2_tnmwf")
+material_override = SubResource("StandardMaterial3D_yejra")
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c31rb18cksu8o"]
+
+[ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_mowxs"]
+[ext_resource type="PackedScene" uid="uid://ens5fuoavm7y" path="res://Models/AnimatedRobots/Bomber_Animated.tscn" id="3_168qy"]
+[ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="7_wga1m"]
+
+[node name="Pawn" instance=ExtResource("1_mowxs")]
+maxHealth = 2
+health = 2
+actionAnimPrefix = "Pawn/"
+
+[node name="Bomber_animations" parent="Visuals" index="0" instance=ExtResource("3_168qy")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
+
+[node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("7_wga1m")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
+
+[connection signal="actions_available_updated" from="." to="Visuals_Stationary/UnitIndicator" method="set_visible"]
