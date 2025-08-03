@@ -11,7 +11,10 @@ signal action_follow_up(throughPos: Vector2i, manager: GameplayManager)
 var actionOwner: GridCharacter
 
 func _ready() -> void:
-	actionOwner = get_parent().get_parent()
+	var node: Node = self
+	while(node.get_parent() is CharacterAction):
+		node = node.get_parent()
+	actionOwner = node.get_parent().get_parent()
 
 func GetTileOptions(tilesDict: Dictionary) -> Array[Vector2i]:
 	var output: Array[Vector2i] = []
