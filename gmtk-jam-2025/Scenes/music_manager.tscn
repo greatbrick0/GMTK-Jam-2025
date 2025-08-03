@@ -20,13 +20,16 @@ trackFullVolume = -28.0
 
 [node name="Track0" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamGenerator_a0g8o")
+volume_db = -50.0
 autoplay = true
 
 [node name="Track1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_m1xhr")
+volume_db = -50.0
 
 [node name="Track2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gup21")
+volume_db = -50.0
 
 [node name="GeneralEffects" type="Node" parent="."]
 

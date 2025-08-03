@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="8_huk3g"]
 [ext_resource type="PackedScene" uid="uid://cuvfu8kv8gl2s" path="res://Scenes/title_screen.tscn" id="8_kf8bl"]
 [ext_resource type="PackedScene" uid="uid://dmnqscyj7s2gn" path="res://Models/AnimatedRobots/Mortar_Animated.tscn" id="9_bycro"]
-[ext_resource type="Material" uid="uid://bq2otijypc6ma" path="res://Textures/Mortar_Evil.tres" id="10_ii0so"]
+[ext_resource type="Material" path="res://Textures/Mortar_Evil.tres" id="10_ii0so"]
 [ext_resource type="PackedScene" uid="uid://bylqpmy7aurtl" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="11_ed43n"]
-[ext_resource type="Material" uid="uid://bvynruq3to0yt" path="res://Textures/Pawn_Evil.tres" id="12_gr52v"]
+[ext_resource type="Material" path="res://Textures/Pawn_Evil.tres" id="12_gr52v"]
 
 [sub_resource type="Environment" id="Environment_1vjpf"]
 
