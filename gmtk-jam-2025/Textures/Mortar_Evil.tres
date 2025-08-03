@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bq2otijypc6ma"]
+
+[ext_resource type="Texture2D" uid="uid://bnvdx6effmeb2" path="res://Textures/Mortar_evilBaseColor.png" id="1_a4qe3"]
+[ext_resource type="Texture2D" uid="uid://b6t2u4bskf4ii" path="res://Textures/Mortar_emissive.png" id="2_2lpic"]
+
+[resource]
+albedo_texture = ExtResource("1_a4qe3")
+emission_enabled = true
+emission_energy_multiplier = 16.0
+emission_texture = ExtResource("2_2lpic")
