@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://4iq07j7urcx7"]
+
+[ext_resource type="Texture2D" uid="uid://crfutpf86du3e" path="res://Textures/Bomber_evilBaseColor.png" id="1_fykt1"]
+[ext_resource type="Texture2D" uid="uid://cm22x1q7vq66j" path="res://Textures/Zoomer_emission.png" id="2_by3gx"]
+
+[resource]
+albedo_texture = ExtResource("1_fykt1")
+emission_energy_multiplier = 3.0
+emission_texture = ExtResource("2_by3gx")
