@@ -20,6 +20,7 @@ func _ready() -> void:
 	EventBus.add_scrap.connect(AddScrap)
 	EventBus.mouse_message.connect(DisplayDescription)
 	EventBus.end_turn.connect(SubtractRemainingTurns)
+	EventBus.end_turn.connect(func(team: Enums.Teams): DisplayDescription(0, ""))
 
 func AdjustPlayerInputBlockers(adjust: int) -> void:
 	playerInputBlockers += adjust
@@ -41,7 +42,6 @@ func AddScrap(amount: int) -> void:
 func EndTurnButtonPressed() -> void:
 	if(gameplayManager.currentTeam == Enums.Teams.PLAYER):
 		if(playerInputBlockers > 0): return
-		print("trying to end turn")
 		gameplayManager.AttemptToEndTurn()
 
 func GenerateActionButtons(characterRef: GridCharacter):
