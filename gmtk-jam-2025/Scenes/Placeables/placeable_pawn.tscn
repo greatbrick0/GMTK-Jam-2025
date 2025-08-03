@@ -4,4 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://wupfhi85dpdv" path="res://Scenes/Characters/pawn.tscn" id="2_mxhpv"]
 
 [node name="PlaceablePawn" instance=ExtResource("1_sofow")]
+scrapCost = 1
 placedObj = ExtResource("2_mxhpv")
+fullDescription = "Pawn
+Low level grunt. low movement, low damage. But hey, sometimes being cheap is all that matters!"

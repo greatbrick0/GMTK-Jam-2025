@@ -64,6 +64,7 @@ func AppendUsedActions(appended: Array[String]) -> void:
 		actions_available_updated.emit(false)
 
 func TakeSelfDamage(damageAmount: int) -> bool:
+	if(damageAmount == 0): return false
 	character_damaged.emit(health - damageAmount, health)
 	health -= damageAmount
 	if(health <= 0): Die()

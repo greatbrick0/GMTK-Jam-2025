@@ -12,6 +12,7 @@ signal start_character_placing(placeable: Placeable)
 signal cancel_character_placing(placeable: Placeable)
 
 signal mouse_message(channel: int, message: String)
+signal add_scrap(amount: int)
 
 func GridDictRemoveItem(oldPos: Vector2i, item: GridItem):
 	grid_dict_remove_item.emit(oldPos, item)

@@ -6,6 +6,32 @@ class_name GameHud
 var actionButtonsRefs: Array[TextureButton]
 @export var actionButtonSprites: Array[Texture]
 
+@export var descriptionLabel: Label
+@export var playerScrapCount: int = 0
+@export var scrapCountLabel: Label
+
+@export var remainingTurns: int = 10
+@export var remainingTurnsLabel: Label
+
+func _ready() -> void:
+	EventBus.add_scrap.connect(AddScrap)
+	EventBus.mouse_message.connect(DisplayDescription)
+	EventBus.end_turn.connect(SubtractRemainingTurns)
+
+func SubtractRemainingTurns(team: Enums.Teams) -> void:
+	if(team == Enums.Teams.PLAYER):
+		remainingTurns -= 1
+		remainingTurnsLabel.text = "Remaining Turns: " + str(remainingTurns)
+
+func DisplayDescription(channel: int, message: String) -> void:
+	if(channel == 0):
+		descriptionLabel.visible = message != ""
+		descriptionLabel.text = message
+
+func AddScrap(amount: int) -> void:
+	playerScrapCount += amount
+	scrapCountLabel.text = str(playerScrapCount)
+
 func EndTurnButtonPressed() -> void:
 	print("trying to end turn")
 

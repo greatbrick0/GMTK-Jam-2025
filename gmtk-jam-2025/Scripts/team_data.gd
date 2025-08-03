@@ -9,6 +9,14 @@ func _init(newTeam: Enums.Teams):
 	team = newTeam
 	EventBus.grid_dict_add_item.connect(CheckForAddedMember)
 
+func CheckActionsRemaining() -> bool:
+	var output: bool = false
+	for ii in teamMembers:
+		if(ii.HasRemainingActions()):
+			output = true
+			break
+	return output
+
 func CheckForRoyalty() -> bool:
 	return classCounts[Enums.CharacterClasses.ROYALTY] > 0
 

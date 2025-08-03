@@ -8,6 +8,7 @@ class_name Placeable
 var detailStage: int = 0
 var currentlyMoving: bool = false
 var purchasable: bool = false
+var alreadyPurchased: bool = false
 var selected: bool = false
 var hovered: bool = false
 var timeHovered: float = 0.0
@@ -15,6 +16,9 @@ var animTime: float = 0.0
 @export var animIntensity: float = 10
 @export var animSpeed: float = 5
 var playerInputBlockers: int = 0
+
+var gameHud: GameHud
+signal got_purchased(cost: int)
 
 func _process(delta) -> void:
 	if(selected):
@@ -26,7 +30,7 @@ func _process(delta) -> void:
 			if(detailStage == 0 and timeHovered > 0.3):
 				detailStage = 1
 				EventBus.mouse_message.emit(0, shortDescription)
-			elif(detailStage == 1 and timeHovered > 1.0):
+			elif(detailStage == 1 and timeHovered > 1.5):
 				detailStage = 2
 				EventBus.mouse_message.emit(0, fullDescription)
 
@@ -35,17 +39,20 @@ func AdjustPlayerInputBlockers(adjust: int) -> void:
 
 func _on_button_pressed() -> void:
 	if(selected):
-		selected = false
-		EventBus.cancel_character_placing.emit(self)
-		$Visuals.position = Vector2.ZERO
-		animTime = 0
+		Unselect()
 	else:
 		if(playerInputBlockers > 0): return
-		if(scrapCost <= 0):
+		if((scrapCost <= 0 or gameHud.playerScrapCount >= scrapCost) and not alreadyPurchased and purchasable):
 			selected = true
 			EventBus.start_character_placing.emit(self)
 		else:
 			MusicManager.PlayGeneral(2)
+
+func Unselect() -> void:
+	selected = false
+	EventBus.cancel_character_placing.emit(self)
+	$Visuals.position = Vector2.ZERO
+	animTime = 0
 
 func _on_button_mouse_entered() -> void:
 	hovered = true
@@ -60,4 +67,5 @@ func UsePlaceable(newPos: Vector2i, gameplayManager: GameplayManager) -> void:
 	var placedRef: GridCharacter = placedObj.instantiate()
 	gameplayManager.prevTransferRef.get_node("GridItemHolder").add_child(placedRef)
 	placedRef.global_position = Vector3(newPos.x, 0, newPos.y)
-	queue_free()
+	got_purchased.emit(-scrapCost)
+	visible = false

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cd68fjtainkfs" path="res://Scenes/Levels Maps/Primary/level_map_4.tscn" id="5_o18aq"]
 [ext_resource type="PackedScene" uid="uid://yhxyq61x68t8" path="res://Scenes/Levels Maps/Primary/level_map_5.tscn" id="6_hd7sb"]
 [ext_resource type="PackedScene" uid="uid://hm6oxttviq00" path="res://Scenes/Levels Maps/Primary/level_map_6.tscn" id="7_5vthg"]
-[ext_resource type="Shader" uid="uid://dxr8j6l7jcjav" path="res://Shaders/BackgroundAttempt2.gdshader" id="12_o18aq"]
+[ext_resource type="Shader" path="res://Shaders/BackgroundAttempt2.gdshader" id="12_o18aq"]
 
 [sub_resource type="Environment" id="Environment_q2fht"]
 

@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cvn4pe6hwdain" path="res://Art/Images/Generated Icons/Princess.png" id="3_avbnd"]
 
 [node name="PlaceablePrincess" instance=ExtResource("1_gsui7")]
+scrapCost = 6
 placedObj = ExtResource("2_ly2et")
 shortDescription = "Princess"
 fullDescription = "Princess
-"
+Mobile scrap recycling and command ship. Gathers scrap and gets your robots back into the fight. Bring it to the exit platforms to progress. "
 
 [node name="Sprite2D" parent="Visuals" index="1"]
 texture = ExtResource("3_avbnd")

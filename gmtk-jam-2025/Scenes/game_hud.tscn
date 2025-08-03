@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c52jeaqpo6aj0"]
+[gd_scene load_steps=12 format=3 uid="uid://c52jeaqpo6aj0"]
 
 [ext_resource type="Script" uid="uid://b0nffpu084jmj" path="res://Scripts/game_hud.gd" id="1_qecdm"]
 [ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="1_qmln0"]
@@ -7,16 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://ciwpdrdwl7w3s" path="res://Art/Images/loopSingle.png" id="4_ae0to"]
 [ext_resource type="Texture2D" uid="uid://kh0wfn7waq3r" path="res://Art/Images/loopLeft.png" id="5_a0eom"]
 [ext_resource type="Texture2D" uid="uid://cfp3ooyt3pgwp" path="res://Art/Images/loopRight.png" id="6_sq0d6"]
-[ext_resource type="Texture2D" uid="uid://w568fg7ywbft" path="res://Art/Images/Generated Icons/Conveyor.png" id="8_sq0d6"]
-[ext_resource type="PackedScene" uid="uid://cvcbu6cpr35lq" path="res://Scenes/Placeables/placeable_mortar.tscn" id="9_f6io5"]
-[ext_resource type="Texture2D" uid="uid://b8ug3ij5dec4q" path="res://Art/Images/ConveyorGlass.png" id="10_5e2ck"]
-[ext_resource type="PackedScene" uid="uid://b3f7uw5siawlq" path="res://Scenes/Placeables/placeable_pawn.tscn" id="10_qim7q"]
-[ext_resource type="PackedScene" uid="uid://d1smg8pi88yd8" path="res://Scenes/Placeables/placeable_princess.tscn" id="11_euykq"]
+[ext_resource type="Texture2D" uid="uid://dns6hbfh8xxv0" path="res://Art/Images/scrapBox.png" id="8_euykq"]
+[ext_resource type="Texture2D" uid="uid://c5q0fpx6x5cng" path="res://Art/Images/scrap.png" id="9_wcatw"]
+[ext_resource type="Theme" uid="uid://hfgf4e0jvvc7" path="res://UiTheme.tres" id="10_5e2ck"]
+[ext_resource type="PackedScene" uid="uid://vyl2lvfmqryk" path="res://Scenes/conveyor.tscn" id="10_sq0d6"]
 
-[node name="GameHud" type="CanvasLayer"]
+[node name="GameHud" type="CanvasLayer" node_paths=PackedStringArray("descriptionLabel", "scrapCountLabel", "remainingTurnsLabel")]
 script = ExtResource("1_qecdm")
 actionButtonObj = ExtResource("3_pef4c")
 actionButtonSprites = Array[Texture]([ExtResource("3_jgq5c"), ExtResource("4_ae0to"), ExtResource("5_a0eom"), ExtResource("6_sq0d6")])
+descriptionLabel = NodePath("Control/DescriptionLabel")
+playerScrapCount = 10
+scrapCountLabel = NodePath("Control/ScrapBox/ScrapCountLabel")
+remainingTurnsLabel = NodePath("Control/RemainingTurnsLabel")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -43,7 +46,7 @@ grow_vertical = 0
 theme = ExtResource("1_qmln0")
 text = "End Turn"
 
-[node name="Label" type="Label" parent="Control"]
+[node name="RemainingTurnsLabel" type="Label" parent="Control"]
 layout_mode = 1
 offset_left = 20.0
 offset_top = 20.0
@@ -64,50 +67,79 @@ grow_vertical = 0
 scale = Vector2(0.4, 0.4)
 theme_override_constants/separation = 0
 
-[node name="ConveyorHolder" type="Node2D" parent="."]
-position = Vector2(981, 445)
+[node name="ScrapBox" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -327.0
+offset_right = 56.0
+offset_bottom = -71.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_euykq")
 
-[node name="ConveyorBase" type="Sprite2D" parent="ConveyorHolder"]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("8_sq0d6")
+[node name="TextureRect" type="TextureRect" parent="Control/ScrapBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_wcatw")
 
-[node name="Positions" type="Node2D" parent="ConveyorHolder"]
+[node name="ScrapCountLabel" type="Label" parent="Control/ScrapBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -48.0
+offset_right = 95.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Pos0" type="Marker2D" parent="ConveyorHolder/Positions"]
-position = Vector2(245, -115)
+[node name="DescriptionLabel" type="Label" parent="Control"]
+visible = false
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+text = "This is a pawnaaaaa"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="Pos1" type="Marker2D" parent="ConveyorHolder/Positions"]
-position = Vector2(255, 0)
+[node name="Panel" type="Panel" parent="Control/DescriptionLabel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_5e2ck")
 
-[node name="Pos2" type="Marker2D" parent="ConveyorHolder/Positions"]
-position = Vector2(245, 115)
-
-[node name="Pos3" type="Marker2D" parent="ConveyorHolder/Positions"]
-position = Vector2(175, 210)
-
-[node name="Pos4" type="Marker2D" parent="ConveyorHolder/Positions"]
-position = Vector2(100, 145)
-
-[node name="Pos5" type="Marker2D" parent="ConveyorHolder/Positions"]
-position = Vector2(90, 0)
-
-[node name="Pos6" type="Marker2D" parent="ConveyorHolder/Positions"]
-position = Vector2(100, -145)
-
-[node name="Pos7" type="Marker2D" parent="ConveyorHolder/Positions"]
-position = Vector2(175, -210)
-
-[node name="PlaceableHolder" type="Node2D" parent="ConveyorHolder"]
-
-[node name="PlaceableMortar" parent="ConveyorHolder/PlaceableHolder" instance=ExtResource("9_f6io5")]
-position = Vector2(93, -17)
-
-[node name="PlaceablePawn" parent="ConveyorHolder/PlaceableHolder" instance=ExtResource("10_qim7q")]
-position = Vector2(98, -133)
-
-[node name="PlaceablePrincess" parent="ConveyorHolder/PlaceableHolder" instance=ExtResource("11_euykq")]
-position = Vector2(95, 122)
-
-[node name="ConveyorGlass" type="Sprite2D" parent="ConveyorHolder"]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("10_5e2ck")
+[node name="ConveyorHolder" parent="." node_paths=PackedStringArray("gameHud") instance=ExtResource("10_sq0d6")]
+position = Vector2(981, 389)
+gameHud = NodePath("..")
