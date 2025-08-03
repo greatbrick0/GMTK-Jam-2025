@@ -113,7 +113,7 @@ vertical_alignment = 1
 
 [node name="DescriptionLabel" type="Label" parent="Control"]
 visible = false
-custom_minimum_size = Vector2(300, 60)
+custom_minimum_size = Vector2(400, 60)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

@@ -38,7 +38,7 @@ clickHandler = NodePath("../ClickPlane")
 gameHud = NodePath("../GameHud")
 mapHolder = NodePath("../MapHolder")
 levelMaps = Array[PackedScene]([ExtResource("2_236hc"), ExtResource("3_tqiex"), ExtResource("4_6l6h0"), ExtResource("5_o18aq"), ExtResource("6_hd7sb"), ExtResource("7_5vthg")])
-mapTransfers = Array[PackedScene]([ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3")])
+mapTransfers = Array[PackedScene]([ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3")])
 tileHighlightObj = ExtResource("4_lwkuy")
 
 [node name="EnemyAi" type="Node" parent="GameplayManager"]

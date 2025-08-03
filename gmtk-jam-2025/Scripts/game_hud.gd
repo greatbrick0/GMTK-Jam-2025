@@ -26,13 +26,17 @@ func AdjustPlayerInputBlockers(adjust: int) -> void:
 	playerInputBlockers += adjust
 
 func SetRemainingTurns(newTurns: int) -> void:
-	remainingTurns -= 1
+	remainingTurns = newTurns
 	remainingTurnsLabel.text = "Remaining Turns: " + str(remainingTurns)
 
 func SubtractRemainingTurns(team: Enums.Teams) -> void:
 	if(team == Enums.Teams.PLAYER):
 		remainingTurns -= 1
 		remainingTurnsLabel.text = "Remaining Turns: " + str(remainingTurns)
+		await get_tree().create_timer(1.0).timeout
+		if(remainingTurns < 0):
+			print("you lose to no remaining turns")
+			get_tree().change_scene_to_file("res://Scenes/Lose_Screen.tscn")
 
 func DisplayDescription(channel: int, message: String) -> void:
 	if(channel == 0):

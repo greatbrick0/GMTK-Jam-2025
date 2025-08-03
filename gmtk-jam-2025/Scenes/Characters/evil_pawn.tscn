@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dqhygawwwvqeo" path="res://Art/Images/Action Icons/bomb.png" id="6_73m3q"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="7_2qwkf"]
 
-[node name="Pawn" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_eux1v")]
+[node name="Pawn2" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_eux1v")]
 team = 1
 maxHealth = 2
 health = 2

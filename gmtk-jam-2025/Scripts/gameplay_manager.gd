@@ -79,10 +79,11 @@ func AttemptToEndTurn() -> void:
 	if(currentTeam == Enums.Teams.PLAYER):
 		if(CheckForLevelVictory()):
 			currentLevel += 1
+			currentLevel %= len(levelMaps)
 			TransferGridItems()
 			LoadNextLevelMap()
 		elif(not teamDatas[Enums.Teams.PLAYER].CheckForRoyalty()):
-			print("you lose")
+			print("you lose to no royalty")
 			get_tree().change_scene_to_file("res://Scenes/Lose_Screen.tscn")
 		currentTeam = Enums.Teams.ENEMY
 		EventBus.end_turn.emit(Enums.Teams.PLAYER)
