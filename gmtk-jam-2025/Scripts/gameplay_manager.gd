@@ -24,6 +24,7 @@ var teamDatas: Dictionary[Enums.Teams, TeamData] = {
 	Enums.Teams.PLAYER: TeamData.new(Enums.Teams.PLAYER),
 	Enums.Teams.ENEMY: TeamData.new(Enums.Teams.ENEMY),
 }
+var currentTeam: Enums.Teams = Enums.Teams.PLAYER
 
 enum ClickModes {STANDARD, ACTION_TARGET, PLACING_TARGET}
 var clickMode: ClickModes = ClickModes.STANDARD
@@ -72,6 +73,22 @@ func TransferGridItems() -> void:
 	for ii in successTiles:
 		if(allActiveTiles[ii] is Node3D):
 			allActiveTiles[ii].reparent(currentTransferRef.get_node("GridItemHolder"))
+
+func AttemptToEndTurn() -> void:
+	if(currentTeam == Enums.Teams.PLAYER):
+		if(CheckForLevelVictory()):
+			currentLevel += 1
+			TransferGridItems()
+			LoadNextLevelMap()
+			EventBus.end_turn.emit(Enums.Teams.PLAYER)
+			await get_tree().create_timer(0.1).timeout
+			EventBus.start_turn.emit(currentTeam)
+		currentTeam = Enums.Teams.ENEMY
+	elif(currentTeam == Enums.Teams.ENEMY):
+		currentTeam = Enums.Teams.PLAYER
+		EventBus.end_turn.emit(Enums.Teams.ENEMY)
+		await get_tree().create_timer(0.1).timeout
+		EventBus.start_turn.emit(currentTeam)
 
 func LoadNextLevelMap() -> void:
 	if(prevTransferRef != null):

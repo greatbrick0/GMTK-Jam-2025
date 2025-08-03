@@ -89,7 +89,8 @@ func Die() -> void:
 	var deathExplosionRef: Node3D = deathExplosionObj.instantiate() as Node3D
 	get_parent().add_child(deathExplosionRef)
 	deathExplosionRef.global_position = global_position
-	var deathScrapRef: GridItem = deathScrapObj.instantiate() as GridItem
+	var deathScrapRef: GridItem = deathScrapObj.instantiate() as Scrap
+	deathScrapRef.scrapAmount = droppedScrapCount
 	get_parent().add_child(deathScrapRef)
 	deathScrapRef.global_position = global_position
 	queue_free()

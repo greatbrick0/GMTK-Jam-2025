@@ -22,4 +22,9 @@ func GetConnectPoint() -> Vector2i:
 	return Vector2i(round($ConnectPoint.global_position.x), round($ConnectPoint.global_position.z))
 
 func RemoveFromPlay() -> void:
+	for ii in $GridItemHolder.get_children():
+		if(ii is GridCharacter):
+			if(ii.team == Enums.Teams.PLAYER):
+				EventBus.add_scrap.emit(ii.droppedScrapCount)
+		ii.RemoveFromPlay()
 	$FallAnims.play("FallExit")

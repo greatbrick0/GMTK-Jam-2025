@@ -16,3 +16,6 @@ func MoveOnGrid(newPos: Vector2i) -> void:
 
 func StandardClickAction(manager: GameplayManager) -> void:
 	pass
+
+func RemoveFromPlay() -> void:
+	EventBus.grid_dict_remove_item.emit(gridPos, self)
