@@ -22,39 +22,39 @@ vec2 random(vec2 uv) {
 }
 
 float worley(vec2 uv, float columns, float rows) {
-	
+
 	vec2 index_uv = floor(vec2(uv.x * columns, uv.y * rows));
 	vec2 fract_uv = fract(vec2(uv.x * columns, uv.y * rows));
-	
-	float minimum_dist = 1.0;  
-	
+
+	float minimum_dist = 1.0;
+
 	for (int y= -1; y <= 1; y++) {
 		for (int x= -1; x <= 1; x++) {
 			vec2 neighbor = vec2(float(x),float(y));
-			
+
 			vec2 point = random(index_uv + neighbor);
 			float speed = 4.5;
 			point = vec2( cos(TIME * TimeModify * point.x * speed), sin(TIME * TimeModify * point.y * speed) ) * 0.5 + 0.5;
-			
+
 			vec2 diff = neighbor + point - fract_uv;
 			float dist = length(diff);
 			minimum_dist = min(minimum_dist, dist);
 		}
 	}
-	
+
 	return minimum_dist;
 }
 
 void fragment() {
-	
+
 	vec2 noise_uv = UV * tiling_noise1 + offset_noise1 * TIME * TimeModify;
 	//worley
 	float worley = worley(noise_uv, Vcolumns, Vrows);
-	
+
 	COLOR = vec4(vec3(worley),1.0f);
 
-	
-	
-	
+
+
+
 }
 
