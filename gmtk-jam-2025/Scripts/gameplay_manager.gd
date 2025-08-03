@@ -139,7 +139,7 @@ func RecieveClick(clickPos: Vector3) -> void:
 		ClickModes.PLACING_TARGET:
 			if(allActiveTiles.has(roundedClickPos)):
 				if(roundedClickPos in actionTargetTiles):
-					FinishCharacterPlacing(selectedPlaceable)
+					FinishCharacterPlacing(roundedClickPos)
 				else:
 					MusicManager.PlayGeneral(2)
 
@@ -203,9 +203,10 @@ func CancelCharacterPlacing(placeable: Placeable) -> void:
 	clickMode = ClickModes.STANDARD
 	DeleteTileHighlights()
 
-func FinishCharacterPlacing(placeable: Placeable) -> void:
+func FinishCharacterPlacing(newPos: Vector2i) -> void:
+	selectedPlaceable.UsePlaceable(newPos, self)
 	MusicManager.PlayGeneral(4)
-	CancelCharacterPlacing(placeable)
+	CancelCharacterPlacing(selectedPlaceable)
 
 func GetValidPlaceableTiles() -> Array[Vector2i]:
 	var output: Array[Vector2i]

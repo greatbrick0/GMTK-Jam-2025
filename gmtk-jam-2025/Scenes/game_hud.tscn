@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c52jeaqpo6aj0"]
+[gd_scene load_steps=13 format=3 uid="uid://c52jeaqpo6aj0"]
 
 [ext_resource type="Script" uid="uid://b0nffpu084jmj" path="res://Scripts/game_hud.gd" id="1_qecdm"]
 [ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="1_qmln0"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://ciwpdrdwl7w3s" path="res://Art/Images/loopSingle.png" id="4_ae0to"]
 [ext_resource type="Texture2D" uid="uid://kh0wfn7waq3r" path="res://Art/Images/loopLeft.png" id="5_a0eom"]
 [ext_resource type="Texture2D" uid="uid://cfp3ooyt3pgwp" path="res://Art/Images/loopRight.png" id="6_sq0d6"]
-[ext_resource type="PackedScene" uid="uid://bipra28bav6mk" path="res://Scenes/placeable.tscn" id="8_ae0to"]
 [ext_resource type="Texture2D" uid="uid://w568fg7ywbft" path="res://Art/Images/Generated Icons/Conveyor.png" id="8_sq0d6"]
+[ext_resource type="PackedScene" uid="uid://cvcbu6cpr35lq" path="res://Scenes/Placeables/placeable_mortar.tscn" id="9_f6io5"]
 [ext_resource type="Texture2D" uid="uid://b8ug3ij5dec4q" path="res://Art/Images/ConveyorGlass.png" id="10_5e2ck"]
+[ext_resource type="PackedScene" uid="uid://b3f7uw5siawlq" path="res://Scenes/Placeables/placeable_pawn.tscn" id="10_qim7q"]
+[ext_resource type="PackedScene" uid="uid://d1smg8pi88yd8" path="res://Scenes/Placeables/placeable_princess.tscn" id="11_euykq"]
 
 [node name="GameHud" type="CanvasLayer"]
 script = ExtResource("1_qecdm")
@@ -97,8 +99,14 @@ position = Vector2(175, -210)
 
 [node name="PlaceableHolder" type="Node2D" parent="ConveyorHolder"]
 
-[node name="Placeable" parent="ConveyorHolder/PlaceableHolder" instance=ExtResource("8_ae0to")]
-position = Vector2(88, -12)
+[node name="PlaceableMortar" parent="ConveyorHolder/PlaceableHolder" instance=ExtResource("9_f6io5")]
+position = Vector2(93, -17)
+
+[node name="PlaceablePawn" parent="ConveyorHolder/PlaceableHolder" instance=ExtResource("10_qim7q")]
+position = Vector2(98, -133)
+
+[node name="PlaceablePrincess" parent="ConveyorHolder/PlaceableHolder" instance=ExtResource("11_euykq")]
+position = Vector2(95, 122)
 
 [node name="ConveyorGlass" type="Sprite2D" parent="ConveyorHolder"]
 scale = Vector2(0.6, 0.6)
