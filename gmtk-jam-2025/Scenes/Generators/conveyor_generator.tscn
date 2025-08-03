@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bd03hgf6aqmc2"]
+
+[ext_resource type="Script" uid="uid://mcx0nbu74qr1" path="res://Scripts/sub_view_port_test.gd" id="1_y0fte"]
+[ext_resource type="Texture2D" uid="uid://bvhi051421xab" path="res://Textures/conveyer.png" id="2_kg8e2"]
+[ext_resource type="ArrayMesh" uid="uid://bshuh0pri2wca" path="res://Models/conveyer.obj" id="3_8ewqm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0fte"]
+albedo_texture = ExtResource("2_kg8e2")
+
+[sub_resource type="Environment" id="Environment_gmvvq"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_qu8tu"]
+colors = PackedColorArray(0.635294, 0.635294, 0.635294, 1, 0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oa712"]
+gradient = SubResource("Gradient_qu8tu")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gmvvq"]
+viewport_path = NodePath("SubViewport")
+
+[node name="ConveyorGenerator" type="Node2D"]
+script = ExtResource("1_y0fte")
+iconName = "Conveyor"
+iconSize = Vector2i(512, 512)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1024, 1024)
+
+[node name="Holder" type="Node3D" parent="SubViewport"]
+
+[node name="Conveyer" type="MeshInstance3D" parent="SubViewport/Holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+material_override = SubResource("StandardMaterial3D_y0fte")
+mesh = ExtResource("3_8ewqm")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.984808, -6.64077e-10, -0.173648, 0.173648, 7.5904e-09, 0.984808, 6.64077e-10, -1, 7.5904e-09, 0, 15, 0)
+fov = 30.0
+size = 2.0
+near = 15.0
+far = 20.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(0.34202, -0.321394, -0.883022, 0, -0.939693, 0.34202, -0.939693, -0.116978, -0.321394, 0, 0, 0)
+shadow_enabled = true
+shadow_normal_bias = 10.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
+environment = SubResource("Environment_gmvvq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture = SubResource("GradientTexture2D_oa712")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("ViewportTexture_gmvvq")

@@ -44,6 +44,8 @@ func _on_button_pressed() -> void:
 		if(scrapCost <= 0):
 			selected = true
 			EventBus.start_character_placing.emit(self)
+		else:
+			MusicManager.PlayGeneral(2)
 
 func _on_button_mouse_entered() -> void:
 	hovered = true

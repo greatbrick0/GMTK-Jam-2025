@@ -31,6 +31,7 @@ var playerInputBlockers: int = 0
 var selectedCharacter: GridCharacter
 var selectedAction: CharacterAction
 var actionTargetTiles: Array[Vector2i] = []
+var selectedPlaceable: Placeable
 
 func _ready() -> void:
 	currentLevel = LevelSelector.selectedLevel
@@ -135,6 +136,12 @@ func RecieveClick(clickPos: Vector3) -> void:
 					MusicManager.PlayGeneral(2)
 			else:
 				UnselectCharacter()
+		ClickModes.PLACING_TARGET:
+			if(allActiveTiles.has(roundedClickPos)):
+				if(roundedClickPos in actionTargetTiles):
+					FinishCharacterPlacing(selectedPlaceable)
+				else:
+					MusicManager.PlayGeneral(2)
 
 func GenerateTileHighlights(tiles: Array[Vector2i], colour: Color = Color.CYAN) -> void:
 	actionTargetTiles = tiles
@@ -187,12 +194,18 @@ func FinishUsingAction(actionPos: Vector2i) -> void:
 
 func StartCharacterPlacing(placeable: Placeable) -> void:
 	UnselectCharacter()
+	selectedPlaceable = placeable
 	clickMode = ClickModes.PLACING_TARGET
 	GenerateTileHighlights(GetValidPlaceableTiles(), Color.YELLOW)
 
 func CancelCharacterPlacing(placeable: Placeable) -> void:
+	selectedPlaceable = null
 	clickMode = ClickModes.STANDARD
 	DeleteTileHighlights()
+
+func FinishCharacterPlacing(placeable: Placeable) -> void:
+	MusicManager.PlayGeneral(4)
+	CancelCharacterPlacing(placeable)
 
 func GetValidPlaceableTiles() -> Array[Vector2i]:
 	var output: Array[Vector2i]

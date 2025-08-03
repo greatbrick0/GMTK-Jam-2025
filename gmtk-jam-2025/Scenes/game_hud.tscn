@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c52jeaqpo6aj0"]
+[gd_scene load_steps=11 format=3 uid="uid://c52jeaqpo6aj0"]
 
 [ext_resource type="Script" uid="uid://b0nffpu084jmj" path="res://Scripts/game_hud.gd" id="1_qecdm"]
 [ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="1_qmln0"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://kh0wfn7waq3r" path="res://Art/Images/loopLeft.png" id="5_a0eom"]
 [ext_resource type="Texture2D" uid="uid://cfp3ooyt3pgwp" path="res://Art/Images/loopRight.png" id="6_sq0d6"]
 [ext_resource type="PackedScene" uid="uid://bipra28bav6mk" path="res://Scenes/placeable.tscn" id="8_ae0to"]
+[ext_resource type="Texture2D" uid="uid://w568fg7ywbft" path="res://Art/Images/Generated Icons/Conveyor.png" id="8_sq0d6"]
+[ext_resource type="Texture2D" uid="uid://b8ug3ij5dec4q" path="res://Art/Images/ConveyorGlass.png" id="10_5e2ck"]
 
 [node name="GameHud" type="CanvasLayer"]
 script = ExtResource("1_qecdm")
@@ -23,16 +25,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Button" type="Button" parent="Control"]
+[node name="EndTurnButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -170.0
+offset_left = -520.0
 offset_top = -80.0
-offset_right = -20.0
+offset_right = -370.0
 offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -60,5 +62,44 @@ grow_vertical = 0
 scale = Vector2(0.4, 0.4)
 theme_override_constants/separation = 0
 
-[node name="Placeable" parent="." instance=ExtResource("8_ae0to")]
-position = Vector2(1184, 386)
+[node name="ConveyorHolder" type="Node2D" parent="."]
+position = Vector2(981, 445)
+
+[node name="ConveyorBase" type="Sprite2D" parent="ConveyorHolder"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_sq0d6")
+
+[node name="Positions" type="Node2D" parent="ConveyorHolder"]
+
+[node name="Pos0" type="Marker2D" parent="ConveyorHolder/Positions"]
+position = Vector2(245, -115)
+
+[node name="Pos1" type="Marker2D" parent="ConveyorHolder/Positions"]
+position = Vector2(255, 0)
+
+[node name="Pos2" type="Marker2D" parent="ConveyorHolder/Positions"]
+position = Vector2(245, 115)
+
+[node name="Pos3" type="Marker2D" parent="ConveyorHolder/Positions"]
+position = Vector2(175, 210)
+
+[node name="Pos4" type="Marker2D" parent="ConveyorHolder/Positions"]
+position = Vector2(100, 145)
+
+[node name="Pos5" type="Marker2D" parent="ConveyorHolder/Positions"]
+position = Vector2(90, 0)
+
+[node name="Pos6" type="Marker2D" parent="ConveyorHolder/Positions"]
+position = Vector2(100, -145)
+
+[node name="Pos7" type="Marker2D" parent="ConveyorHolder/Positions"]
+position = Vector2(175, -210)
+
+[node name="PlaceableHolder" type="Node2D" parent="ConveyorHolder"]
+
+[node name="Placeable" parent="ConveyorHolder/PlaceableHolder" instance=ExtResource("8_ae0to")]
+position = Vector2(88, -12)
+
+[node name="ConveyorGlass" type="Sprite2D" parent="ConveyorHolder"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_5e2ck")

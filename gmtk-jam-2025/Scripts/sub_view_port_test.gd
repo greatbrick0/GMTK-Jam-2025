@@ -4,7 +4,7 @@ extends Node2D
 @export_tool_button("Generate", "Add") var generate_button = generate_icons
 @export var iconName: String = ""
 const OUTPUT_DIR := "res://Art/Images/Generated Icons/"
-const ICON_SIZE := Vector2i(256, 256)
+@export var iconSize: Vector2i = Vector2i(256, 256)
 
 func generate_icons():
 	var dir = DirAccess.open("res://")

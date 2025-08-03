@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhjxgeixh01pf"
+path="res://.godot/imported/Robot Placement.mp3-47a7c5dfc0a4b963e70545e249b02779.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Robot Placement.mp3"
+dest_files=["res://.godot/imported/Robot Placement.mp3-47a7c5dfc0a4b963e70545e249b02779.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
