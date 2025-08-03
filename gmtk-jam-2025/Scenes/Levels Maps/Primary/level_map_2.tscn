@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3utyaq0kln3t"]
+[gd_scene load_steps=6 format=3 uid="uid://b3utyaq0kln3t"]
 
 [ext_resource type="PackedScene" uid="uid://d3mdpfhbust2f" path="res://Scenes/level_map.tscn" id="1_55p40"]
+[ext_resource type="PackedScene" uid="uid://ki1713g3wo1v" path="res://Scenes/Characters/evil_pawn.tscn" id="2_55p40"]
 [ext_resource type="PackedScene" uid="uid://8p4dmlrnlsd0" path="res://Scenes/scrap.tscn" id="2_cjvjt"]
+[ext_resource type="PackedScene" uid="uid://c3logbuy3m7xp" path="res://Scenes/grid_message.tscn" id="3_cjvjt"]
 [ext_resource type="PackedScene" uid="uid://wupfhi85dpdv" path="res://Scenes/Characters/pawn.tscn" id="5_bkcks"]
 
 [node name="LevelMap1" instance=ExtResource("1_55p40")]
@@ -14,8 +16,15 @@ data = {
 [node name="ConnectPoint" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
 
-[node name="Scrap" parent="GridItemHolder" index="0" instance=ExtResource("2_cjvjt")]
+[node name="Pawn2" parent="GridItemHolder" index="0" instance=ExtResource("2_55p40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="GridMessage" parent="GridItemHolder" index="1" instance=ExtResource("3_cjvjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+message = "All units drop scrap when destroyed "
+
+[node name="Scrap" parent="GridItemHolder" index="2" instance=ExtResource("2_cjvjt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
-[node name="Pawn" parent="GridItemHolder" index="1" instance=ExtResource("5_bkcks")]
+[node name="Pawn" parent="GridItemHolder" index="3" instance=ExtResource("5_bkcks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
