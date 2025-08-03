@@ -25,7 +25,7 @@ var teamDatas: Dictionary[Enums.Teams, TeamData] = {
 	Enums.Teams.ENEMY: TeamData.new(Enums.Teams.ENEMY),
 }
 
-enum ClickModes {STANDARD, ACTION_TARGET}
+enum ClickModes {STANDARD, ACTION_TARGET, PLACING_TARGET}
 var clickMode: ClickModes = ClickModes.STANDARD
 var playerInputBlockers: int = 0
 var selectedCharacter: GridCharacter
@@ -41,6 +41,8 @@ func _ready() -> void:
 	EventBus.grid_dict_add_item.connect(AddItemToGrid)
 	EventBus.grid_dict_move_item.connect(MoveItemOnGrid)
 	EventBus.grid_dict_remove_item.connect(RemoveItemFromGrid)
+	EventBus.start_character_placing.connect(StartCharacterPlacing)
+	EventBus.cancel_character_placing.connect(CancelCharacterPlacing)
 	
 	LoadNextLevelMap()
 	prevTransferRef = mapTransfers[0].instantiate() as LevelMap
@@ -182,6 +184,15 @@ func StartUsingAction(index: int) -> void:
 func FinishUsingAction(actionPos: Vector2i) -> void:
 	selectedAction.AttemptUseAction(actionPos, self)
 	UnselectAction()
+
+func StartCharacterPlacing(placeable: Placeable) -> void:
+	UnselectCharacter()
+	clickMode = ClickModes.PLACING_TARGET
+	GenerateTileHighlights(GetValidPlaceableTiles(), Color.YELLOW)
+
+func CancelCharacterPlacing(placeable: Placeable) -> void:
+	clickMode = ClickModes.STANDARD
+	DeleteTileHighlights()
 
 func GetValidPlaceableTiles() -> Array[Vector2i]:
 	var output: Array[Vector2i]
