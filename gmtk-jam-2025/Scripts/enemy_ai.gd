@@ -17,7 +17,9 @@ func StartUsingCharacters() -> void:
 		print("no enemies")
 		gameManager.AttemptToEndTurn()
 		return
-	for ii in gameManager.teamDatas[myTeam].teamMembers:
+	var members: Array[GridCharacter] = gameManager.teamDatas[myTeam].teamMembers
+	for ii in members:
+		if(ii != null): continue
 		while ii != null and ii.HasRemainingActions():
 			var selectedAction: CharacterAction = ii.GetFirstRemainingAction()
 			var targets: Array[Vector2i] = selectedAction.GetTileOptions(gameManager.allActiveTiles)
