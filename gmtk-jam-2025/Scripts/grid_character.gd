@@ -9,6 +9,7 @@ class_name GridCharacter
 @export var deathExplosionObj: PackedScene
 @export var deathScrapObj: PackedScene
 signal character_died(oldPos: Vector2i, item: GridItem)
+signal character_damaged(newHealth: int, oldHealth: int)
 
 @export var actionAnimPrefix: String
 @export var actionAnimPlayer: AnimationPlayer
@@ -62,6 +63,7 @@ func AppendUsedActions(appended: Array[String]) -> void:
 		actions_available_updated.emit(false)
 
 func TakeSelfDamage(damageAmount: int) -> bool:
+	character_damaged.emit(health - damageAmount, health)
 	health -= damageAmount
 	if(health <= 0): Die()
 	return health <= 0
@@ -71,6 +73,7 @@ func TakeDamage(damageAmount: int, delay: float = 0.0) -> bool:
 		EventBus.adjust_player_blockers.emit(1)
 		await get_tree().create_timer(delay).timeout
 		EventBus.adjust_player_blockers.emit(-1)
+	character_damaged.emit(health - damageAmount, health)
 	health -= damageAmount
 	if(health <= 0):
 		Die()
