@@ -7,6 +7,7 @@ class_name CharacterAction
 @export var indicatorsColour: Color = Color.CYAN
 
 signal action_use_success()
+signal action_follow_up(throughPos: Vector2i, manager: GameplayManager)
 var actionOwner: GridCharacter
 
 func _ready() -> void:

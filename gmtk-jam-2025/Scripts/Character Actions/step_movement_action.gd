@@ -34,6 +34,7 @@ func UseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> void:
 	actionOwner.MoveOnGrid(actionPos)
 	await get_tree().create_timer(0.1).timeout
 	EventBus.adjust_player_blockers.emit(-1)
+	action_follow_up.emit(actionPos, gameplayManager)
 
 func CreateChain(originPos: Vector2i) -> Array[Vector2i]:
 	var chain: Array[Vector2i] = []

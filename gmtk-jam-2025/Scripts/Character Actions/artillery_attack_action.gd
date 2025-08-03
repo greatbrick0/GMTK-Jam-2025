@@ -24,3 +24,4 @@ func UseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> void:
 	actionOwner.TakeSelfDamage(selfDamage)
 	if(gameplayManager.allActiveTiles[actionPos] is GridCharacter):
 		gameplayManager.allActiveTiles[actionPos].TakeDamage(damage, 0.2)
+	action_follow_up.emit(actionPos, gameplayManager)

@@ -29,3 +29,4 @@ func UseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> void:
 	if(gameplayManager.allActiveTiles[actionPos] is GridCharacter):
 		gameplayManager.allActiveTiles[actionPos].health += 1
 		gameplayManager.allActiveTiles[actionPos].health = max(gameplayManager.allActiveTiles[actionPos].health, gameplayManager.allActiveTiles[actionPos].maxHealth)
+	action_follow_up.emit(actionPos, gameplayManager)
