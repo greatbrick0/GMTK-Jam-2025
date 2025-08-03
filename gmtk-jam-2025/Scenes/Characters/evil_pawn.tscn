@@ -1,0 +1,194 @@
+[gd_scene load_steps=9 format=3 uid="uid://ki1713g3wo1v"]
+
+[ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_eux1v"]
+[ext_resource type="PackedScene" uid="uid://bylqpmy7aurtl" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="2_ie4v8"]
+[ext_resource type="Material" path="res://Textures/Pawn_Evil.tres" id="3_ie4v8"]
+[ext_resource type="Script" uid="uid://bqm4vddppofoy" path="res://Scripts/Character Actions/step_movement_action.gd" id="3_qtk6m"]
+[ext_resource type="Texture2D" uid="uid://c8ofc3ddbw0od" path="res://Art/Images/Action Icons/walk.png" id="4_5b3oj"]
+[ext_resource type="Script" uid="uid://d2egqo3bcnnu8" path="res://Scripts/Character Actions/gun_attack_action.gd" id="5_7crop"]
+[ext_resource type="Texture2D" uid="uid://dqhygawwwvqeo" path="res://Art/Images/Action Icons/bomb.png" id="6_73m3q"]
+[ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="7_2qwkf"]
+
+[node name="Pawn" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_eux1v")]
+maxHealth = 2
+health = 2
+actionAnimPrefix = "Pawn/"
+actionAnimPlayer = NodePath("Visuals/pawn_animate/AnimationPlayer")
+
+[node name="pawn_animate" parent="Visuals" index="0" instance=ExtResource("2_ie4v8")]
+transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, 0, 0.02, 0)
+
+[node name="Torus_021" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -3.64812e-07, 3.91626e-07, 3.3856e-07, 0.999999, 6.25849e-07, -3.79706e-07, -5.66244e-07, 1, 2.68221e-07, 1.3411e-06, 9.40636e-08)
+
+[node name="Torus_021" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_021" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_019" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, -3.70562e-07, 2.91305e-07, 3.4431e-07, 0.999999, 4.76837e-07, -2.79385e-07, -3.8743e-07, 1, 2.98023e-07, 1.37091e-06, 9.59262e-08)
+
+[node name="Torus_019" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_019" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_020" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -1.82822e-07, -4.33724e-08, 1.5657e-07, 1, 7.7486e-07, 5.52924e-08, -8.34465e-07, 1, 1.49012e-07, 1.3113e-06, 4.17233e-07)
+
+[node name="Torus_022" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, -1.82822e-07, -4.33724e-08, 1.5657e-07, 1, 7.7486e-07, 5.52924e-08, -8.34465e-07, 1, 1.49012e-07, 1.3113e-06, 4.17233e-07)
+
+[node name="Torus_022" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_022" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_023" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="4"]
+transform = Transform3D(1, -4.37338e-07, -5.32718e-08, 4.11085e-07, 1, -2.38419e-07, 6.5192e-08, 2.38419e-07, 1, 3.8743e-07, 1.07288e-06, -4.6511e-07)
+
+[node name="Torus_023" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_023" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_024" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="5"]
+transform = Transform3D(1, -4.37338e-07, -5.32718e-08, 4.11085e-07, 1, -2.38419e-07, 6.5192e-08, 2.38419e-07, 1, 3.8743e-07, 1.07288e-06, -4.6511e-07)
+
+[node name="Torus_024" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_024" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_025" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="6"]
+transform = Transform3D(1, 2.98023e-07, -1.9262e-07, -2.98023e-07, 1, 3.01865e-07, 1.9262e-07, -3.01865e-07, 1, -3.27042e-07, 5.96046e-07, 2.84607e-07)
+
+[node name="Torus_025" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_025" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_026" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, 2.98023e-07, -1.9262e-07, -2.98023e-07, 1, 3.01865e-07, 1.9262e-07, -3.01865e-07, 1, -3.27042e-07, 5.96046e-07, 2.84607e-07)
+
+[node name="Torus_026" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_026" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_003" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="8"]
+transform = Transform3D(1, 1.81276e-06, 2.76916e-07, -1.94866e-06, 1, -1.78814e-07, -1.59576e-07, 2.98023e-07, 1, -8.34465e-07, 1.69873e-06, -2.05822e-07)
+
+[node name="Torus_003" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_003" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_001" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="9"]
+transform = Transform3D(1, -5.11825e-07, -1.03439e-06, 4.97056e-07, 0.999999, -1.19209e-07, 9.60157e-07, 1.78814e-07, 1, 8.9407e-08, 1.07288e-06, -4.52623e-07)
+
+[node name="Torus_001" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_001" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_002" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="10"]
+transform = Transform3D(1, 6.49666e-07, -5.65001e-07, -6.95203e-07, 0.999999, 4.17233e-07, 5.56754e-07, -5.06639e-07, 1, -3.27826e-07, 1.3113e-06, -2.98023e-08)
+
+[node name="Torus_005" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="11"]
+transform = Transform3D(1, 6.49666e-07, -5.65001e-07, -6.95203e-07, 0.999999, 4.17233e-07, 5.56754e-07, -5.06639e-07, 1, -3.27826e-07, 1.3113e-06, -2.98023e-08)
+
+[node name="Torus_005" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_005" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_006" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="12"]
+transform = Transform3D(1, 4.14222e-07, -3.45169e-07, -4.59759e-07, 1, -4.47035e-07, 3.36922e-07, 3.8743e-07, 1, -1.49012e-07, 8.34465e-07, -4.6163e-07)
+
+[node name="Torus_006" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_006" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_007" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="13"]
+transform = Transform3D(1, 4.14222e-07, -3.45169e-07, -4.59759e-07, 1, -4.47035e-07, 3.36922e-07, 3.8743e-07, 1, -1.49012e-07, 8.34465e-07, -4.6163e-07)
+
+[node name="Torus_007" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_007" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_008" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="14"]
+transform = Transform3D(1, -3.8743e-07, 1.99483e-09, 2.98023e-07, 1, -5.65669e-09, -1.99478e-09, 5.6568e-09, 1, 7.1604e-07, 4.76837e-07, -7.18353e-08)
+
+[node name="Torus_008" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_008" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_009" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="15"]
+transform = Transform3D(1, -3.8743e-07, 1.99483e-09, 2.98023e-07, 1, -5.65669e-09, -1.99478e-09, 5.6568e-09, 1, 7.1604e-07, 4.76837e-07, -7.18353e-08)
+
+[node name="Torus_009" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_009" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_031" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="16"]
+transform = Transform3D(1, -9.26655e-08, 7.84923e-08, 1.19497e-07, 0.866025, -0.5, -2.16436e-08, 0.5, 0.866025, -1.78814e-07, 0.154437, -0.576362)
+
+[node name="Torus_031" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_031" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_030" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="17"]
+transform = Transform3D(1, -4.37114e-08, -1.44852e-07, 4.37113e-08, 1, -8.74228e-08, 1.44852e-07, 8.74227e-08, 1, -1.78814e-07, 9.53674e-07, -9.58388e-08)
+
+[node name="Torus_018" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="18"]
+transform = Transform3D(1, 5.21247e-16, -3.17866e-08, 3.48595e-15, 1, 3.60379e-08, 3.17866e-08, -3.6038e-08, 1, -1.64162e-08, 5.96046e-07, 3.44128e-08)
+
+[node name="Torus_018" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_018" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_028" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="19"]
+transform = Transform3D(1, 5.21247e-16, -3.17866e-08, 3.48595e-15, 1, 3.60379e-08, 3.17866e-08, -3.6038e-08, 1, -1.64162e-08, 5.96046e-07, 3.44128e-08)
+
+[node name="Torus_028" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_028" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_029" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="20"]
+transform = Transform3D(1, 5.21247e-16, -3.17866e-08, 3.48595e-15, 1, 3.60379e-08, 3.17866e-08, -3.6038e-08, 1, -1.64162e-08, 5.96046e-07, 3.44128e-08)
+
+[node name="Torus_015" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="21"]
+transform = Transform3D(1, 8.76895e-08, -2.06601e-07, -1.79242e-07, 0.866025, -0.5, 1.35077e-07, 0.5, 0.866025, 5.96046e-08, 0.154437, -0.576362)
+
+[node name="Torus_015" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_015" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_014" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="22"]
+transform = Transform3D(1, 2.75047e-07, -1.06922e-07, -2.75047e-07, 1, -8.74227e-08, 1.06922e-07, 8.74228e-08, 1, -1.78814e-07, 1.3113e-06, -2.13637e-07)
+
+[node name="Torus_004" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="23"]
+transform = Transform3D(1, 5.21251e-16, -3.17865e-08, -3.82137e-15, 1, -1.31134e-07, 3.17865e-08, 1.31134e-07, 1, 1.91432e-07, 5.96046e-07, -2.3778e-07)
+
+[node name="Torus_004" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_004" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_012" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="24"]
+transform = Transform3D(1, 5.21251e-16, -3.17865e-08, -3.82137e-15, 1, -1.31134e-07, 3.17865e-08, 1.31134e-07, 1, 1.91432e-07, 5.96046e-07, -2.3778e-07)
+
+[node name="Torus_012" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_012" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_013" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="25"]
+transform = Transform3D(1, 5.21251e-16, -3.17865e-08, -3.82137e-15, 1, -1.31134e-07, 3.17865e-08, 1.31134e-07, 1, 1.91432e-07, 5.96046e-07, -2.3778e-07)
+
+[node name="Torus_010" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="26"]
+transform = Transform3D(1, -4.37114e-08, 6.97913e-15, 4.37114e-08, 1, -4.37114e-08, -5.06844e-15, 4.37114e-08, 1, 5.0665e-08, 7.15256e-07, -1.1027e-07)
+
+[node name="Torus_010" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_010" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="Torus_011" parent="Visuals/pawn_animate/Armature/Skeleton3D" index="27"]
+transform = Transform3D(1, -4.37114e-08, 6.97913e-15, 4.37114e-08, 1, -4.37114e-08, -5.06844e-15, 4.37114e-08, 1, 5.0665e-08, 7.15256e-07, -1.1027e-07)
+
+[node name="Torus_011" parent="Visuals/pawn_animate/Armature/Skeleton3D/Torus_011" index="0"]
+material_override = ExtResource("3_ie4v8")
+
+[node name="StepMovementAction" type="Node" parent="Actions" index="0"]
+script = ExtResource("3_qtk6m")
+directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
+stepRange = 2
+actionTags = Array[String](["move"])
+actionIcon = ExtResource("4_5b3oj")
+metadata/_custom_type_script = "uid://bqm4vddppofoy"
+
+[node name="GunAttackAction" type="Node" parent="Actions" index="1"]
+script = ExtResource("5_7crop")
+directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
+ranges = Array[int]([1, 1, 1, 1])
+actionTags = Array[String](["attack"])
+actionIcon = ExtResource("6_73m3q")
+indicatorsColour = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://d2egqo3bcnnu8"
+
+[node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("7_2qwkf")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
+
+[connection signal="actions_available_updated" from="." to="Visuals_Stationary/UnitIndicator" method="set_visible"]
+[connection signal="action_use_success" from="Actions/GunAttackAction" to="." method="PlayActionAnimation" binds= [0]]
+
+[editable path="Visuals/pawn_animate"]

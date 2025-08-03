@@ -119,6 +119,8 @@ func LoadNextLevelMap() -> void:
 
 func AddItemToGrid(newPos: Vector2i, item: GridItem) -> void:
 	allActiveTiles[newPos] = item
+	if(item is Scrap):
+		item.CheckForRoyalty(allActiveTiles)
 
 func MoveItemOnGrid(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
 	if(oldPos == newPos): return

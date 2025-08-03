@@ -58,6 +58,14 @@ func HasRemainingActions() -> bool:
 		output = output or ii.CanBeUsed()
 	return output
 
+func GetFirstRemainingAction() -> CharacterAction:
+	var output: CharacterAction
+	for ii in $Actions.get_children():
+		if(ii.CanBeUsed()):
+			output = ii
+			break
+	return output
+
 func AppendUsedActions(appended: Array[String]) -> void:
 	usedActions.append_array(appended)
 	if(not HasRemainingActions()):

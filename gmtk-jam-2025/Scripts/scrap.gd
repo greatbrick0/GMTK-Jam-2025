@@ -9,9 +9,17 @@ func _ready():
 	for ii in range(3):
 		for jj in range(3):
 			nearTiles.append(gridPos + Vector2i(ii - 1, jj - 1))
-	EventBus.grid_dict_move_item.connect(LookForRoyalty)
+	EventBus.grid_dict_move_item.connect(ReactToRoyalty)
 
-func LookForRoyalty(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
+func CheckForRoyalty(dict: Dictionary) -> void:
+	for ii in nearTiles:
+		if(not dict.has(ii)): continue
+		if(not dict[ii] is GridCharacter): continue
+		if(dict[ii].characterClass == Enums.CharacterClasses.ROYALTY):
+			GetCollected()
+			break
+
+func ReactToRoyalty(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
 	if(nearTiles.has(newPos)):
 		if(item is GridCharacter):
 			if(item.characterClass == Enums.CharacterClasses.ROYALTY):
