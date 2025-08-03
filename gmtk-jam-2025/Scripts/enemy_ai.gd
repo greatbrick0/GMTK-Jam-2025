@@ -19,7 +19,7 @@ func StartUsingCharacters() -> void:
 		return
 	var members: Array[GridCharacter] = gameManager.teamDatas[myTeam].teamMembers
 	for ii in members:
-		if(ii != null): continue
+		if(ii == null): continue
 		while ii != null and ii.HasRemainingActions():
 			var selectedAction: CharacterAction = ii.GetFirstRemainingAction()
 			var targets: Array[Vector2i] = selectedAction.GetTileOptions(gameManager.allActiveTiles)
