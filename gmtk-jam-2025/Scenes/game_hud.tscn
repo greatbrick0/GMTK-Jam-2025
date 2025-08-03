@@ -17,7 +17,6 @@ script = ExtResource("1_qecdm")
 actionButtonObj = ExtResource("3_pef4c")
 actionButtonSprites = Array[Texture]([ExtResource("3_jgq5c"), ExtResource("4_ae0to"), ExtResource("5_a0eom"), ExtResource("6_sq0d6")])
 descriptionLabel = NodePath("Control/DescriptionLabel")
-playerScrapCount = 10
 scrapCountLabel = NodePath("Control/ScrapBox/ScrapCountLabel")
 remainingTurnsLabel = NodePath("Control/RemainingTurnsLabel")
 

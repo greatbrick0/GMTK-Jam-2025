@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1ut1ou3bio5v"]
+[gd_scene load_steps=19 format=3 uid="uid://c1ut1ou3bio5v"]
 
 [ext_resource type="Script" uid="uid://cc8prbaljt2m7" path="res://Scripts/gameplay_manager.gd" id="1_ikcpc"]
 [ext_resource type="PackedScene" uid="uid://c52jeaqpo6aj0" path="res://Scenes/game_hud.tscn" id="1_q2fht"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cd68fjtainkfs" path="res://Scenes/Levels Maps/Primary/level_map_4.tscn" id="5_o18aq"]
 [ext_resource type="PackedScene" uid="uid://yhxyq61x68t8" path="res://Scenes/Levels Maps/Primary/level_map_5.tscn" id="6_hd7sb"]
 [ext_resource type="PackedScene" uid="uid://hm6oxttviq00" path="res://Scenes/Levels Maps/Primary/level_map_6.tscn" id="7_5vthg"]
+[ext_resource type="Script" uid="uid://dx8fo6bvmn34b" path="res://Scripts/enemy_ai.gd" id="10_hd7sb"]
 [ext_resource type="Shader" path="res://Shaders/BackgroundAttempt2.gdshader" id="12_o18aq"]
 
 [sub_resource type="Environment" id="Environment_q2fht"]
@@ -39,6 +40,9 @@ mapHolder = NodePath("../MapHolder")
 levelMaps = Array[PackedScene]([ExtResource("2_236hc"), ExtResource("3_tqiex"), ExtResource("4_6l6h0"), ExtResource("5_o18aq"), ExtResource("6_hd7sb"), ExtResource("7_5vthg")])
 mapTransfers = Array[PackedScene]([ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3"), ExtResource("2_a2ia3")])
 tileHighlightObj = ExtResource("4_lwkuy")
+
+[node name="EnemyAi" type="Node" parent="GameplayManager"]
+script = ExtResource("10_hd7sb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q2fht")
