@@ -1,0 +1,150 @@
+[gd_scene load_steps=17 format=3 uid="uid://c63o3kd1x361"]
+
+[ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_s1eqd"]
+[ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="2_imb81"]
+[ext_resource type="Script" uid="uid://bu8m04w83xwfk" path="res://Scripts/Character Actions/chess_movement_action.gd" id="3_qckd7"]
+[ext_resource type="Texture2D" uid="uid://dr1r2wvx4qxmd" path="res://Art/Images/Action Icons/flight.png" id="4_cxdma"]
+[ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="5_r2a3o"]
+[ext_resource type="Shader" uid="uid://dmxdomvmo3vah" path="res://Shaders/Shadow.gdshader" id="6_l6xvp"]
+[ext_resource type="Texture2D" uid="uid://bmtr67s1ywr4n" path="res://Textures/VFx/MaterialTest1_outputCircle.png" id="7_rbh68"]
+[ext_resource type="Shader" uid="uid://dt5be7rafrep3" path="res://Shaders/UnitIndicator.gdshader" id="8_j0jgn"]
+[ext_resource type="Texture2D" uid="uid://cf1uqmqnk53d4" path="res://Textures/VFx/MaterialTest1_Corners.png" id="9_odts1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aayhu"]
+render_priority = 0
+shader = ExtResource("6_l6xvp")
+shader_parameter/baseColor = Vector4(0, 0, 0.06, 0)
+shader_parameter/opacity = 0.615
+shader_parameter/TexA = ExtResource("7_rbh68")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4pjou"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4grcs"]
+render_priority = 0
+shader = ExtResource("8_j0jgn")
+shader_parameter/baseColor = Vector4(3, 3, 0.3, 0)
+shader_parameter/opacity = 0.6
+shader_parameter/TexA = ExtResource("9_odts1")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ffqpr"]
+
+[sub_resource type="Animation" id="Animation_26mj6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5, 1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_o8r2j"]
+resource_name = "Swell"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.997433, 1.99792),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5, 1.5, 1.5), Vector3(1.3, 1.3, 1.3), Vector3(1.5, 1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlqpc"]
+_data = {
+&"RESET": SubResource("Animation_26mj6"),
+&"Swell": SubResource("Animation_o8r2j")
+}
+
+[node name="Princess" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_s1eqd")]
+characterClass = 3
+maxHealth = 4
+health = 4
+actionAnimPlayer = NodePath("Visuals/PrincessAnims/AnimationPlayer")
+
+[node name="PrincessAnims" parent="Visuals" index="0" instance=ExtResource("2_imb81")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.07)
+
+[node name="Skeleton3D" parent="Visuals/PrincessAnims/Armature_002" index="0"]
+bones/1/scale = Vector3(0.999306, 0.999109, 0.999109)
+
+[node name="L_Brace11" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="0"]
+transform = Transform3D(0.999306, 1.10269e-06, 2.3484e-08, 4.93035e-08, -4.58423e-08, -0.999109, -1.07288e-06, 0.999109, -5.78864e-08, -1.54972e-06, -8.52651e-14, 0.00139248)
+
+[node name="L_Brace2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="1"]
+transform = Transform3D(0.999306, 1.10269e-06, 2.3484e-08, 4.93035e-08, -4.58423e-08, -0.999109, -1.07288e-06, 0.999109, -5.78864e-08, -1.54972e-06, -8.52651e-14, 0.00139248)
+
+[node name="L_Wing" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="2"]
+transform = Transform3D(0.999306, 1.10269e-06, 2.3484e-08, 4.93035e-08, -4.58423e-08, -0.999109, -1.07288e-06, 0.999109, -5.78864e-08, -1.54972e-06, -8.52651e-14, 0.00139248)
+
+[node name="L_WingNut1" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="3"]
+transform = Transform3D(0.999306, 1.10269e-06, 2.3484e-08, 4.93035e-08, -4.58423e-08, -0.999109, -1.07288e-06, 0.999109, -5.78864e-08, -1.07288e-06, -1.9102e-08, 0.438394)
+
+[node name="L_WingNut2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="4"]
+transform = Transform3D(0.999306, 1.10269e-06, 2.3484e-08, 4.93035e-08, -4.58423e-08, -0.999109, -1.07288e-06, 0.999109, -5.78864e-08, -1.07288e-06, -1.9102e-08, 0.438394)
+
+[node name="R_Brace1" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="5"]
+transform = Transform3D(0.999306, -1.10269e-06, -2.3484e-08, -4.93034e-08, -4.58423e-08, -0.999109, 1.07288e-06, 0.999109, -5.78865e-08, 1.54972e-06, 7.10543e-14, 0.00139248)
+
+[node name="R_Brace2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="6"]
+transform = Transform3D(0.999306, -1.10269e-06, -2.3484e-08, -4.93034e-08, -4.58423e-08, -0.999109, 1.07288e-06, 0.999109, -5.78865e-08, 1.54972e-06, 7.10543e-14, 0.00139248)
+
+[node name="R_Wing" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="7"]
+transform = Transform3D(0.999306, -1.10269e-06, -2.3484e-08, -4.93034e-08, -4.58423e-08, -0.999109, 1.07288e-06, 0.999109, -5.78865e-08, 1.54972e-06, 7.10543e-14, 0.00139248)
+
+[node name="R_WingNut1" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="8"]
+transform = Transform3D(0.999306, -1.10269e-06, -2.3484e-08, -4.93034e-08, -4.58423e-08, -0.999109, 1.07288e-06, 0.999109, -5.78865e-08, 1.07288e-06, -1.91019e-08, 0.438394)
+
+[node name="R_WingNut2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="9"]
+transform = Transform3D(0.999306, -1.10269e-06, -2.3484e-08, -4.93034e-08, -4.58423e-08, -0.999109, 1.07288e-06, 0.999109, -5.78865e-08, 1.07288e-06, -1.91019e-08, 0.438394)
+
+[node name="BracesRing" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="10"]
+transform = Transform3D(0.999306, 2.97717e-11, 1.12045e-14, 1.12023e-14, -1.48408e-07, -0.999109, 2.97149e-11, 0.999109, -1.48408e-07, -4.64411e-11, -6.08082e-11, 0.00139129)
+
+[node name="Core_2" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="11"]
+transform = Transform3D(0.999306, 2.71285e-11, 1.22782e-11, -1.71941e-14, 0.412317, -0.910062, 2.97291e-11, 0.910062, 0.412317, -4.64411e-11, -6.08082e-11, 0.00139129)
+
+[node name="Lens" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="12"]
+transform = Transform3D(0.999306, 2.81943e-11, -9.46443e-12, -1.71941e-14, -0.316925, -0.947511, 2.97291e-11, 0.947511, -0.316925, 4.32321e-13, -1.67881, 1.57598)
+
+[node name="ChessMovementAction" type="Node" parent="Actions" index="0"]
+script = ExtResource("3_qckd7")
+directions = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, 0), Vector2i(1, -1), Vector2i(0, -1), Vector2i(-1, -1), Vector2i(-1, 0), Vector2i(-1, 1)])
+ranges = Array[int]([3, 2, 3, 2, 3, 2, 3, 2])
+actionIcon = ExtResource("4_cxdma")
+metadata/_custom_type_script = "uid://bu8m04w83xwfk"
+
+[node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("5_r2a3o")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="Visuals_Stationary" index="1"]
+transform = Transform3D(0.485, 0, 0, 0, 0.485, 0, 0, 0, 0.485, 0, 0.111548, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals_Stationary/Node3D" index="0"]
+material_override = SubResource("ShaderMaterial_aayhu")
+mesh = SubResource("PlaneMesh_4pjou")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals_Stationary" index="2"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.1, 0)
+material_override = SubResource("ShaderMaterial_4grcs")
+mesh = SubResource("PlaneMesh_ffqpr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals_Stationary/MeshInstance3D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_jlqpc")
+}
+autoplay = "Swell"
+
+[connection signal="actions_available_updated" from="." to="Visuals_Stationary/UnitIndicator" method="set_visible"]
+
+[editable path="Visuals/PrincessAnims"]

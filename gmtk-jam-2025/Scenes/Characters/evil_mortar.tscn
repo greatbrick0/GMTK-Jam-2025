@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=3 uid="uid://ds5ey0rwt4e6i"]
+
+[ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_l0p0v"]
+[ext_resource type="PackedScene" uid="uid://dmnqscyj7s2gn" path="res://Models/AnimatedRobots/Mortar_Animated.tscn" id="2_weofj"]
+[ext_resource type="Material" uid="uid://bq2otijypc6ma" path="res://Textures/Mortar_Evil.tres" id="3_weofj"]
+[ext_resource type="Script" uid="uid://bqm4vddppofoy" path="res://Scripts/Character Actions/step_movement_action.gd" id="3_xem7q"]
+[ext_resource type="Texture2D" uid="uid://c8ofc3ddbw0od" path="res://Art/Images/Action Icons/walk.png" id="4_i5jf1"]
+[ext_resource type="Script" uid="uid://q2u6hxbk8u86" path="res://Scripts/Character Actions/artillery_attack_action.gd" id="5_jy50u"]
+[ext_resource type="Texture2D" uid="uid://depfvqrthpp5r" path="res://Art/Images/Action Icons/fire.png" id="6_mmef6"]
+[ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="7_8bf7q"]
+
+[sub_resource type="Gradient" id="Gradient_ma7v5"]
+offsets = PackedFloat32Array(0.003125, 0.046875, 0.225, 0.6875)
+colors = PackedColorArray(1, 1, 1, 0, 0.956863, 0.956863, 0.956863, 1, 0.544973, 0.544975, 0.544973, 1, 0.42365, 0.423651, 0.42365, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vww00"]
+gradient = SubResource("Gradient_ma7v5")
+
+[sub_resource type="Curve" id="Curve_ih4qk"]
+_data = [Vector2(0.00578034, 0.510832), 0.0, 0.0, 0, 0, Vector2(0.67052, 0.332953), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.10913, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5thh8"]
+curve = SubResource("Curve_ih4qk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xrpp3"]
+resource_local_to_scene = true
+lifetime_randomness = 0.1
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 30.067
+flatness = 1.0
+initial_velocity_min = 7.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0.2, 0)
+linear_accel_min = -3.65
+linear_accel_max = -2.23517e-06
+damping_min = 1.0
+damping_max = 1.0
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_5thh8")
+scale_over_velocity_max = 1000.0
+color_ramp = SubResource("GradientTexture1D_vww00")
+hue_variation_min = -0.19
+hue_variation_max = 0.8
+turbulence_noise_strength = 0.72
+
+[node name="Mortar" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_l0p0v")]
+characterClass = 1
+actionAnimPrefix = "Mortar/"
+actionAnimPlayer = NodePath("Visuals/Mortar_idle/AnimationPlayer")
+
+[node name="Mortar_idle" parent="Visuals" index="0" instance=ExtResource("2_weofj")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0.1, 0)
+
+[node name="Gun3_2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="0"]
+transform = Transform3D(1, 5.79719e-13, 1.1531e-13, 2.78341e-13, -0.615661, 0.788011, 6.22178e-13, -0.78801, -0.615661, 4.33273e-14, 0.262872, -0.682117)
+
+[node name="Gun3_2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D/Gun3_2" index="0"]
+material_override = ExtResource("3_weofj")
+
+[node name="GPUParticles3D" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D/Gun3_2/Gun3_2/TestSmoke1" index="0"]
+process_material = SubResource("ParticleProcessMaterial_xrpp3")
+
+[node name="Gun2_2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="1"]
+transform = Transform3D(1, 5.79719e-13, 1.1531e-13, 2.78341e-13, -0.615661, 0.788011, 6.22178e-13, -0.78801, -0.615661, 4.33271e-14, 0.262872, -0.682117)
+
+[node name="Gun1_2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="2"]
+transform = Transform3D(1, 5.8088e-13, 7.26931e-14, 3.12639e-13, -0.615661, 0.788011, 5.96856e-13, -0.788011, -0.615661, 4.3336e-14, 0.262872, -0.682117)
+
+[node name="Gun1_2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D/Gun1_2" index="0"]
+material_override = ExtResource("3_weofj")
+
+[node name="Shield" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="3"]
+transform = Transform3D(1, 5.11591e-13, 7.10543e-14, 2.84217e-13, -0.615662, 0.788011, 5.68434e-13, -0.788011, -0.615661, 2.47415e-13, 0.0598243, -0.887022)
+
+[node name="Shield" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D/Shield" index="0"]
+material_override = ExtResource("3_weofj")
+
+[node name="Frame" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="4"]
+transform = Transform3D(1, -7.81597e-14, -8.96831e-44, 8.96831e-44, 0, 1, -7.81597e-14, -1, 0, -2.78496e-14, 0, -0.356317)
+
+[node name="Frame" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D/Frame" index="0"]
+material_override = ExtResource("3_weofj")
+
+[node name="Tread1" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="5"]
+transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, 0.572157, -8.47612e-09, -0.193911)
+
+[node name="Tread1" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D/Tread1" index="0"]
+material_override = ExtResource("3_weofj")
+
+[node name="Tread2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="6"]
+transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, -0.587285, -8.47612e-09, -0.193911)
+
+[node name="Tread2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D/Tread2" index="0"]
+material_override = ExtResource("3_weofj")
+
+[node name="StepMovementAction" type="Node" parent="Actions" index="0"]
+script = ExtResource("3_xem7q")
+directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
+stepRange = 2
+actionTags = Array[String](["move"])
+actionIcon = ExtResource("4_i5jf1")
+metadata/_custom_type_script = "uid://bqm4vddppofoy"
+
+[node name="ArtilleryAttackAction" type="Node" parent="Actions" index="1"]
+script = ExtResource("5_jy50u")
+damage = 2
+selfDamage = 1
+directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
+ranges = Array[Vector2i]([Vector2i(2, 5), Vector2i(2, 5), Vector2i(2, 5), Vector2i(2, 5)])
+actionTags = Array[String](["attack"])
+actionIcon = ExtResource("6_mmef6")
+indicatorsColour = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://q2u6hxbk8u86"
+
+[node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("7_8bf7q")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
+
+[connection signal="actions_available_updated" from="." to="Visuals_Stationary/UnitIndicator" method="set_visible"]
+[connection signal="action_use_success" from="Actions/ArtilleryAttackAction" to="." method="PlayActionAnimation" binds= [0]]
+
+[editable path="Visuals/Mortar_idle"]
+[editable path="Visuals/Mortar_idle/Armature_003/Skeleton3D/Gun3_2/Gun3_2/TestSmoke1"]

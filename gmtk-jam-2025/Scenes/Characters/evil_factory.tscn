@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bigkq6jumyqfb"]
+
+[ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_8ih4d"]
+[ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="2_mm5mb"]
+[ext_resource type="Texture2D" uid="uid://cotg457ib50c7" path="res://Textures/Factory_BaseColor.png" id="3_nfssh"]
+[ext_resource type="ArrayMesh" uid="uid://i8jfnbr7qlnj" path="res://Models/Robots/Factory_Bomber.obj" id="4_kkflw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsibm"]
+albedo_texture = ExtResource("3_nfssh")
+
+[node name="Pawn" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_8ih4d")]
+maxHealth = 2
+health = 2
+actionAnimPrefix = "Pawn/"
+actionAnimPlayer = NodePath("")
+
+[node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("2_mm5mb")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
+
+[node name="FactoryBomber" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_wsibm")
+mesh = ExtResource("4_kkflw")
+
+[connection signal="actions_available_updated" from="." to="Visuals_Stationary/UnitIndicator" method="set_visible"]
