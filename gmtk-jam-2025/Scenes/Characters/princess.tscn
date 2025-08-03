@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_dgny0"]
 [ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="2_aayhu"]
-[ext_resource type="Texture2D" uid="uid://dr1r2wvx4qxmd" path="res://Art/Images/flight.png" id="4_4grcs"]
+[ext_resource type="Texture2D" uid="uid://dr1r2wvx4qxmd" path="res://Art/Images/Action Icons/flight.png" id="4_4grcs"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="4_4pjou"]
 [ext_resource type="Shader" path="res://Shaders/Shadow.gdshader" id="5_syuvx"]
 [ext_resource type="Texture2D" uid="uid://bmtr67s1ywr4n" path="res://Textures/VFx/MaterialTest1_outputCircle.png" id="6_q4djc"]

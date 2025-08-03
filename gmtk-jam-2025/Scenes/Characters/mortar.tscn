@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_sc67c"]
 [ext_resource type="PackedScene" uid="uid://dmnqscyj7s2gn" path="res://Models/AnimatedRobots/Mortar_Animated.tscn" id="3_550gs"]
 [ext_resource type="Script" uid="uid://bqm4vddppofoy" path="res://Scripts/Character Actions/step_movement_action.gd" id="3_xrpp3"]
-[ext_resource type="Texture2D" uid="uid://c8ofc3ddbw0od" path="res://Art/Images/walk.png" id="4_xrpp3"]
+[ext_resource type="Texture2D" uid="uid://c8ofc3ddbw0od" path="res://Art/Images/Action Icons/walk.png" id="4_xrpp3"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="5_0g845"]
 [ext_resource type="Script" uid="uid://q2u6hxbk8u86" path="res://Scripts/Character Actions/artillery_attack_action.gd" id="5_5ef2r"]
-[ext_resource type="Texture2D" uid="uid://depfvqrthpp5r" path="res://Art/Images/fire.png" id="6_xrpp3"]
+[ext_resource type="Texture2D" uid="uid://depfvqrthpp5r" path="res://Art/Images/Action Icons/fire.png" id="6_xrpp3"]
 
 [node name="Mortar" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_sc67c")]
 characterClass = 1

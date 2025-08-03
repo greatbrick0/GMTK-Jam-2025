@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bot28ybwy4art"
-path="res://.godot/imported/heal.png-3f75607e834db351919603852c00d5f2.ctex"
+uid="uid://mlw5re37saos"
+path="res://.godot/imported/loopShot.png-1bf9ca6f52f3179f9fcdaab48ed2c9ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Images/heal.png"
-dest_files=["res://.godot/imported/heal.png-3f75607e834db351919603852c00d5f2.ctex"]
+source_file="res://Art/Images/Action Icons/loopShot.png"
+dest_files=["res://.godot/imported/loopShot.png-1bf9ca6f52f3179f9fcdaab48ed2c9ba.ctex"]
 
 [params]
 
