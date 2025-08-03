@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1ut1ou3bio5v"]
+[gd_scene load_steps=18 format=3 uid="uid://c1ut1ou3bio5v"]
 
 [ext_resource type="Script" uid="uid://cc8prbaljt2m7" path="res://Scripts/gameplay_manager.gd" id="1_ikcpc"]
 [ext_resource type="PackedScene" uid="uid://c52jeaqpo6aj0" path="res://Scenes/game_hud.tscn" id="1_q2fht"]
@@ -12,8 +12,19 @@
 [ext_resource type="PackedScene" uid="uid://cd68fjtainkfs" path="res://Scenes/Levels Maps/Primary/level_map_4.tscn" id="5_o18aq"]
 [ext_resource type="PackedScene" uid="uid://yhxyq61x68t8" path="res://Scenes/Levels Maps/Primary/level_map_5.tscn" id="6_hd7sb"]
 [ext_resource type="PackedScene" uid="uid://hm6oxttviq00" path="res://Scenes/Levels Maps/Primary/level_map_6.tscn" id="7_5vthg"]
+[ext_resource type="Shader" uid="uid://dxr8j6l7jcjav" path="res://Shaders/BackgroundAttempt2.gdshader" id="12_o18aq"]
 
 [sub_resource type="Environment" id="Environment_q2fht"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hd7sb"]
+render_priority = 0
+shader = ExtResource("12_o18aq")
+shader_parameter/background_color = Color(0.054902, 0.0352941, 0.129412, 1)
+shader_parameter/star_count = 200
+shader_parameter/seed = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_5vthg"]
+material = SubResource("ShaderMaterial_hd7sb")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q2fht"]
 
@@ -50,6 +61,10 @@ transform = Transform3D(-1, 4.37114e-08, -7.57104e-08, 0, 0.866026, 0.5, 8.74228
 projection = 1
 fov = 1.0
 size = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraHolder"]
+transform = Transform3D(99.9488, -0.370978, -3.17638, -1.01491, 90.5107, -42.5064, 3.03265, 42.5169, 90.4606, -0.00479126, -65.0074, 84.9201)
+mesh = SubResource("QuadMesh_5vthg")
 
 [node name="ClickPlane" type="Area3D" parent="."]
 script = ExtResource("3_5erdv")
