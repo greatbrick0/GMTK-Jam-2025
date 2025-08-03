@@ -1,4 +1,4 @@
-shader_type canvas_item;
+shader_type spatial;
 
 group_uniforms MainStars;
 //Main star adjustments: Color, movement direction, shine, brightnessStar, periodicity, size, and quantity.
@@ -38,7 +38,7 @@ void fragment() {
 	float travelx = TIME*horizontalMovement;
 	float travely = TIME*verticalMovement;
 	float color = 0.0;
-	COLOR = vec4(colorBackground.rgb, 1.0 - transparencyBackground);
+	ALBEDO = vec4(colorBackground.rgb, 1.0 - transparencyBackground).rgb;
 
 	for(int i = 1; i < 1 + starIterations; i++) {
 		float size = sizeStar/float(i);
@@ -53,7 +53,7 @@ void fragment() {
 			color = 1.0 - distance(modifiedCoords, center) / (0.5 * size);
 			color = t*t*brightnessStar/float(i) / (clamp(distance(modifiedCoords.y, center.y), 0.5, size/2.0-1.0)) / (clamp(distance(modifiedCoords.x, center.x), 0.5, size/2.0-1.0));
 			vec4 colormapA = texture(gradientA, vec2(remap(prob, starValue)));
-			COLOR += colormapA * color * (1.0 - transparencyStar);
+			ALBEDO += (colormapA * color * (1.0 - transparencyStar)).rgb;
 		}
 	}
 
@@ -62,6 +62,6 @@ void fragment() {
 			float r = rand(SCREEN_UV.xy);
 			color = r * (0.85 * sin(TIME * shineFrequencyBgStar * (r * 5.0) + 720.0 * r) + 0.95);
 			vec4 colormapB = texture(gradientB, vec2(r));
-			COLOR += color * colormapB * (1.0 - transparencyBgStar);
+			ALBEDO += vec4(color * colormapB * (1.0 - transparencyBgStar)).rgb;
 		}
 	}
