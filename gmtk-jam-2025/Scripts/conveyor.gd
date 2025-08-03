@@ -34,7 +34,7 @@ func RotateConveyor() -> void:
 	newPlaceableRef.scale = Vector2.ZERO
 	stock.insert(0, newPlaceableRef)
 	for ii in range(len(stock)):
-		stock[ii].purchasable = ii == 4 or ii == 5 or ii == 7
+		stock[ii].purchasable = ii == 4 or ii == 5 or ii == 6
 	
 	$AnimationPlayer.play("Rotate")
 

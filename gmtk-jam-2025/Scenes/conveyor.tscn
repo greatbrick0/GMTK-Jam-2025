@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vyl2lvfmqryk"]
+[gd_scene load_steps=14 format=3 uid="uid://vyl2lvfmqryk"]
 
 [ext_resource type="Script" uid="uid://dfui5s3xwrtpg" path="res://Scripts/conveyor.gd" id="1_5xoq8"]
 [ext_resource type="Texture2D" uid="uid://w568fg7ywbft" path="res://Art/Images/Generated Icons/Conveyor.png" id="2_vkl7l"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b8ug3ij5dec4q" path="res://Art/Images/ConveyorGlass.png" id="6_6nye6"]
 [ext_resource type="Texture2D" uid="uid://c5q0fpx6x5cng" path="res://Art/Images/scrap.png" id="7_2rft0"]
 [ext_resource type="Theme" uid="uid://gisw3slincuq" path="res://ClearTheme.tres" id="8_vkl7l"]
+[ext_resource type="Texture2D" uid="uid://7f13exe08yqr" path="res://Art/Images/Action Icons/cycle.png" id="10_g8mpg"]
 
 [sub_resource type="Animation" id="Animation_jhnkp"]
 length = 0.001
@@ -201,6 +202,31 @@ offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_vkl7l")
+
+[node name="Sprite2D" type="Sprite2D" parent="PayForRotate"]
+position = Vector2(1, 4)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("10_g8mpg")
+
+[node name="Price0" type="Node2D" parent="PayForRotate"]
+position = Vector2(-4.00001, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PayForRotate/Price0"]
+position = Vector2(20, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_2rft0")
+
+[node name="Label" type="Label" parent="PayForRotate/Price0"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -20.0
+offset_right = 44.0
+offset_bottom = 14.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "1"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
