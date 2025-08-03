@@ -15,9 +15,6 @@ actionAnimPlayer = NodePath("Visuals/Mortar_idle/AnimationPlayer")
 [node name="Mortar_idle" parent="Visuals" index="0" instance=ExtResource("3_550gs")]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0.1, 0)
 
-[node name="Skeleton3D" parent="Visuals/Mortar_idle/Armature_003" index="0"]
-bones/2/position = Vector3(0, 0, 0)
-
 [node name="Gun3_2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="0"]
 transform = Transform3D(1, 5.79719e-13, 1.1531e-13, 2.78341e-13, -0.615661, 0.788011, 6.22178e-13, -0.78801, -0.615661, 4.33273e-14, 0.262872, -0.682117)
 
@@ -32,12 +29,6 @@ transform = Transform3D(1, 5.11591e-13, 7.10543e-14, 2.84217e-13, -0.615662, 0.7
 
 [node name="Frame" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="4"]
 transform = Transform3D(1, -7.81597e-14, -8.96831e-44, 8.96831e-44, 0, 1, -7.81597e-14, -1, 0, -2.78496e-14, 0, -0.356317)
-
-[node name="Tread1" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="5"]
-transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, 0.572157, -8.47612e-09, -0.193911)
-
-[node name="Tread2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="6"]
-transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, -0.587285, -8.47612e-09, -0.193911)
 
 [node name="StepMovementAction" type="Node" parent="Actions" index="0"]
 script = ExtResource("3_xrpp3")

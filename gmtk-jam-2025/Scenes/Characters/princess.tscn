@@ -77,10 +77,6 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0.07)
 
 [node name="Skeleton3D" parent="Visuals/PrincessAnims/Armature_002" index="0"]
 bones/1/scale = Vector3(0.999306, 0.999109, 0.999109)
-bones/3/rotation = Quaternion(0.557172, 5.97076e-09, -4.60715e-08, 0.830397)
-bones/3/scale = Vector3(1, 1, 1)
-bones/10/rotation = Quaternion(0.557172, -3.23662e-08, 6.37821e-08, 0.830397)
-bones/10/scale = Vector3(1, 1, 1)
 
 [node name="L_Brace11" parent="Visuals/PrincessAnims/Armature_002/Skeleton3D" index="0"]
 transform = Transform3D(0.999306, 8.9407e-08, 2.34841e-08, 4.93035e-08, -4.58423e-08, -0.999109, 0, 0.999109, -5.78864e-08, 1.19209e-07, -7.10543e-14, 0.00139129)
