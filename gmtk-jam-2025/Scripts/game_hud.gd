@@ -26,7 +26,7 @@ func AdjustPlayerInputBlockers(adjust: int) -> void:
 	playerInputBlockers += adjust
 
 func SetRemainingTurns(newTurns: int) -> void:
-	remainingTurns -= 1
+	remainingTurns = newTurns
 	remainingTurnsLabel.text = "Remaining Turns: " + str(remainingTurns)
 
 func SubtractRemainingTurns(team: Enums.Teams) -> void:
