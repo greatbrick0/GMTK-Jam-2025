@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cuvfu8kv8gl2s"]
+[gd_scene load_steps=24 format=3 uid="uid://cuvfu8kv8gl2s"]
 
 [ext_resource type="Script" uid="uid://dtwj8gd4r3o4" path="res://Scripts/scene_transition.gd" id="1_rrs8s"]
 [ext_resource type="Shader" uid="uid://cw1ivb18usivw" path="res://Shaders/BackGroundGMTK2.gdshader" id="1_twnyg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://cffyaepm0saiu" path="res://Shaders/CanvasAlpha.gdshader" id="5_6vd4x"]
 [ext_resource type="Texture2D" uid="uid://bo4bhk4ola023" path="res://Textures/VFx/MaterialTest1_Spiral.png" id="6_n82rj"]
 [ext_resource type="Texture2D" uid="uid://cvn4pe6hwdain" path="res://Art/Images/Generated Icons/Princess.png" id="7_0061g"]
+[ext_resource type="Texture2D" uid="uid://dud0wnessh3ng" path="res://Art/Images/titleText.png" id="8_n82rj"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_55kwv"]
 frequency = 0.002
@@ -182,12 +183,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -40.0
+offset_top = 211.0
 offset_right = 100.0
-offset_bottom = 40.0
+offset_bottom = 291.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_414dn")
+theme_override_font_sizes/font_size = 27
 text = "Play"
 script = ExtResource("1_rrs8s")
 newScene = ExtResource("3_4gxqj")
@@ -219,5 +221,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_x2pfe")
 }
 autoplay = "Flyin"
+
+[node name="TitleText" type="Sprite2D" parent="."]
+position = Vector2(640, 418)
+texture = ExtResource("8_n82rj")
 
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="Transition"]
