@@ -8,6 +8,10 @@ var changingTracks: bool = false
 @export var trackSilentVolume: float = -25
 @export var trackFullVolume: float = -5
 
+func _ready() -> void:
+	await get_tree().create_timer(2.0).timeout
+	ChangeTrack(1)
+
 func _process(delta):
 	if(changingTracks):
 		timeSinceTrackChange += 1.0 * delta
@@ -18,6 +22,7 @@ func _process(delta):
 			get_child(prevTrackIndex).stop()
 
 func ChangeTrack(newTrack: int) -> void:
+	if(newTrack == currentTrackIndex): return
 	timeSinceTrackChange = 0
 	prevTrackIndex = currentTrackIndex
 	currentTrackIndex = newTrack

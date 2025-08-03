@@ -1,17 +1,19 @@
-[gd_scene load_steps=23 format=3 uid="uid://darbhkhtffuxf"]
+[gd_scene load_steps=24 format=3 uid="uid://darbhkhtffuxf"]
 
-[ext_resource type="Shader" uid="uid://dxr8j6l7jcjav" path="res://Shaders/BackgroundAttempt2.gdshader" id="1_1vjpf"]
+[ext_resource type="Shader" path="res://Shaders/BackgroundAttempt2.gdshader" id="1_1vjpf"]
 [ext_resource type="Texture2D" uid="uid://by8uci1i1kgmv" path="res://Textures/DefaultMaterial_Base_color_grass2.png" id="2_whxej"]
 [ext_resource type="ArrayMesh" uid="uid://bmpm6k7ysdpp1" path="res://Models/BaseTile1.obj" id="3_q7qx8"]
 [ext_resource type="Texture2D" uid="uid://d1bgwpj7h1tbt" path="res://Textures/DefaultMaterial_Base_color_Rock.png" id="4_md48o"]
 [ext_resource type="Texture2D" uid="uid://c841helpdnjk" path="res://Textures/DefaultMaterial_Base_color_Stone.png" id="5_nsud2"]
-[ext_resource type="PackedScene" path="res://Scenes/scrap.tscn" id="6_kf8bl"]
+[ext_resource type="PackedScene" uid="uid://8p4dmlrnlsd0" path="res://Scenes/scrap.tscn" id="6_kf8bl"]
 [ext_resource type="Script" uid="uid://dp3w84s74ndsw" path="res://Scripts/grid_item.gd" id="7_l87vb"]
 [ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="8_huk3g"]
 [ext_resource type="PackedScene" uid="uid://dmnqscyj7s2gn" path="res://Models/AnimatedRobots/Mortar_Animated.tscn" id="9_bycro"]
-[ext_resource type="Material" uid="uid://bq2otijypc6ma" path="res://Textures/Mortar_Evil.tres" id="10_ii0so"]
+[ext_resource type="Material" path="res://Textures/Mortar_Evil.tres" id="10_ii0so"]
 [ext_resource type="PackedScene" uid="uid://bylqpmy7aurtl" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="11_ed43n"]
-[ext_resource type="Material" uid="uid://bvynruq3to0yt" path="res://Textures/Pawn_Evil.tres" id="12_gr52v"]
+[ext_resource type="Material" path="res://Textures/Pawn_Evil.tres" id="12_gr52v"]
+
+[sub_resource type="Environment" id="Environment_1vjpf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ls6sw"]
 render_priority = 0
@@ -74,6 +76,12 @@ hue_variation_max = 0.8
 turbulence_noise_strength = 0.72
 
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1vjpf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.993914, -0.0130512, -0.109382, 0.109382, 0.23457, 0.965926, 0.0130512, -0.972012, 0.23457, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(406.338, 0, 913.723, 0, 1000, 0, -913.723, 0, 406.338, -2.1417, 0, -3.02696)

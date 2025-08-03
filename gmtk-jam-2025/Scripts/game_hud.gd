@@ -28,6 +28,7 @@ func AdjustPlayerInputBlockers(adjust: int) -> void:
 func SetRemainingTurns(newTurns: int) -> void:
 	remainingTurns = newTurns
 	remainingTurnsLabel.text = "Remaining Turns: " + str(remainingTurns)
+	MusicManager.ChangeTrack(1)
 
 func SubtractRemainingTurns(team: Enums.Teams) -> void:
 	if(team == Enums.Teams.PLAYER):
@@ -37,6 +38,8 @@ func SubtractRemainingTurns(team: Enums.Teams) -> void:
 		if(remainingTurns < 0):
 			print("you lose to no remaining turns")
 			get_tree().change_scene_to_file("res://Scenes/Lose_Screen.tscn")
+		elif(remainingTurns <= 1):
+			MusicManager.ChangeTrack(2)
 
 func DisplayDescription(channel: int, message: String) -> void:
 	if(channel == 0):
