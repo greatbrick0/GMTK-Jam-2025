@@ -134,15 +134,26 @@ func RecieveClick(clickPos: Vector3) -> void:
 			else:
 				UnselectCharacter()
 
+func GenerateTileHighlights(tiles: Array[Vector2i], colour: Color = Color.CYAN) -> void:
+	actionTargetTiles = tiles
+	for ii in range(len(actionTargetTiles)):
+		tileHighlightRefs.append(tileHighlightObj.instantiate() as Node3D)
+		mapHolder.add_child(tileHighlightRefs[-1])
+		tileHighlightRefs[-1].global_position = Vector3(actionTargetTiles[ii].x, 0, actionTargetTiles[ii].y)
+		tileHighlightRefs[-1].get_node("Tileindication").material_override.next_pass.set_shader_parameter("baseColor", colour)
+
+func DeleteTileHighlights() -> void:
+	actionTargetTiles.clear()
+	for ii in tileHighlightRefs:
+		ii.call_deferred("queue_free")
+	tileHighlightRefs.clear()
+
 func UnselectAction() -> void:
 	if(selectedAction == null): return
 	
 	print("unselected action")
 	selectedAction = null
-	actionTargetTiles.clear()
-	for ii in tileHighlightRefs:
-		ii.call_deferred("queue_free")
-	tileHighlightRefs.clear()
+	DeleteTileHighlights()
 	
 	clickMode = ClickModes.STANDARD
 
@@ -166,12 +177,19 @@ func StartUsingAction(index: int) -> void:
 		MusicManager.PlayGeneral(3)
 	
 	clickMode = ClickModes.ACTION_TARGET
-	actionTargetTiles = selectedAction.GetTileOptions(allActiveTiles)
-	for ii in range(len(actionTargetTiles)):
-		tileHighlightRefs.append(tileHighlightObj.instantiate() as Node3D)
-		mapHolder.add_child(tileHighlightRefs[-1])
-		tileHighlightRefs[-1].global_position = Vector3(actionTargetTiles[ii].x, 0, actionTargetTiles[ii].y)
+	GenerateTileHighlights(selectedAction.GetTileOptions(allActiveTiles), selectedAction.indicatorsColour)
 
 func FinishUsingAction(actionPos: Vector2i) -> void:
 	selectedAction.AttemptUseAction(actionPos, self)
 	UnselectAction()
+
+func GetValidPlaceableTiles() -> Array[Vector2i]:
+	var output: Array[Vector2i]
+	var directions: Array[Vector2i] = [Vector2i.LEFT, Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN]
+	for ii in teamDatas[Enums.Teams.PLAYER].teamMembers:
+		for jj in directions:
+			if(output.has(ii.gridPos + jj)): continue
+			if(allActiveTiles.has(ii.gridPos + jj)): 
+				if(allActiveTiles[ii.gridPos + jj] == null):
+					output.append(ii.gridPos + jj)
+	return output

@@ -37,6 +37,12 @@ transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, 0.572157
 [node name="Tread2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="6"]
 transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, -0.587285, 0.283051, -0.193911)
 
+[node name="Tread1" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="5"]
+transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, 0.572157, -8.47612e-09, -0.193911)
+
+[node name="Tread2" parent="Visuals/Mortar_idle/Armature_003/Skeleton3D" index="6"]
+transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, -0.587285, -8.47612e-09, -0.193911)
+
 [node name="StepMovementAction" type="Node" parent="Actions" index="0"]
 script = ExtResource("3_xrpp3")
 directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
@@ -51,6 +57,7 @@ selfDamage = 1
 directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
 ranges = Array[Vector2i]([Vector2i(2, 5), Vector2i(2, 5), Vector2i(2, 5), Vector2i(2, 5)])
 actionIcon = ExtResource("6_xrpp3")
+indicatorsColour = Color(1, 0, 0, 1)
 metadata/_custom_type_script = "uid://q2u6hxbk8u86"
 
 [node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("5_0g845")]
