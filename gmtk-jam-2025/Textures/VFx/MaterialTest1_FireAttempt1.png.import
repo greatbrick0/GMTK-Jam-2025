@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc716jixt60vy"
-path.s3tc="res://.godot/imported/MaterialTest1_Loop.png-f0fc3a1113269bc729b44c4167d8703d.s3tc.ctex"
+uid="uid://wti8s6v3vkcf"
+path.s3tc="res://.godot/imported/MaterialTest1_FireAttempt1.png-96c05c737cf0da75ea0367ab7a6aa238.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,15 +11,15 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/VFx/MaterialTest1_Loop.png"
-dest_files=["res://.godot/imported/MaterialTest1_Loop.png-f0fc3a1113269bc729b44c4167d8703d.s3tc.ctex"]
+source_file="res://Textures/VFx/MaterialTest1_FireAttempt1.png"
+dest_files=["res://.godot/imported/MaterialTest1_FireAttempt1.png-96c05c737cf0da75ea0367ab7a6aa238.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
-compress/hdr_compression=1
+compress/hdr_compression=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
