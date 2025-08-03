@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://wupfhi85dpdv"]
 
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_qouxg"]
-[ext_resource type="PackedScene" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="2_qouxg"]
+[ext_resource type="PackedScene" uid="uid://bylqpmy7aurtl" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="2_qouxg"]
 [ext_resource type="Script" uid="uid://bqm4vddppofoy" path="res://Scripts/Character Actions/step_movement_action.gd" id="3_kqsvd"]
 [ext_resource type="Texture2D" uid="uid://c8ofc3ddbw0od" path="res://Art/Images/Action Icons/walk.png" id="4_kqsvd"]
 [ext_resource type="Script" uid="uid://d2egqo3bcnnu8" path="res://Scripts/Character Actions/gun_attack_action.gd" id="5_wknaq"]

@@ -97,7 +97,7 @@ func LoadNextLevelMap() -> void:
 	successTiles = currentTransferRef.GetTileArray(connectPoint)
 
 func AddItemToGrid(newPos: Vector2i, item: GridItem) -> void:
-	print("added item " + item.name)
+	print("added item " + item.name + " at " + str(newPos))
 	allActiveTiles[newPos] = item
 
 func MoveItemOnGrid(oldPos: Vector2i, newPos: Vector2i, item: GridItem) -> void:
