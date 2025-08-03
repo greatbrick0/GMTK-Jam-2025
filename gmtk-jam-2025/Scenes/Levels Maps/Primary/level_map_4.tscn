@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd68fjtainkfs"]
 
 [ext_resource type="PackedScene" uid="uid://d3mdpfhbust2f" path="res://Scenes/level_map.tscn" id="1_h3b14"]
-[ext_resource type="PackedScene" path="res://Scenes/Characters/evil_looper.tscn" id="2_knqar"]
+[ext_resource type="PackedScene" uid="uid://4ou6hq4kp043" path="res://Scenes/Characters/evil_bomber.tscn" id="2_knqar"]
 
 [node name="LevelMap1" instance=ExtResource("1_h3b14")]
 allowedTurns = 3
@@ -14,5 +14,5 @@ data = {
 [node name="ConnectPoint" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
 
-[node name="Looper" parent="GridItemHolder" index="0" instance=ExtResource("2_knqar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+[node name="Pawn" parent="GridItemHolder" index="0" instance=ExtResource("2_knqar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
