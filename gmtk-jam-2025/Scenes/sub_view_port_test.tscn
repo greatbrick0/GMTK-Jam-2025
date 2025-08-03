@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b4lw1ndi0lte1"]
 
-[ext_resource type="PackedScene" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="1_80mg6"]
+[ext_resource type="PackedScene" uid="uid://bylqpmy7aurtl" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="1_80mg6"]
 [ext_resource type="Script" uid="uid://mcx0nbu74qr1" path="res://Scripts/sub_view_port_test.gd" id="1_ix3m6"]
 [ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="2_pyb8s"]
 [ext_resource type="PackedScene" uid="uid://co57vocr4es8c" path="res://Models/AnimatedRobots/Zoomer_Animated.tscn" id="3_n3bsi"]

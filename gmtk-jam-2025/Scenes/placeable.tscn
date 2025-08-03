@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bipra28bav6mk"]
+
+[ext_resource type="Script" uid="uid://5vy7molvbtt4" path="res://Scripts/placeable.gd" id="1_p0vkg"]
+[ext_resource type="Theme" uid="uid://gisw3slincuq" path="res://ClearTheme.tres" id="2_juqmf"]
+[ext_resource type="Texture2D" uid="uid://b52meqx2jfij5" path="res://Art/Images/Generated Icons/Pawn.png" id="2_p0vkg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juqmf"]
+bg_color = Color(0.3264, 0.3128, 0.34, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.74902, 0.670098, 0.309804, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[node name="Placeable" type="Node2D"]
+script = ExtResource("1_p0vkg")
+animIntensity = 7.0
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="Visuals"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_juqmf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_p0vkg")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_juqmf")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

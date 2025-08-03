@@ -4,7 +4,9 @@ class_name GridItem
 var gridPos: Vector2i = Vector2i.ZERO
 
 func _ready() -> void:
+	await get_tree().process_frame
 	gridPos = Vector2i(round(global_position.x), round(global_position.z))
+	print(gridPos)
 	EventBus.grid_dict_add_item.emit(gridPos, self)
 
 func MoveOnGrid(newPos: Vector2i) -> void:

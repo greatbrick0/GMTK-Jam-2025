@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://gisw3slincuq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pwqir"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hmcb1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8w8g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kut8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hnr3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwo12"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.364706, 0.372549, 0.384314, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_pwqir")
+Button/styles/focus = SubResource("StyleBoxEmpty_hmcb1")
+Button/styles/hover = SubResource("StyleBoxEmpty_f8w8g")
+Button/styles/normal = SubResource("StyleBoxEmpty_1kut8")
+Button/styles/pressed = SubResource("StyleBoxEmpty_1hnr3")
+Panel/styles/panel = SubResource("StyleBoxFlat_mwo12")

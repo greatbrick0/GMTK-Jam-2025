@@ -4,6 +4,7 @@ class_name CharacterAction
 @export var actionTags: Array[String] = []
 @export var actionIcon: Texture
 @export var canTargetSelf: bool = false
+@export var indicatorsColour: Color = Color.CYAN
 
 signal action_use_success()
 var actionOwner: GridCharacter
