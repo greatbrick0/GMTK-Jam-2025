@@ -1,21 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd68fjtainkfs"]
+[gd_scene load_steps=3 format=3 uid="uid://cd68fjtainkfs"]
 
 [ext_resource type="PackedScene" uid="uid://d3mdpfhbust2f" path="res://Scenes/level_map.tscn" id="1_h3b14"]
-[ext_resource type="PackedScene" uid="uid://8p4dmlrnlsd0" path="res://Scenes/scrap.tscn" id="2_7nkwf"]
-[ext_resource type="PackedScene" uid="uid://wupfhi85dpdv" path="res://Scenes/Characters/pawn.tscn" id="3_voxxt"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/evil_looper.tscn" id="2_knqar"]
 
 [node name="LevelMap1" instance=ExtResource("1_h3b14")]
+allowedTurns = 3
 
 [node name="GridMap" parent="." index="0"]
 data = {
-"cells": PackedInt32Array(1, 2, 1179648, 0, 2, 1179648, 65535, 2, 1179648, 65534, 2, 1179648, 65533, 2, 1179648, 1, 1, 1179648, 0, 1, 1179648, 65535, 1, 1179648, 65534, 1, 1179648, 65533, 1, 1179648, 1, 3, 1179648, 0, 3, 1179648, 65535, 3, 1179648, 65534, 3, 1179648, 2, 3, 1179648, 2, 4, 1179648, 1, 4, 1179648, 0, 4, 1179648, 65535, 4, 1179648, 65534, 4, 1179648, 65535, 5, 1179648, 0, 5, 1179648, 1, 5, 1179648, 2, 5, 1179648, 65534, 0, 1310720)
+"cells": PackedInt32Array(1, 3, 1179648, 2, 3, 1179648, 0, 1, 1179648, 1, 1, 1179648, 1, 2, 1179648, 0, 2, 1179648, 2, 4, 0, 2, 1, 0, 2, 2, 0, 3, 2, 0, 3, 1, 0, 3, 3, 0, 4, 3, 0, 4, 4, 0, 3, 4, 0)
 }
 
 [node name="ConnectPoint" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
 
-[node name="Scrap" parent="GridItemHolder" index="0" instance=ExtResource("2_7nkwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
-
-[node name="Pawn" parent="GridItemHolder" index="1" instance=ExtResource("3_voxxt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+[node name="Looper" parent="GridItemHolder" index="0" instance=ExtResource("2_knqar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)

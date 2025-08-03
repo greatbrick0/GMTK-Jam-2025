@@ -10,18 +10,18 @@
 
 [node name="GridMap" parent="." index="0"]
 data = {
-"cells": PackedInt32Array(1, 2, 1179648, 0, 2, 1179648, 65535, 2, 1179648, 65534, 2, 1179648, 65533, 2, 1179648, 1, 1, 1179648, 0, 1, 1179648, 65535, 1, 1179648, 65534, 1, 1179648, 65533, 1, 1179648, 1, 3, 1179648, 0, 3, 1179648, 65535, 3, 1179648, 65534, 3, 1179648, 2, 3, 1179648, 2, 4, 1179648, 1, 4, 1179648, 0, 4, 1179648, 65535, 4, 1179648, 65534, 4, 1179648, 65535, 5, 1179648, 0, 5, 1179648, 1, 5, 1179648, 2, 5, 1179648, 65534, 0, 1310720)
+"cells": PackedInt32Array(1, 2, 1179648, 0, 2, 1179648, 65535, 2, 1179648, 65534, 2, 1179648, 1, 1, 1179648, 65535, 1, 1179648, 65534, 1, 1179648, 1, 3, 1179648, 0, 3, 1179648, 65535, 3, 1179648, 65534, 3, 1179648, 2, 4, 1179648, 1, 4, 1179648, 0, 4, 1179648, 65535, 4, 1179648, 65534, 4, 1179648, 65535, 5, 1179648, 0, 5, 1179648, 1, 5, 1179648, 2, 5, 1179648, 65534, 0, 1310720, 0, 1, 1179648, 65534, 5, 0)
 }
 
 [node name="ConnectPoint" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 
 [node name="Pawn2" parent="GridItemHolder" index="0" instance=ExtResource("2_55p40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="GridMessage" parent="GridItemHolder" index="1" instance=ExtResource("3_cjvjt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
-message = "All units drop scrap when destroyed "
+message = "All units drop scrap when destroyed."
 
 [node name="Scrap" parent="GridItemHolder" index="2" instance=ExtResource("2_cjvjt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
