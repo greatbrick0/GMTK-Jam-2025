@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mlw5re37saos"
-path="res://.godot/imported/loopShot.png-f6b13d83a6f36f239221a5daf41ae98f.ctex"
+uid="uid://jompdc6asc7w"
+path="res://.godot/imported/magnet.png-ca205bb4ea5b6a84c54314b1bd5330f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Images/loopShot.png"
-dest_files=["res://.godot/imported/loopShot.png-f6b13d83a6f36f239221a5daf41ae98f.ctex"]
+source_file="res://Art/Images/Action Icons/magnet.png"
+dest_files=["res://.godot/imported/magnet.png-ca205bb4ea5b6a84c54314b1bd5330f7.ctex"]
 
 [params]
 

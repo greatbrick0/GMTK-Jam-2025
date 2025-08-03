@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://bcof6v00cstpe" path="res://Scripts/scrap.gd" id="1_itaa7"]
 [ext_resource type="Material" uid="uid://dg35t3tkrgjx3" path="res://Textures/Scrap.tres" id="2_cu64b"]
 [ext_resource type="ArrayMesh" uid="uid://dec48gly1xg8x" path="res://Models/Scrap.obj" id="3_3ei58"]
-[ext_resource type="Shader" uid="uid://dmxdomvmo3vah" path="res://Shaders/Shadow.gdshader" id="4_2f6fw"]
+[ext_resource type="Shader" path="res://Shaders/Shadow.gdshader" id="4_2f6fw"]
 [ext_resource type="Texture2D" uid="uid://bmtr67s1ywr4n" path="res://Textures/VFx/MaterialTest1_outputCircle.png" id="5_td5ai"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v1ubs"]
 render_priority = 0
 shader = ExtResource("4_2f6fw")
-shader_parameter/baseColor = Vector4(0, 0, 0, 0)
-shader_parameter/opacity = 0.68
+shader_parameter/baseColor = Vector4(0, 0, 0, 0.2)
+shader_parameter/opacity = 0.35
 shader_parameter/TexA = ExtResource("5_td5ai")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o8w5m"]

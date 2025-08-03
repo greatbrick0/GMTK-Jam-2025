@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr1r2wvx4qxmd"
-path="res://.godot/imported/flight.png-df0b7bfba865b454d50f87ff171585d0.ctex"
+uid="uid://c8ofc3ddbw0od"
+path="res://.godot/imported/walk.png-4a973b19fd0ecd46bf81046033011b66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Images/flight.png"
-dest_files=["res://.godot/imported/flight.png-df0b7bfba865b454d50f87ff171585d0.ctex"]
+source_file="res://Art/Images/Action Icons/walk.png"
+dest_files=["res://.godot/imported/walk.png-4a973b19fd0ecd46bf81046033011b66.ctex"]
 
 [params]
 
