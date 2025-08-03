@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="7_2qwkf"]
 
 [node name="Pawn" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_eux1v")]
+team = 1
 maxHealth = 2
 health = 2
 actionAnimPrefix = "Pawn/"
@@ -187,6 +188,7 @@ metadata/_custom_type_script = "uid://d2egqo3bcnnu8"
 
 [node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("7_2qwkf")]
 transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
+visible = false
 
 [connection signal="actions_available_updated" from="." to="Visuals_Stationary/UnitIndicator" method="set_visible"]
 [connection signal="action_use_success" from="Actions/GunAttackAction" to="." method="PlayActionAnimation" binds= [0]]

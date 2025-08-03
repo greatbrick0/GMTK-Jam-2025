@@ -1,13 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://co57vocr4es8c"]
 
 [ext_resource type="PackedScene" uid="uid://blvrba1tg0msg" path="res://Models/Animation_Test/Zoomer_animations.glb" id="1_64x2j"]
-[ext_resource type="Material" uid="uid://bomhb0o7kqis1" path="res://Textures/Zoomer.tres" id="2_kebvm"]
+[ext_resource type="Material" path="res://Textures/Zoomer.tres" id="2_kebvm"]
 [ext_resource type="PackedScene" uid="uid://gj3ymg4q8k5y" path="res://Scenes/VFXScene/test_smoke_1.tscn" id="3_kebvm"]
 [ext_resource type="Animation" uid="uid://dplh6ukpaotir" path="res://Animations/Zoomer/Action0.res" id="3_nris2"]
 [ext_resource type="Shader" uid="uid://dgxj4ep2nr8fi" path="res://Shaders/OutlineAlpha.gdshader" id="4_04yq4"]
 [ext_resource type="Animation" uid="uid://dgqf8260fkri" path="res://Animations/Zoomer/Idle.res" id="4_xvimx"]
 [ext_resource type="Texture2D" uid="uid://5sy41yr2u3hl" path="res://Textures/VFx/MaterialTest1_Scrap_Noise.png" id="5_sv4uf"]
-[ext_resource type="Shader" uid="uid://bth2rad1auiic" path="res://Shaders/Zoomer_Smoke.gdshader" id="6_04yq4"]
+[ext_resource type="Shader" path="res://Shaders/Zoomer_Smoke.gdshader" id="6_04yq4"]
 
 [sub_resource type="Gradient" id="Gradient_nris2"]
 interpolation_mode = 1

@@ -12,19 +12,24 @@ func TurnStarted(team: Enums.Teams) -> void:
 		StartUsingCharacters()
 
 func StartUsingCharacters() -> void:
+	await get_tree().create_timer(0.2).timeout
 	if(len(gameManager.teamDatas[myTeam].teamMembers) == 0):
+		print("no enemies")
 		gameManager.AttemptToEndTurn()
 		return
 	for ii in gameManager.teamDatas[myTeam].teamMembers:
-		var selectedAction: CharacterAction
 		while ii.HasRemainingActions():
-			selectedAction = ii.GetFirstRemainingAction()
+			var selectedAction: CharacterAction = ii.GetFirstRemainingAction()
 			var targets: Array[Vector2i] = selectedAction.GetTileOptions(gameManager.allActiveTiles)
 			var choice: Vector2i = ChoosePlayerTile(targets, gameManager.allActiveTiles)
 			if(choice == Vector2i.MAX):
 				choice = ChooseClosestTile(SelectRandomPlayerUnit(), targets)
 				if(choice == Vector2i.MAX):
 					choice = targets.pick_random()
+			print(ii.name + " is using action " + selectedAction.name)
+			await selectedAction.AttemptUseAction(choice, gameManager)
+			await get_tree().create_timer(0.2).timeout
+	gameManager.AttemptToEndTurn()
 
 func ChoosePlayerTile(targets: Array[Vector2i], dict: Dictionary) -> Vector2i:
 	for ii in targets:

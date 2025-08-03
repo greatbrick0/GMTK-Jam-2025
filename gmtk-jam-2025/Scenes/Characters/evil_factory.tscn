@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bigkq6jumyqfb"]
+[gd_scene load_steps=6 format=3 uid="uid://c3plwom4bepgq"]
 
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_8ih4d"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="2_mm5mb"]
@@ -8,11 +8,11 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsibm"]
 albedo_texture = ExtResource("3_nfssh")
 
-[node name="Pawn" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_8ih4d")]
+[node name="Factory" instance=ExtResource("1_8ih4d")]
+team = 1
 maxHealth = 2
 health = 2
 actionAnimPrefix = "Pawn/"
-actionAnimPlayer = NodePath("")
 
 [node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("2_mm5mb")]
 transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)

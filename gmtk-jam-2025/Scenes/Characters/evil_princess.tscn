@@ -1,13 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://c63o3kd1x361"]
+[gd_scene load_steps=17 format=3 uid="uid://0dfq2nxt7d4a"]
 
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_s1eqd"]
 [ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="2_imb81"]
 [ext_resource type="Script" uid="uid://bu8m04w83xwfk" path="res://Scripts/Character Actions/chess_movement_action.gd" id="3_qckd7"]
 [ext_resource type="Texture2D" uid="uid://dr1r2wvx4qxmd" path="res://Art/Images/Action Icons/flight.png" id="4_cxdma"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="5_r2a3o"]
-[ext_resource type="Shader" uid="uid://dmxdomvmo3vah" path="res://Shaders/Shadow.gdshader" id="6_l6xvp"]
+[ext_resource type="Shader" path="res://Shaders/Shadow.gdshader" id="6_l6xvp"]
 [ext_resource type="Texture2D" uid="uid://bmtr67s1ywr4n" path="res://Textures/VFx/MaterialTest1_outputCircle.png" id="7_rbh68"]
-[ext_resource type="Shader" uid="uid://dt5be7rafrep3" path="res://Shaders/UnitIndicator.gdshader" id="8_j0jgn"]
+[ext_resource type="Shader" path="res://Shaders/UnitIndicator.gdshader" id="8_j0jgn"]
 [ext_resource type="Texture2D" uid="uid://cf1uqmqnk53d4" path="res://Textures/VFx/MaterialTest1_Corners.png" id="9_odts1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aayhu"]
@@ -67,6 +67,7 @@ _data = {
 }
 
 [node name="Princess" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_s1eqd")]
+team = 1
 characterClass = 3
 maxHealth = 4
 health = 4

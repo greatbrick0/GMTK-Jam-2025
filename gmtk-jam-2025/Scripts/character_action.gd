@@ -18,9 +18,11 @@ func GetTileOptions(tilesDict: Dictionary) -> Array[Vector2i]:
 	return output
 
 func AttemptUseAction(actionPos: Vector2i, gameplayManager: GameplayManager) -> bool:
+	print(actionOwner.usedActions)
 	if(CanBeUsed()):
 		actionOwner.AppendUsedActions(actionTags)
-		UseAction(actionPos, gameplayManager)
+		print(actionOwner.usedActions)
+		await UseAction(actionPos, gameplayManager)
 		return true
 	else:
 		return false

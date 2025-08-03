@@ -52,10 +52,8 @@ func _ready() -> void:
 	allActiveTiles.merge(prevTransferRef.SetUpTiles())
 
 func _process(delta):
-	if(Input.is_action_just_pressed("ui_up")):
-		currentLevel += 1
-		TransferGridItems()
-		LoadNextLevelMap()
+	if(Input.is_action_just_pressed("Recentre")):
+		cam.RecentreCamera(currentLevelMapRef.global_position)
 	if(playerInputBlockers > 0): return
 	for ii in range(0, 9):
 		if(Input.is_action_just_pressed("UseAction"+str(ii))):
@@ -75,12 +73,17 @@ func TransferGridItems() -> void:
 			allActiveTiles[ii].reparent(currentTransferRef.get_node("GridItemHolder"))
 
 func AttemptToEndTurn() -> void:
-	print(currentTeam)
+	UnselectCharacter()
+	CancelCharacterPlacing()
+	
 	if(currentTeam == Enums.Teams.PLAYER):
 		if(CheckForLevelVictory()):
 			currentLevel += 1
 			TransferGridItems()
 			LoadNextLevelMap()
+		elif(not teamDatas[Enums.Teams.PLAYER].CheckForRoyalty()):
+			print("you lose")
+			get_tree().change_scene_to_file("res://Scenes/Lose_Screen.tscn")
 		currentTeam = Enums.Teams.ENEMY
 		EventBus.end_turn.emit(Enums.Teams.PLAYER)
 		await get_tree().create_timer(0.1).timeout
@@ -109,6 +112,7 @@ func LoadNextLevelMap() -> void:
 	allActiveTiles.merge(currentLevelMapRef.SetUpTiles(connectPoint))
 	prevConnectPoint = connectPoint
 	connectPoint = currentLevelMapRef.GetConnectPoint()
+	gameHud.SetRemainingTurns(currentLevelMapRef.allowedTurns)
 	
 	currentTransferRef = mapTransfers[currentLevel + 1].instantiate() as LevelMap
 	mapHolder.add_child(currentTransferRef)
@@ -215,7 +219,7 @@ func StartCharacterPlacing(placeable: Placeable) -> void:
 	clickMode = ClickModes.PLACING_TARGET
 	GenerateTileHighlights(GetValidPlaceableTiles(), Color.YELLOW)
 
-func CancelCharacterPlacing(placeable: Placeable) -> void:
+func CancelCharacterPlacing(placeable: Placeable = null) -> void:
 	selectedPlaceable = null
 	clickMode = ClickModes.STANDARD
 	DeleteTileHighlights()

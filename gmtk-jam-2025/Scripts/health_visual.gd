@@ -42,16 +42,13 @@ func _showPips(show):
 		else:
 			item.visible = false
 
-func _UpdateHealth(health :int, funni):
+func _UpdateHealth(health :int, funni = null):
 	_showPips(true)
-	print(health)
 	
 	for ii in range ($Pips_Container.get_child_count()):
 		if (ii <= health -1):
-			print("Pip ", ii, " hurt: ", ii >= health)
 			_updatePip(_getPip(ii),false) #unhurt case
 		else:
-			print("Pip ", ii, " hurt: ", ii >= health)
 			_updatePip(_getPip(ii),true) #hurt case
 	
 	$Timer.start()

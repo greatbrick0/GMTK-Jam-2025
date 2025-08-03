@@ -1,6 +1,7 @@
 extends Node3D
 class_name GridItem
 
+signal removed_from_play(oldPos: Vector2i, item: GridItem)
 var gridPos: Vector2i = Vector2i.ZERO
 
 func _ready() -> void:
@@ -18,4 +19,5 @@ func StandardClickAction(manager: GameplayManager) -> void:
 	pass
 
 func RemoveFromPlay() -> void:
+	removed_from_play.emit(gridPos, self)
 	EventBus.grid_dict_remove_item.emit(gridPos, self)

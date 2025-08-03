@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bqm4vddppofoy" path="res://Scripts/Character Actions/step_movement_action.gd" id="3_kqsvd"]
 [ext_resource type="Texture2D" uid="uid://c8ofc3ddbw0od" path="res://Art/Images/Action Icons/walk.png" id="4_kqsvd"]
 [ext_resource type="Script" uid="uid://d2egqo3bcnnu8" path="res://Scripts/Character Actions/gun_attack_action.gd" id="5_wknaq"]
-[ext_resource type="Texture2D" uid="uid://dqhygawwwvqeo" path="res://Art/Images/Action Icons/bomb.png" id="6_qouxg"]
+[ext_resource type="Texture2D" uid="uid://fjvj0r3lbkur" path="res://Art/Images/Action Icons/punch.png" id="6_qouxg"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="7_7axc2"]
 
 [node name="Pawn" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_qouxg")]

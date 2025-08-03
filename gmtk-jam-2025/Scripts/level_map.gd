@@ -2,6 +2,7 @@ extends Node3D
 class_name LevelMap
 
 @export var blockerIndexes: Array[int]
+@export var allowedTurns: int = 4
 
 func SetUpTiles(offset: Vector2i = Vector2i.ZERO) -> Dictionary:
 	var output: Dictionary

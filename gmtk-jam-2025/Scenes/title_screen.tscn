@@ -1,10 +1,10 @@
 [gd_scene load_steps=24 format=3 uid="uid://cuvfu8kv8gl2s"]
 
 [ext_resource type="Script" uid="uid://dtwj8gd4r3o4" path="res://Scripts/scene_transition.gd" id="1_rrs8s"]
-[ext_resource type="Shader" uid="uid://cw1ivb18usivw" path="res://Shaders/BackGroundGMTK2.gdshader" id="1_twnyg"]
+[ext_resource type="Shader" path="res://Shaders/BackGroundGMTK2.gdshader" id="1_twnyg"]
 [ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="2_414dn"]
 [ext_resource type="PackedScene" uid="uid://c1ut1ou3bio5v" path="res://Scenes/main_level.tscn" id="3_4gxqj"]
-[ext_resource type="Shader" uid="uid://cffyaepm0saiu" path="res://Shaders/CanvasAlpha.gdshader" id="5_6vd4x"]
+[ext_resource type="Shader" path="res://Shaders/CanvasAlpha.gdshader" id="5_6vd4x"]
 [ext_resource type="Texture2D" uid="uid://bo4bhk4ola023" path="res://Textures/VFx/MaterialTest1_Spiral.png" id="6_n82rj"]
 [ext_resource type="Texture2D" uid="uid://cvn4pe6hwdain" path="res://Art/Images/Generated Icons/Princess.png" id="7_0061g"]
 [ext_resource type="Texture2D" uid="uid://dud0wnessh3ng" path="res://Art/Images/titleText.png" id="8_n82rj"]

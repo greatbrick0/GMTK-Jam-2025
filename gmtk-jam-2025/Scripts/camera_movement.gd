@@ -16,6 +16,9 @@ func OnStartCameraMove():
 func OnStopCameraMove():
 	cameraMoving = false
 
+func RecentreCamera(newPos: Vector3) -> void:
+	global_position = newPos
+
 func _process(delta):
 	if(cameraMoving):
 		var mouseDifference: Vector2 = prevMousePos - get_viewport().get_mouse_position()

@@ -18,12 +18,14 @@ var usedActions: Array = []
 
 func _ready():
 	super._ready()
-	character_died.connect(EventBus.GridDictRemoveItem)
 	EventBus.start_turn.connect(ResetForTurn)
+	EventBus.end_turn.connect(PreventForOthersTurn)
 	actionAnimPlayer.animation_finished.connect(func(animName: String): if(animName.begins_with(actionAnimPrefix+"Action")): actionAnimPlayer.play(actionAnimPrefix+"Idle"))
 	$Visuals_Stationary/HealthVisual._setup(maxHealth)
 
 func StandardClickAction(manager: GameplayManager) -> void:
+	if(has_node("Visuals_Stationary/HealthVisual")):
+		get_node("Visuals_Stationary/HealthVisual")._UpdateHealth(health)
 	if(team == Enums.Teams.PLAYER):
 		MusicManager.PlayGeneral(1)
 		manager.selectedCharacter = self
@@ -38,8 +40,15 @@ func PlayActionAnimation(animIndex: int) -> void:
 	actionAnimPlayer.stop()
 	actionAnimPlayer.play(actionAnimPrefix+"Action"+str(animIndex))
 
+func PreventForOthersTurn(turnTeam: Enums.Teams) -> void:
+	if(turnTeam == team):
+		for ii in $Actions.get_children():
+			AppendUsedActions(ii.actionTags)
+		actions_available_updated.emit(false)
+
 func ResetForTurn(turnTeam: Enums.Teams) -> void:
 	if(turnTeam == team):
+		print(name + " cleared actions for team " + str(team))
 		usedActions.clear()
 		actions_available_updated.emit(true)
 
@@ -101,4 +110,5 @@ func Die() -> void:
 	deathScrapRef.scrapAmount = droppedScrapCount
 	get_parent().add_child(deathScrapRef)
 	deathScrapRef.global_position = global_position
+	RemoveFromPlay()
 	queue_free()

@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://5yml32jca8ty"]
+
+[ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_gcr3w"]
+[ext_resource type="PackedScene" uid="uid://co57vocr4es8c" path="res://Models/AnimatedRobots/Zoomer_Animated.tscn" id="2_gcr3w"]
+[ext_resource type="Script" uid="uid://bqm4vddppofoy" path="res://Scripts/Character Actions/step_movement_action.gd" id="3_jj2td"]
+[ext_resource type="Texture2D" uid="uid://c8ofc3ddbw0od" path="res://Art/Images/Action Icons/walk.png" id="4_674er"]
+[ext_resource type="Script" uid="uid://d2egqo3bcnnu8" path="res://Scripts/Character Actions/gun_attack_action.gd" id="5_e8c2r"]
+[ext_resource type="Texture2D" uid="uid://mlw5re37saos" path="res://Art/Images/Action Icons/loopShot.png" id="6_gcr3w"]
+[ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="7_2h6lf"]
+
+[sub_resource type="Gradient" id="Gradient_nris2"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.00312501, 0.046875, 0.225, 0.6875)
+colors = PackedColorArray(1, 1, 1, 0, 0.611844, 0.617009, 0.0406017, 1, 0.448936, 0.298054, 0.0633746, 1, 0.621147, 0.493085, 5.77569e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xvimx"]
+gradient = SubResource("Gradient_nris2")
+
+[sub_resource type="Curve" id="Curve_04yq4"]
+_data = [Vector2(0.00578034, 0.510832), 0.0, 0.0, 0, 0, Vector2(0.67052, 0.332953), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.10913, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sv4uf"]
+curve = SubResource("Curve_04yq4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ovgw"]
+resource_local_to_scene = true
+lifetime_randomness = 0.1
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 1)
+spread = 10.942
+flatness = 1.0
+initial_velocity_min = 7.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, 0.2, 0)
+linear_accel_min = -3.65
+linear_accel_max = -2.23517e-06
+damping_min = 1.0
+damping_max = 1.0
+scale_min = 0.7
+scale_max = 0.9
+scale_curve = SubResource("CurveTexture_sv4uf")
+scale_over_velocity_max = 1000.0
+color_ramp = SubResource("GradientTexture1D_xvimx")
+hue_variation_min = -0.19
+hue_variation_max = 0.8
+turbulence_noise_strength = 0.72
+
+[node name="Looper" node_paths=PackedStringArray("actionAnimPlayer") instance=ExtResource("1_gcr3w")]
+maxHealth = 1
+health = 1
+actionAnimPrefix = "Zoomer/"
+actionAnimPlayer = NodePath("Visuals/Zoomer_animations/AnimationPlayer")
+
+[node name="Zoomer_animations" parent="Visuals" index="0" instance=ExtResource("2_gcr3w")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.1, 0)
+
+[node name="Gun" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -4.26326e-13, -1.30741e-13, -1.44714e-13, 3.8743e-07, -1, 3.97904e-13, 1, 1.78814e-07, 4.06709e-13, -3.72529e-07, 0.0925235)
+
+[node name="GPUParticles3D" parent="Visuals/Zoomer_animations/Armature/Skeleton3D/Gun/Gun/TestSmoke1" index="0"]
+process_material = SubResource("ParticleProcessMaterial_0ovgw")
+
+[node name="Torso" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, -4.26326e-13, -1.30741e-13, -1.44714e-13, 3.8743e-07, -1, 3.97904e-13, 1, 1.78814e-07, 4.06709e-13, -3.72529e-07, 0.0925235)
+
+[node name="L_foot_2" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -1.04308e-06, 2.0673e-06, 2.39163e-06, 5.24142e-07, -1, 1.19209e-06, 1, 1.9335e-07, 5.06639e-07, -1.44541e-06, 0.0925226)
+
+[node name="L_ankle_2" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, -1.08778e-06, 1.01328e-06, 1.3411e-06, 7.45058e-07, -1, 1.3113e-06, 1, 4.47035e-07, 3.27826e-07, -1.13249e-06, 0.0925227)
+
+[node name="L_shin_2" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="4"]
+transform = Transform3D(1, 0, 1.02818e-06, 1.20699e-06, 2.6077e-07, -1, 2.98023e-07, 1, 4.47035e-08, -1.78814e-07, -8.04663e-07, 0.0925229)
+
+[node name="L_Thigh" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="5"]
+transform = Transform3D(1, -4.91738e-07, 1.05239e-06, 1.12504e-06, 4.78234e-07, -1, 3.42727e-07, 1, 2.66358e-07, 3.57628e-07, -8.19564e-07, 0.0925231)
+
+[node name="R_foot_2" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="6"]
+transform = Transform3D(1, 1.19209e-07, 5.22431e-07, 3.08284e-07, -8.56366e-07, -1, -3.57628e-07, 1, -1.30784e-06, 5.96046e-08, 8.9407e-08, 0.0925234)
+
+[node name="R_amkle" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, 2.5332e-07, 1.78814e-07, -5.96046e-08, 5.51343e-07, -1, -5.51343e-07, 1, 6.70552e-08, 0, -1.19209e-07, 0.0925235)
+
+[node name="R_shin_2" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="8"]
+transform = Transform3D(1, -6.25849e-07, -1.49012e-08, -1.19209e-07, 6.63102e-07, -1, 3.8743e-07, 1, 1.93715e-07, 2.08616e-07, -2.38419e-07, 0.0925238)
+
+[node name="R_thigh_2" parent="Visuals/Zoomer_animations/Armature/Skeleton3D" index="9"]
+transform = Transform3D(1, -1.49012e-08, 1.82539e-07, 1.21072e-07, 2.97558e-07, -1, -2.98023e-08, 1, 3.81842e-08, -2.08616e-07, 4.47035e-08, 0.0925238)
+
+[node name="StepMovementAction" type="Node" parent="Actions" index="0"]
+script = ExtResource("3_jj2td")
+directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
+stepRange = 2
+actionTags = Array[String](["move"])
+actionIcon = ExtResource("4_674er")
+metadata/_custom_type_script = "uid://bqm4vddppofoy"
+
+[node name="GunAttackAction" type="Node" parent="Actions" index="1"]
+script = ExtResource("5_e8c2r")
+directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
+ranges = Array[int]([1, 1, 1, 1])
+actionTags = Array[String](["attack"])
+actionIcon = ExtResource("6_gcr3w")
+indicatorsColour = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://d2egqo3bcnnu8"
+
+[node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("7_2h6lf")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)
+
+[connection signal="actions_available_updated" from="." to="Visuals_Stationary/UnitIndicator" method="set_visible"]
+[connection signal="action_use_success" from="Actions/GunAttackAction" to="." method="PlayActionAnimation" binds= [0]]
+
+[editable path="Visuals/Zoomer_animations"]
+[editable path="Visuals/Zoomer_animations/Armature/Skeleton3D/Gun/Gun/TestSmoke1"]

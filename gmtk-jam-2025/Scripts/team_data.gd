@@ -30,16 +30,16 @@ func CheckForAddedMember(newPos: Vector2i, item: GridItem) -> void:
 		AddTeamMember(item)
 
 func AddTeamMember(newMember: GridCharacter) -> void:
-	print(newMember.name + " added to team")
+	print(newMember.name + " added to team " + str(team))
 	teamMembers.append(newMember)
 	if(classCounts.has(newMember.characterClass)):
 		classCounts[newMember.characterClass] += 1
 	else:
 		classCounts[newMember.characterClass] = 1
-	newMember.character_died.connect(RemoveTeamMember)
+	newMember.removed_from_play.connect(RemoveTeamMember)
 
 func RemoveTeamMember(oldPos: Vector2i, item: GridItem) -> void:
 	item = item as GridCharacter
 	classCounts[item.characterClass] -= 1
 	teamMembers.erase(item)
-	item.character_died.disconnect(RemoveTeamMember)
+	item.removed_from_play.disconnect(RemoveTeamMember)
