@@ -50,8 +50,8 @@ point_count = 3
 curve = SubResource("Curve_bkl32")
 
 [sub_resource type="Gradient" id="Gradient_ilvdx"]
-offsets = PackedFloat32Array(0, 0.0375)
-colors = PackedColorArray(10, 10, 0, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.06875)
+colors = PackedColorArray(10, 10, 0, 1, 0.226921, 0, 0.0245967, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_rqi47"]
 gradient = SubResource("Gradient_ilvdx")

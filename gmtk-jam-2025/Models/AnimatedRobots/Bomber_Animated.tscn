@@ -120,7 +120,10 @@ transform = Transform3D(7.54979e-08, -1, 1.06581e-14, 1, 7.54979e-08, 3.57628e-0
 material_override = ExtResource("2_tnmwf")
 
 [node name="Node3D" parent="Armature_001/Skeleton3D/Fuse/Fuse" index="0" instance=ExtResource("3_tnmwf")]
-transform = Transform3D(-0.280798, 0.956014, 0.0847903, 0.218031, -0.0224952, 0.975683, 0.934674, 0.292457, -0.202124, 0.633819, 1.01111, 2.26672e-07)
+transform = Transform3D(-0.196492, 0.945673, -0.259025, 0.270876, 0.306249, 0.912599, 0.942347, 0.109154, -0.316335, 0.630954, 1.01111, -0.0249326)
+
+[node name="Node3D2" parent="Armature_001/Skeleton3D/Fuse/Fuse" index="1" instance=ExtResource("3_tnmwf")]
+transform = Transform3D(-0.196491, 0.945673, -0.259026, -0.732945, 0.0338141, 0.679447, 0.651293, 0.323357, 0.686482, 0.603833, 1.01842, 0.0204409)
 
 [node name="Gun_001" parent="Armature_001/Skeleton3D" index="15"]
 transform = Transform3D(-3.26333e-08, -0.665315, -0.746563, 3.17865e-08, 0.746563, -0.665315, 1, -4.54421e-08, -3.21474e-09, -0.514198, -0.190684, 1.43962e-08)
