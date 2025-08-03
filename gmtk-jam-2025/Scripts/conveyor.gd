@@ -10,10 +10,16 @@ var stockMoving: bool = false
 var stock: Array[Placeable] = []
 
 func _ready() -> void:
+	FillConveyor()
 	EventBus.end_turn.connect(AutoRotateConveyor)
 
 func _process(delta) -> void:
 	if(stockMoving): MoveStock(stockMoveValue)
+
+func FillConveyor() -> void:
+	for ii in range(7):
+		RotateConveyor()
+		await $AnimationPlayer.animation_finished
 
 func AutoRotateConveyor(team: Enums.Teams) -> void:
 	if(team == Enums.Teams.PLAYER):
@@ -22,7 +28,7 @@ func AutoRotateConveyor(team: Enums.Teams) -> void:
 func RotateConveyor() -> void:
 	var newPlaceableRef: Placeable = placeableOptions[RandomlySelectPlaceable()].instantiate() as Placeable
 	stockHolder.add_child(newPlaceableRef)
-	print(newPlaceableRef.name)
+	newPlaceableRef.gameHud = gameHud
 	newPlaceableRef.got_purchased.connect(gameHud.AddScrap)
 	newPlaceableRef.got_purchased.connect(UpdatePricesVisible)
 	newPlaceableRef.scale = Vector2.ZERO

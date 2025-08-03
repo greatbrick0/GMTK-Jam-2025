@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="GMTK Jam 2025"
+config/name="Scrappy Overclock"
 run/main_scene="uid://cuvfu8kv8gl2s"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="uid://c720ty7shjn3e"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+config/icon="uid://dikfedoem1o10"
 
 [autoload]
 

@@ -13,10 +13,16 @@ var actionButtonsRefs: Array[TextureButton]
 @export var remainingTurns: int = 10
 @export var remainingTurnsLabel: Label
 
+var playerInputBlockers: int = 0
+
 func _ready() -> void:
+	EventBus.adjust_player_blockers.connect(AdjustPlayerInputBlockers)
 	EventBus.add_scrap.connect(AddScrap)
 	EventBus.mouse_message.connect(DisplayDescription)
 	EventBus.end_turn.connect(SubtractRemainingTurns)
+
+func AdjustPlayerInputBlockers(adjust: int) -> void:
+	playerInputBlockers += adjust
 
 func SubtractRemainingTurns(team: Enums.Teams) -> void:
 	if(team == Enums.Teams.PLAYER):
@@ -33,7 +39,10 @@ func AddScrap(amount: int) -> void:
 	scrapCountLabel.text = str(playerScrapCount)
 
 func EndTurnButtonPressed() -> void:
-	print("trying to end turn")
+	if(gameplayManager.currentTeam == Enums.Teams.PLAYER):
+		if(playerInputBlockers > 0): return
+		print("trying to end turn")
+		gameplayManager.AttemptToEndTurn()
 
 func GenerateActionButtons(characterRef: GridCharacter):
 	RemoveActionButtons()

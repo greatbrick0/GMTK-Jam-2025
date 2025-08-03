@@ -143,3 +143,5 @@ theme = ExtResource("10_5e2ck")
 [node name="ConveyorHolder" parent="." node_paths=PackedStringArray("gameHud") instance=ExtResource("10_sq0d6")]
 position = Vector2(981, 389)
 gameHud = NodePath("..")
+
+[connection signal="pressed" from="Control/EndTurnButton" to="." method="EndTurnButtonPressed"]
