@@ -57,6 +57,7 @@ maxHealth = 1
 health = 1
 actionAnimPrefix = "Zoomer/"
 actionAnimPlayer = NodePath("Visuals/Zoomer_animations/AnimationPlayer")
+wakingDelay = 2
 
 [node name="Zoomer_animations" parent="Visuals" index="0" instance=ExtResource("2_kvdw1")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.1, 0)

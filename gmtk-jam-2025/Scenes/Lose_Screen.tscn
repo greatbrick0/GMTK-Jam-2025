@@ -145,47 +145,26 @@ transform = Transform3D(0.186243, 0.0645783, 0.277026, -0.149644, 0.303842, 0.02
 [node name="Mortar_idle3" parent="." instance=ExtResource("9_bycro")]
 transform = Transform3D(0.274667, 0, -0.0760479, 0, 0.285, 0, 0.0760479, 0, 0.274667, -1.06704, 0.282449, 0.289281)
 
-[node name="Gun3_2" parent="Mortar_idle3/Armature_003/Skeleton3D" index="0"]
-transform = Transform3D(1, 5.79719e-13, 1.1531e-13, 2.78341e-13, -0.615661, 0.788011, 6.22178e-13, -0.78801, -0.615661, 4.33273e-14, 0.262872, -0.682117)
-
 [node name="Gun3_2" parent="Mortar_idle3/Armature_003/Skeleton3D/Gun3_2" index="0"]
 material_override = ExtResource("10_ii0so")
 
 [node name="GPUParticles3D" parent="Mortar_idle3/Armature_003/Skeleton3D/Gun3_2/Gun3_2/TestSmoke1" index="0"]
 process_material = SubResource("ParticleProcessMaterial_1881y")
 
-[node name="Gun2_2" parent="Mortar_idle3/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(1, 5.79719e-13, 1.1531e-13, 2.78341e-13, -0.615661, 0.788011, 6.22178e-13, -0.78801, -0.615661, 4.33271e-14, 0.262872, -0.682117)
-
 [node name="Gun2_2" parent="Mortar_idle3/Armature_003/Skeleton3D/Gun2_2" index="0"]
 material_override = ExtResource("10_ii0so")
-
-[node name="Gun1_2" parent="Mortar_idle3/Armature_003/Skeleton3D" index="2"]
-transform = Transform3D(1, 5.8088e-13, 7.26931e-14, 3.12639e-13, -0.615661, 0.788011, 5.96856e-13, -0.788011, -0.615661, 4.3336e-14, 0.262872, -0.682117)
 
 [node name="Gun1_2" parent="Mortar_idle3/Armature_003/Skeleton3D/Gun1_2" index="0"]
 material_override = ExtResource("10_ii0so")
 
-[node name="Shield" parent="Mortar_idle3/Armature_003/Skeleton3D" index="3"]
-transform = Transform3D(1, 5.11591e-13, 7.10543e-14, 2.84217e-13, -0.615662, 0.788011, 5.68434e-13, -0.788011, -0.615661, 2.47415e-13, 0.0598243, -0.887022)
-
 [node name="Shield" parent="Mortar_idle3/Armature_003/Skeleton3D/Shield" index="0"]
 material_override = ExtResource("10_ii0so")
-
-[node name="Frame" parent="Mortar_idle3/Armature_003/Skeleton3D" index="4"]
-transform = Transform3D(1, -7.81597e-14, -8.96831e-44, 8.96831e-44, 0, 1, -7.81597e-14, -1, 0, -2.78496e-14, 0, -0.356317)
 
 [node name="Frame" parent="Mortar_idle3/Armature_003/Skeleton3D/Frame" index="0"]
 material_override = ExtResource("10_ii0so")
 
-[node name="Tread1" parent="Mortar_idle3/Armature_003/Skeleton3D" index="5"]
-transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, 0.572157, -8.47612e-09, -0.193911)
-
 [node name="Tread1" parent="Mortar_idle3/Armature_003/Skeleton3D/Tread1" index="0"]
 material_override = ExtResource("10_ii0so")
-
-[node name="Tread2" parent="Mortar_idle3/Armature_003/Skeleton3D" index="6"]
-transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, -0.587285, -8.47612e-09, -0.193911)
 
 [node name="Tread2" parent="Mortar_idle3/Armature_003/Skeleton3D/Tread2" index="0"]
 material_override = ExtResource("10_ii0so")
@@ -706,47 +685,26 @@ material_override = ExtResource("12_gr52v")
 [node name="Mortar_idle4" parent="." instance=ExtResource("9_bycro")]
 transform = Transform3D(-0.183521, 0, 0.349779, 0, 0.395, 0, -0.349779, 0, -0.183521, 1.52301, 0.282449, -2.33898)
 
-[node name="Gun3_2" parent="Mortar_idle4/Armature_003/Skeleton3D" index="0"]
-transform = Transform3D(1, 5.79719e-13, 1.1531e-13, 2.78341e-13, -0.615661, 0.788011, 6.22178e-13, -0.78801, -0.615661, 4.33273e-14, 0.262872, -0.682117)
-
 [node name="Gun3_2" parent="Mortar_idle4/Armature_003/Skeleton3D/Gun3_2" index="0"]
 material_override = ExtResource("10_ii0so")
 
 [node name="GPUParticles3D" parent="Mortar_idle4/Armature_003/Skeleton3D/Gun3_2/Gun3_2/TestSmoke1" index="0"]
 process_material = SubResource("ParticleProcessMaterial_1881y")
 
-[node name="Gun2_2" parent="Mortar_idle4/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(1, 5.79719e-13, 1.1531e-13, 2.78341e-13, -0.615661, 0.788011, 6.22178e-13, -0.78801, -0.615661, 4.33271e-14, 0.262872, -0.682117)
-
 [node name="Gun2_2" parent="Mortar_idle4/Armature_003/Skeleton3D/Gun2_2" index="0"]
 material_override = ExtResource("10_ii0so")
-
-[node name="Gun1_2" parent="Mortar_idle4/Armature_003/Skeleton3D" index="2"]
-transform = Transform3D(1, 5.8088e-13, 7.26931e-14, 3.12639e-13, -0.615661, 0.788011, 5.96856e-13, -0.788011, -0.615661, 4.3336e-14, 0.262872, -0.682117)
 
 [node name="Gun1_2" parent="Mortar_idle4/Armature_003/Skeleton3D/Gun1_2" index="0"]
 material_override = ExtResource("10_ii0so")
 
-[node name="Shield" parent="Mortar_idle4/Armature_003/Skeleton3D" index="3"]
-transform = Transform3D(1, 5.11591e-13, 7.10543e-14, 2.84217e-13, -0.615662, 0.788011, 5.68434e-13, -0.788011, -0.615661, 2.47415e-13, 0.0598243, -0.887022)
-
 [node name="Shield" parent="Mortar_idle4/Armature_003/Skeleton3D/Shield" index="0"]
 material_override = ExtResource("10_ii0so")
-
-[node name="Frame" parent="Mortar_idle4/Armature_003/Skeleton3D" index="4"]
-transform = Transform3D(1, -7.81597e-14, -8.96831e-44, 8.96831e-44, 0, 1, -7.81597e-14, -1, 0, -2.78496e-14, 0, -0.356317)
 
 [node name="Frame" parent="Mortar_idle4/Armature_003/Skeleton3D/Frame" index="0"]
 material_override = ExtResource("10_ii0so")
 
-[node name="Tread1" parent="Mortar_idle4/Armature_003/Skeleton3D" index="5"]
-transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, 0.572157, -8.47612e-09, -0.193911)
-
 [node name="Tread1" parent="Mortar_idle4/Armature_003/Skeleton3D/Tread1" index="0"]
 material_override = ExtResource("10_ii0so")
-
-[node name="Tread2" parent="Mortar_idle4/Armature_003/Skeleton3D" index="6"]
-transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, -0.587285, -8.47612e-09, -0.193911)
 
 [node name="Tread2" parent="Mortar_idle4/Armature_003/Skeleton3D/Tread2" index="0"]
 material_override = ExtResource("10_ii0so")

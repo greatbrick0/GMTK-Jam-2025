@@ -15,6 +15,7 @@ signal character_damaged(newHealth: int, oldHealth: int)
 @export var actionAnimPlayer: AnimationPlayer
 signal actions_available_updated(available: bool)
 var usedActions: Array = []
+@export var wakingDelay: int = 1
 
 func _ready():
 	super._ready()
@@ -50,6 +51,7 @@ func PreventForOthersTurn(turnTeam: Enums.Teams) -> void:
 func ResetForTurn(turnTeam: Enums.Teams) -> void:
 	if(turnTeam == team):
 		print(name + " cleared actions for team " + str(team))
+		if(wakingDelay > 0): wakingDelay -= 1
 		usedActions.clear()
 		actions_available_updated.emit(true)
 
@@ -64,6 +66,7 @@ func AttemptGetAction(index: int) -> CharacterAction:
 
 func HasRemainingActions() -> bool:
 	var output: bool = false
+	if(wakingDelay > 0): return false
 	for ii in $Actions.get_children():
 		output = output or ii.CanBeUsed()
 	return output
