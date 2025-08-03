@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxddsmq0spthh"]
+[gd_scene load_steps=19 format=3 uid="uid://bxddsmq0spthh"]
 
 [ext_resource type="PackedScene" uid="uid://bij7x1xcx8mw6" path="res://Scenes/grid_character.tscn" id="1_dgny0"]
 [ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="2_aayhu"]
 [ext_resource type="Texture2D" uid="uid://dr1r2wvx4qxmd" path="res://Art/Images/Action Icons/flight.png" id="4_4grcs"]
 [ext_resource type="PackedScene" uid="uid://dguy8abn6c6up" path="res://Scenes/VFXScene/unit_indicator.tscn" id="4_4pjou"]
+[ext_resource type="Script" uid="uid://cdrq8o41dq8ng" path="res://Scripts/Character Actions/heal_action.gd" id="5_o8r2j"]
 [ext_resource type="Shader" path="res://Shaders/Shadow.gdshader" id="5_syuvx"]
+[ext_resource type="Texture2D" uid="uid://bot28ybwy4art" path="res://Art/Images/Action Icons/heal.png" id="6_26mj6"]
 [ext_resource type="Texture2D" uid="uid://bmtr67s1ywr4n" path="res://Textures/VFx/MaterialTest1_outputCircle.png" id="6_q4djc"]
 [ext_resource type="Shader" path="res://Shaders/UnitIndicator.gdshader" id="7_aayhu"]
 [ext_resource type="Script" uid="uid://bu8m04w83xwfk" path="res://Scripts/Character Actions/chess_movement_action.gd" id="7_q4djc"]
@@ -125,6 +127,15 @@ ranges = Array[int]([3, 2, 3, 2, 3, 2, 3, 2])
 actionTags = Array[String](["move"])
 actionIcon = ExtResource("4_4grcs")
 metadata/_custom_type_script = "uid://bu8m04w83xwfk"
+
+[node name="HealAction" type="Node" parent="Actions" index="1"]
+script = ExtResource("5_o8r2j")
+directions = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)])
+ranges = Array[int]([1, 1, 1, 1])
+actionIcon = ExtResource("6_26mj6")
+canTargetSelf = true
+indicatorsColour = Color(0, 1, 0, 1)
+metadata/_custom_type_script = "uid://cdrq8o41dq8ng"
 
 [node name="UnitIndicator" parent="Visuals_Stationary" index="0" instance=ExtResource("4_4pjou")]
 transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)

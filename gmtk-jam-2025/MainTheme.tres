@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bfnpnmaarkpm"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bfnpnmaarkpm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8s18r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0vaa"]
 bg_color = Color(0.166321, 0.25394, 0.390625, 1)
@@ -6,5 +8,6 @@ corner_radius_top_left = 40
 corner_radius_bottom_right = 40
 
 [resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_8s18r")
 Button/styles/hover = SubResource("StyleBoxFlat_n0vaa")
 Button/styles/normal = SubResource("StyleBoxFlat_n0vaa")

@@ -33,6 +33,7 @@ func StandardClickAction(manager: GameplayManager) -> void:
 		character_died.connect(manager.UnselectCharacter)
 
 func RotateTowards(focusPos: Vector2i) -> void:
+	if(focusPos == gridPos): return
 	$Visuals.look_at(Vector3(focusPos.x, 0, focusPos.y))
 	$Visuals.rotate_y(PI)
 
