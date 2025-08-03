@@ -21,6 +21,7 @@ func _ready():
 	character_died.connect(EventBus.GridDictRemoveItem)
 	EventBus.start_turn.connect(ResetForTurn)
 	actionAnimPlayer.animation_finished.connect(func(animName: String): if(animName.begins_with(actionAnimPrefix+"Action")): actionAnimPlayer.play(actionAnimPrefix+"Idle"))
+	$Visuals_Stationary/HealthVisual._setup(maxHealth)
 
 func StandardClickAction(manager: GameplayManager) -> void:
 	if(team == Enums.Teams.PLAYER):

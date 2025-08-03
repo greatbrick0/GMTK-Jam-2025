@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bij7x1xcx8mw6"]
+[gd_scene load_steps=6 format=3 uid="uid://bij7x1xcx8mw6"]
 
 [ext_resource type="Script" uid="uid://dhbqyon5di6vb" path="res://Scripts/grid_character.gd" id="1_wqe62"]
 [ext_resource type="PackedScene" uid="uid://bqbnoqg7guyub" path="res://Scenes/death_explosion.tscn" id="2_ly2nf"]
 [ext_resource type="PackedScene" uid="uid://8p4dmlrnlsd0" path="res://Scenes/scrap.tscn" id="3_326pt"]
 [ext_resource type="AudioStream" uid="uid://bcv5jtmhilreq" path="res://Sounds/explode2.wav" id="3_feqqm"]
+[ext_resource type="PackedScene" uid="uid://dletu3gu7burt" path="res://Scenes/Characters/health_visual.tscn" id="4_1p5tv"]
 
 [node name="GridCharacter" type="Node3D"]
 script = ExtResource("1_wqe62")
@@ -16,7 +17,11 @@ deathScrapObj = ExtResource("3_326pt")
 
 [node name="Visuals_Stationary" type="Node3D" parent="."]
 
+[node name="HealthVisual" parent="Visuals_Stationary" instance=ExtResource("4_1p5tv")]
+
 [node name="Sounds" type="Node" parent="."]
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("3_feqqm")
+
+[connection signal="character_damaged" from="." to="Visuals_Stationary/HealthVisual" method="_UpdateHealth"]

@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuvfu8kv8gl2s"]
+[gd_scene load_steps=23 format=3 uid="uid://cuvfu8kv8gl2s"]
 
 [ext_resource type="Script" uid="uid://dtwj8gd4r3o4" path="res://Scripts/scene_transition.gd" id="1_rrs8s"]
 [ext_resource type="Shader" uid="uid://cw1ivb18usivw" path="res://Shaders/BackGroundGMTK2.gdshader" id="1_twnyg"]
 [ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="2_414dn"]
 [ext_resource type="PackedScene" uid="uid://c1ut1ou3bio5v" path="res://Scenes/main_level.tscn" id="3_4gxqj"]
+[ext_resource type="Shader" uid="uid://cffyaepm0saiu" path="res://Shaders/CanvasAlpha.gdshader" id="5_6vd4x"]
+[ext_resource type="Texture2D" uid="uid://bo4bhk4ola023" path="res://Textures/VFx/MaterialTest1_Spiral.png" id="6_n82rj"]
+[ext_resource type="Texture2D" uid="uid://cvn4pe6hwdain" path="res://Art/Images/Generated Icons/Princess.png" id="7_0061g"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_55kwv"]
 frequency = 0.002
@@ -38,6 +41,114 @@ shader_parameter/TexB = SubResource("NoiseTexture2D_n82rj")
 shader_parameter/TilingB = Vector2(0.5, 0.5)
 shader_parameter/OffsetB = Vector2(0.02, 0.02)
 shader_parameter/transparency = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8mikk"]
+shader = ExtResource("5_6vd4x")
+shader_parameter/baseColor = Vector4(0.645, 0.57, 1.075, 0)
+shader_parameter/opacity = 1.0
+shader_parameter/TexA = ExtResource("6_n82rj")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sqelc"]
+size = Vector2(4, 4)
+
+[sub_resource type="Animation" id="Animation_w5sh6"]
+resource_name = "Rotate"
+length = 64.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.3, 0, 63.9667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_o1e67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycay6"]
+_data = {
+&"RESET": SubResource("Animation_o1e67"),
+&"Rotate": SubResource("Animation_w5sh6")
+}
+
+[sub_resource type="Animation" id="Animation_bsy20"]
+resource_name = "Flyin"
+length = 16.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.99622, 4.61208, 4.83105, 5.05002, 7.73241, 8.00613, 9.03333, 15.8519),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-326, 47), Vector2(-326, 47), Vector2(713, 188), Vector2(779, 188), Vector2(713, 188), Vector2(713, 188), Vector2(672, 188), Vector2(1579, 188), Vector2(1579, 188)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.99622, 4.61208, 4.83105, 5.05002, 7.73241, 8.00613, 8.29845, 9.03333, 15.8519),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-1.06465, -1.06465, 0.00523599, 0.485202, 0.00523599, 0.00523599, 0.431096, -0.963422, -0.654498, -0.654498]
+}
+
+[sub_resource type="Animation" id="Animation_07cxn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-326, 47)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.06465]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x2pfe"]
+_data = {
+&"Flyin": SubResource("Animation_bsy20"),
+&"RESET": SubResource("Animation_07cxn")
+}
 
 [node name="TitleScreen" type="Node2D"]
 
@@ -80,5 +191,33 @@ theme = ExtResource("2_414dn")
 text = "Play"
 script = ExtResource("1_rrs8s")
 newScene = ExtResource("3_4gxqj")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+material = SubResource("ShaderMaterial_8mikk")
+position = Vector2(13, 182)
+scale = Vector2(300, 300)
+texture = SubResource("PlaceholderTexture2D_sqelc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_ycay6")
+}
+autoplay = "Rotate"
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(-326, 47)
+skew = -1.06465
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+position = Vector2(9, 1.5259e-05)
+texture = ExtResource("7_0061g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D2"]
+libraries = {
+&"": SubResource("AnimationLibrary_x2pfe")
+}
+autoplay = "Flyin"
 
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="Transition"]

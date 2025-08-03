@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsp7b1krkoki1"]
+
+[ext_resource type="Shader" uid="uid://q73i203unpuw" path="res://Shaders/VisualShader/HealthPip.tres" id="1_7dwt3"]
+[ext_resource type="Texture2D" uid="uid://cr5fmpfrpl884" path="res://Textures/VFx/MaterialTest1_ImpactStar.png" id="2_kj0xe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5tffg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7dwt3"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_5tffg")
+shader = ExtResource("1_7dwt3")
+shader_parameter/Colour = Vector4(1.065, 0, 0, 0.505)
+shader_parameter/Hit_Texture = ExtResource("2_kj0xe")
+
+[node name="Health_Pip" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_7dwt3")
+texture = ExtResource("2_kj0xe")

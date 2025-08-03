@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dletu3gu7burt"]
+
+[ext_resource type="Script" uid="uid://ecj1xm3n6j26" path="res://Scripts/health_visual.gd" id="1_3h6me"]
+
+[node name="HealthVisual" type="Node3D"]
+script = ExtResource("1_3h6me")
+colourHurt = Color(0, 0, 0, 1)
+colourHealthy = Color(0.991622, 0, 0.193882, 1)
+
+[node name="Pips_Container" type="Node3D" parent="."]
+transform = Transform3D(-0.828363, 0, -0.560191, 0, 1, 0, 0.560191, 0, -0.828363, -0.328342, 1.31389, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
