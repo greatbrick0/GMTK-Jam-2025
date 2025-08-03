@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://darbhkhtffuxf"]
+[gd_scene load_steps=27 format=3 uid="uid://darbhkhtffuxf"]
 
 [ext_resource type="Shader" path="res://Shaders/BackgroundAttempt2.gdshader" id="1_1vjpf"]
 [ext_resource type="Texture2D" uid="uid://by8uci1i1kgmv" path="res://Textures/DefaultMaterial_Base_color_grass2.png" id="2_whxej"]
@@ -6,12 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://d1bgwpj7h1tbt" path="res://Textures/DefaultMaterial_Base_color_Rock.png" id="4_md48o"]
 [ext_resource type="Texture2D" uid="uid://c841helpdnjk" path="res://Textures/DefaultMaterial_Base_color_Stone.png" id="5_nsud2"]
 [ext_resource type="PackedScene" uid="uid://8p4dmlrnlsd0" path="res://Scenes/scrap.tscn" id="6_kf8bl"]
+[ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="6_md48o"]
 [ext_resource type="Script" uid="uid://dp3w84s74ndsw" path="res://Scripts/grid_item.gd" id="7_l87vb"]
+[ext_resource type="Script" uid="uid://dtwj8gd4r3o4" path="res://Scripts/scene_transition.gd" id="7_nsud2"]
 [ext_resource type="PackedScene" uid="uid://drggb0ya3jwow" path="res://Models/AnimatedRobots/Princess_Animated.tscn" id="8_huk3g"]
+[ext_resource type="PackedScene" uid="uid://cuvfu8kv8gl2s" path="res://Scenes/title_screen.tscn" id="8_kf8bl"]
 [ext_resource type="PackedScene" uid="uid://dmnqscyj7s2gn" path="res://Models/AnimatedRobots/Mortar_Animated.tscn" id="9_bycro"]
-[ext_resource type="Material" path="res://Textures/Mortar_Evil.tres" id="10_ii0so"]
+[ext_resource type="Material" uid="uid://bq2otijypc6ma" path="res://Textures/Mortar_Evil.tres" id="10_ii0so"]
 [ext_resource type="PackedScene" uid="uid://bylqpmy7aurtl" path="res://Models/AnimatedRobots/Pawn_Animated.tscn" id="11_ed43n"]
-[ext_resource type="Material" path="res://Textures/Pawn_Evil.tres" id="12_gr52v"]
+[ext_resource type="Material" uid="uid://bvynruq3to0yt" path="res://Textures/Pawn_Evil.tres" id="12_gr52v"]
 
 [sub_resource type="Environment" id="Environment_1vjpf"]
 
@@ -104,6 +107,20 @@ mesh = ExtResource("3_q7qx8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.605453, -0.31543, 0.730706, -0.0047643, 0.916656, 0.399649, -0.795867, -0.24545, 0.553489, 2.32811, 1.74307, 0.589805)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="Button" type="Button" parent="Camera3D/CanvasLayer"]
+offset_left = 542.0
+offset_top = 467.0
+offset_right = 756.0
+offset_bottom = 577.0
+theme = ExtResource("6_md48o")
+theme_override_font_sizes/font_size = 30
+text = "Menu"
+script = ExtResource("7_nsud2")
+newScene = ExtResource("8_kf8bl")
+doesSelectLevel = true
 
 [node name="Label3D" type="Label3D" parent="Camera3D"]
 transform = Transform3D(0.86427, 0.393745, -0.313056, -0.481419, 0.827895, -0.287796, 0.14586, 0.399444, 0.90508, 0.434939, 0.838959, -2.10182)
@@ -733,6 +750,8 @@ transform = Transform3D(1, 7.10543e-15, 0, 0, 0, 1, 7.10543e-15, -1, 0, -0.58728
 
 [node name="Tread2" parent="Mortar_idle4/Armature_003/Skeleton3D/Tread2" index="0"]
 material_override = ExtResource("10_ii0so")
+
+[connection signal="pressed" from="Camera3D/CanvasLayer/Button" to="Camera3D/CanvasLayer/Button" method="Transition"]
 
 [editable path="Mortar_idle3"]
 [editable path="Mortar_idle3/Armature_003/Skeleton3D/Gun3_2/Gun3_2/TestSmoke1"]

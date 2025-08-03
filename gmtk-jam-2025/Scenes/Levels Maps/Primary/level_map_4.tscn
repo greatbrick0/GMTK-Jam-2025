@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd68fjtainkfs"]
 
 [ext_resource type="PackedScene" uid="uid://d3mdpfhbust2f" path="res://Scenes/level_map.tscn" id="1_h3b14"]
-[ext_resource type="PackedScene" uid="uid://4ou6hq4kp043" path="res://Scenes/Characters/evil_bomber.tscn" id="2_knqar"]
+[ext_resource type="PackedScene" uid="uid://duyo72e80wrlo" path="res://Scenes/Characters/evil_bomber.tscn" id="2_knqar"]
 
 [node name="LevelMap1" instance=ExtResource("1_h3b14")]
 allowedTurns = 3
