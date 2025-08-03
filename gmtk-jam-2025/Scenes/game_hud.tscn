@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c52jeaqpo6aj0"]
+[gd_scene load_steps=9 format=3 uid="uid://c52jeaqpo6aj0"]
 
 [ext_resource type="Script" uid="uid://b0nffpu084jmj" path="res://Scripts/game_hud.gd" id="1_qecdm"]
 [ext_resource type="Theme" uid="uid://bfnpnmaarkpm" path="res://MainTheme.tres" id="1_qmln0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ciwpdrdwl7w3s" path="res://Art/Images/loopSingle.png" id="4_ae0to"]
 [ext_resource type="Texture2D" uid="uid://kh0wfn7waq3r" path="res://Art/Images/loopLeft.png" id="5_a0eom"]
 [ext_resource type="Texture2D" uid="uid://cfp3ooyt3pgwp" path="res://Art/Images/loopRight.png" id="6_sq0d6"]
+[ext_resource type="PackedScene" uid="uid://bipra28bav6mk" path="res://Scenes/placeable.tscn" id="8_ae0to"]
 
 [node name="GameHud" type="CanvasLayer"]
 script = ExtResource("1_qecdm")
@@ -58,3 +59,6 @@ offset_bottom = 133.6
 grow_vertical = 0
 scale = Vector2(0.4, 0.4)
 theme_override_constants/separation = 0
+
+[node name="Placeable" parent="." instance=ExtResource("8_ae0to")]
+position = Vector2(1184, 386)

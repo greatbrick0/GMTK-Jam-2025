@@ -36,12 +36,14 @@ func AdjustPlayerInputBlockers(adjust: int) -> void:
 func _on_button_pressed() -> void:
 	if(selected):
 		selected = false
+		EventBus.cancel_character_placing.emit(self)
 		$Visuals.position = Vector2.ZERO
 		animTime = 0
 	else:
 		if(playerInputBlockers > 0): return
 		if(scrapCost <= 0):
 			selected = true
+			EventBus.start_character_placing.emit(self)
 
 func _on_button_mouse_entered() -> void:
 	hovered = true
