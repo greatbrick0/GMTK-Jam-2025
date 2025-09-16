@@ -7,100 +7,848 @@
 
 [node name="GridMap" parent="." index="0"]
 data = {
-"cells": PackedInt32Array(65535, 2, 2, 65535, 1, 2, 65535, 3, 2, 65535, 4, 2, 65535, 5, 2, 65535, 6, 2, 65535, 7, 2, 65535, 8, 2, 65535, 9, 2, 65535, 10, 2, 65535, 11, 2, 65535, 12, 2, 65535, 13, 2, 65535, 14, 2, 65535, 15, 2, 65535, 16, 2, 65535, 17, 2, 65535, 18, 2, 65535, 19, 2, 65535, 20, 2, 65535, 21, 2, 65535, 22, 2, 65535, 23, 2)
+"cells": PackedInt32Array(65535, 2, 2, 65535, 1, 2, 65535, 3, 2, 65535, 4, 2, 65535, 5, 2, 65535, 6, 2, 65535, 7, 2, 65535, 8, 2, 65535, 9, 2, 65535, 10, 2, 65535, 11, 2, 65535, 12, 2, 65535, 13, 2, 65535, 14, 2, 65535, 15, 2, 65535, 16, 2, 65535, 17, 2, 65535, 18, 2, 65535, 19, 2, 65535, 20, 2, 65535, 21, 2, 65535, 22, 2, 65535, 23, 2, 65535, 24, 655362, 65535, 25, 655362, 65535, 26, 655362, 65535, 27, 655362, 65535, 28, 655362, 65535, 29, 655362, 65535, 30, 655362, 65535, 31, 655362, 65535, 32, 655362, 65535, 33, 655362, 65535, 34, 655362, 65535, 35, 655362, 65535, 36, 655362, 65535, 37, 655362, 65535, 38, 655362, 65535, 39, 655362, 65535, 40, 655362, 65535, 41, 655362, 65535, 42, 655362, 65535, 43, 655362, 65535, 44, 2, 65535, 45, 2, 65535, 46, 2, 65535, 47, 2, 65535, 48, 2, 65535, 49, 2, 65535, 50, 2, 65535, 51, 2, 65535, 52, 2, 65535, 53, 2, 65535, 54, 2, 65535, 55, 2, 65535, 56, 2, 65535, 57, 2, 65535, 58, 2, 65535, 59, 2, 65535, 60, 2, 65535, 61, 2, 65535, 62, 2, 65535, 63, 2, 65535, 64, 2, 65535, 65, 2, 65535, 66, 2, 65535, 67, 2, 65535, 68, 2, 65535, 69, 2, 65535, 70, 2, 65535, 71, 2, 65535, 72, 2, 65535, 73, 2, 65535, 74, 2, 65535, 75, 2, 65535, 76, 2, 65535, 77, 2, 65535, 78, 2, 65535, 79, 2, 65535, 80, 2, 65535, 81, 2, 65535, 82, 2, 65535, 83, 2, 65535, 84, 2, 65535, 85, 2, 65535, 86, 2, 65535, 87, 2, 65535, 88, 2, 65535, 89, 655362, 65535, 90, 655362, 65535, 91, 655362, 65535, 92, 655362, 65535, 93, 655362)
 }
 
 [node name="ConnectPoint" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 95)
 
-[node name="Pawn" parent="GridItemHolder" index="0" instance=ExtResource("2_n1exh")]
+[node name="PawnGroup" type="Node3D" parent="GridItemHolder" index="0"]
+
+[node name="Pawn" parent="GridItemHolder/PawnGroup" index="0" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 1)
 wakingDelay = 3
 
-[node name="Pawn2" parent="GridItemHolder" index="1" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn2" parent="GridItemHolder/PawnGroup" index="1" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 2)
 wakingDelay = 3
 
-[node name="Pawn3" parent="GridItemHolder" index="2" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn2/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn3" parent="GridItemHolder/PawnGroup" index="2" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 3)
 wakingDelay = 3
 
-[node name="Pawn4" parent="GridItemHolder" index="3" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn3/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn4" parent="GridItemHolder/PawnGroup" index="3" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 4)
 wakingDelay = 3
 
-[node name="Pawn5" parent="GridItemHolder" index="4" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn4/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn5" parent="GridItemHolder/PawnGroup" index="4" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 5)
 wakingDelay = 3
 
-[node name="Pawn6" parent="GridItemHolder" index="5" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn5/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn6" parent="GridItemHolder/PawnGroup" index="5" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 6)
 wakingDelay = 3
 
-[node name="Pawn7" parent="GridItemHolder" index="6" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn6/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn7" parent="GridItemHolder/PawnGroup" index="6" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 7)
 wakingDelay = 3
 
-[node name="Pawn8" parent="GridItemHolder" index="7" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn7/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn8" parent="GridItemHolder/PawnGroup" index="7" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 8)
 wakingDelay = 3
 
-[node name="Pawn9" parent="GridItemHolder" index="8" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn8/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn9" parent="GridItemHolder/PawnGroup" index="8" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 9)
 wakingDelay = 3
 
-[node name="Pawn10" parent="GridItemHolder" index="9" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn9/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn10" parent="GridItemHolder/PawnGroup" index="9" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 10)
 wakingDelay = 3
 
-[node name="Pawn11" parent="GridItemHolder" index="10" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn10/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn11" parent="GridItemHolder/PawnGroup" index="10" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 11)
 wakingDelay = 3
 
-[node name="Pawn12" parent="GridItemHolder" index="11" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn11/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn12" parent="GridItemHolder/PawnGroup" index="11" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 12)
 wakingDelay = 3
 
-[node name="Pawn13" parent="GridItemHolder" index="12" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn12/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn13" parent="GridItemHolder/PawnGroup" index="12" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 13)
 wakingDelay = 3
 
-[node name="Pawn14" parent="GridItemHolder" index="13" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn13/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn14" parent="GridItemHolder/PawnGroup" index="13" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 14)
 wakingDelay = 3
 
-[node name="Pawn15" parent="GridItemHolder" index="14" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn14/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn15" parent="GridItemHolder/PawnGroup" index="14" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 15)
 wakingDelay = 3
 
-[node name="Pawn16" parent="GridItemHolder" index="15" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn15/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn16" parent="GridItemHolder/PawnGroup" index="15" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 16)
 wakingDelay = 3
 
-[node name="Pawn17" parent="GridItemHolder" index="16" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn16/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn17" parent="GridItemHolder/PawnGroup" index="16" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 17)
 wakingDelay = 3
 
-[node name="Pawn18" parent="GridItemHolder" index="17" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn17/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn18" parent="GridItemHolder/PawnGroup" index="17" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 18)
 wakingDelay = 3
 
-[node name="Pawn19" parent="GridItemHolder" index="18" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn18/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn19" parent="GridItemHolder/PawnGroup" index="18" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 19)
 wakingDelay = 3
 
-[node name="Pawn20" parent="GridItemHolder" index="19" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn19/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn20" parent="GridItemHolder/PawnGroup" index="19" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 20)
 wakingDelay = 3
 
-[node name="Pawn21" parent="GridItemHolder" index="20" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn20/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn21" parent="GridItemHolder/PawnGroup" index="20" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 21)
 wakingDelay = 3
 
-[node name="Pawn22" parent="GridItemHolder" index="21" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn21/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn22" parent="GridItemHolder/PawnGroup" index="21" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 22)
 wakingDelay = 3
 
-[node name="Pawn23" parent="GridItemHolder" index="22" instance=ExtResource("2_n1exh")]
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn22/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn23" parent="GridItemHolder/PawnGroup" index="22" instance=ExtResource("2_n1exh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 23)
 wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup/Pawn23/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="PawnGroup2" type="Node3D" parent="GridItemHolder" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23)
+
+[node name="Pawn" parent="GridItemHolder/PawnGroup2" index="0" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 1)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn2" parent="GridItemHolder/PawnGroup2" index="1" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 2)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn2/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn3" parent="GridItemHolder/PawnGroup2" index="2" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 3)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn3/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn4" parent="GridItemHolder/PawnGroup2" index="3" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 4)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn4/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn5" parent="GridItemHolder/PawnGroup2" index="4" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 5)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn5/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn6" parent="GridItemHolder/PawnGroup2" index="5" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 6)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn6/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn7" parent="GridItemHolder/PawnGroup2" index="6" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 7)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn7/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn8" parent="GridItemHolder/PawnGroup2" index="7" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 8)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn8/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn9" parent="GridItemHolder/PawnGroup2" index="8" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 9)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn9/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn10" parent="GridItemHolder/PawnGroup2" index="9" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 10)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn10/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn11" parent="GridItemHolder/PawnGroup2" index="10" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 11)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn11/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn12" parent="GridItemHolder/PawnGroup2" index="11" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 12)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn12/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn13" parent="GridItemHolder/PawnGroup2" index="12" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 13)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn13/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn14" parent="GridItemHolder/PawnGroup2" index="13" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 14)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn14/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn15" parent="GridItemHolder/PawnGroup2" index="14" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 15)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn15/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn16" parent="GridItemHolder/PawnGroup2" index="15" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 16)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn16/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn17" parent="GridItemHolder/PawnGroup2" index="16" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 17)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn17/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn18" parent="GridItemHolder/PawnGroup2" index="17" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 18)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn18/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn19" parent="GridItemHolder/PawnGroup2" index="18" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 19)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn19/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn20" parent="GridItemHolder/PawnGroup2" index="19" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 20)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn20/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn21" parent="GridItemHolder/PawnGroup2" index="20" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 21)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn21/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn22" parent="GridItemHolder/PawnGroup2" index="21" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 22)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn22/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn23" parent="GridItemHolder/PawnGroup2" index="22" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 23)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup2/Pawn23/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="PawnGroup3" type="Node3D" parent="GridItemHolder" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 46)
+
+[node name="Pawn" parent="GridItemHolder/PawnGroup3" index="0" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 1)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn2" parent="GridItemHolder/PawnGroup3" index="1" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 2)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn2/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn3" parent="GridItemHolder/PawnGroup3" index="2" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 3)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn3/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn4" parent="GridItemHolder/PawnGroup3" index="3" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 4)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn4/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn5" parent="GridItemHolder/PawnGroup3" index="4" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 5)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn5/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn6" parent="GridItemHolder/PawnGroup3" index="5" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 6)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn6/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn7" parent="GridItemHolder/PawnGroup3" index="6" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 7)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn7/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn8" parent="GridItemHolder/PawnGroup3" index="7" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 8)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn8/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn9" parent="GridItemHolder/PawnGroup3" index="8" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 9)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn9/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn10" parent="GridItemHolder/PawnGroup3" index="9" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 10)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn10/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn11" parent="GridItemHolder/PawnGroup3" index="10" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 11)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn11/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn12" parent="GridItemHolder/PawnGroup3" index="11" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 12)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn12/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn13" parent="GridItemHolder/PawnGroup3" index="12" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 13)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn13/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn14" parent="GridItemHolder/PawnGroup3" index="13" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 14)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn14/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn15" parent="GridItemHolder/PawnGroup3" index="14" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 15)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn15/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn16" parent="GridItemHolder/PawnGroup3" index="15" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 16)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn16/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn17" parent="GridItemHolder/PawnGroup3" index="16" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 17)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn17/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn18" parent="GridItemHolder/PawnGroup3" index="17" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 18)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn18/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn19" parent="GridItemHolder/PawnGroup3" index="18" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 19)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn19/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn20" parent="GridItemHolder/PawnGroup3" index="19" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 20)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn20/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn21" parent="GridItemHolder/PawnGroup3" index="20" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 21)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn21/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn22" parent="GridItemHolder/PawnGroup3" index="21" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 22)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn22/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn23" parent="GridItemHolder/PawnGroup3" index="22" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 23)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup3/Pawn23/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="PawnGroup4" type="Node3D" parent="GridItemHolder" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 69)
+
+[node name="Pawn" parent="GridItemHolder/PawnGroup4" index="0" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 1)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn2" parent="GridItemHolder/PawnGroup4" index="1" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 2)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn2/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn3" parent="GridItemHolder/PawnGroup4" index="2" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 3)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn3/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn4" parent="GridItemHolder/PawnGroup4" index="3" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 4)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn4/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn5" parent="GridItemHolder/PawnGroup4" index="4" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 5)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn5/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn6" parent="GridItemHolder/PawnGroup4" index="5" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 6)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn6/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn7" parent="GridItemHolder/PawnGroup4" index="6" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 7)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn7/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn8" parent="GridItemHolder/PawnGroup4" index="7" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 8)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn8/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn9" parent="GridItemHolder/PawnGroup4" index="8" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 9)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn9/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn10" parent="GridItemHolder/PawnGroup4" index="9" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 10)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn10/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn11" parent="GridItemHolder/PawnGroup4" index="10" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 11)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn11/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn12" parent="GridItemHolder/PawnGroup4" index="11" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 12)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn12/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn13" parent="GridItemHolder/PawnGroup4" index="12" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 13)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn13/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn14" parent="GridItemHolder/PawnGroup4" index="13" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 14)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn14/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn15" parent="GridItemHolder/PawnGroup4" index="14" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 15)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn15/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn16" parent="GridItemHolder/PawnGroup4" index="15" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 16)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn16/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn17" parent="GridItemHolder/PawnGroup4" index="16" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 17)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn17/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn18" parent="GridItemHolder/PawnGroup4" index="17" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 18)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn18/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn19" parent="GridItemHolder/PawnGroup4" index="18" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 19)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn19/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn20" parent="GridItemHolder/PawnGroup4" index="19" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 20)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn20/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn21" parent="GridItemHolder/PawnGroup4" index="20" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 21)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn21/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn22" parent="GridItemHolder/PawnGroup4" index="21" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 22)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn22/Visuals_Stationary" index="0"]
+visible = false
+
+[node name="Pawn23" parent="GridItemHolder/PawnGroup4" index="22" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 23)
+wakingDelay = 3
+
+[node name="UnitIndicator" parent="GridItemHolder/PawnGroup4/Pawn23/Visuals_Stationary" index="0"]
+visible = false
+
+[editable path="GridItemHolder/PawnGroup/Pawn"]
+[editable path="GridItemHolder/PawnGroup/Pawn/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn2"]
+[editable path="GridItemHolder/PawnGroup/Pawn2/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn3"]
+[editable path="GridItemHolder/PawnGroup/Pawn3/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn4"]
+[editable path="GridItemHolder/PawnGroup/Pawn4/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn5"]
+[editable path="GridItemHolder/PawnGroup/Pawn5/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn6"]
+[editable path="GridItemHolder/PawnGroup/Pawn6/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn7"]
+[editable path="GridItemHolder/PawnGroup/Pawn7/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn8"]
+[editable path="GridItemHolder/PawnGroup/Pawn8/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn9"]
+[editable path="GridItemHolder/PawnGroup/Pawn9/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn10"]
+[editable path="GridItemHolder/PawnGroup/Pawn10/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn11"]
+[editable path="GridItemHolder/PawnGroup/Pawn11/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn12"]
+[editable path="GridItemHolder/PawnGroup/Pawn12/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn13"]
+[editable path="GridItemHolder/PawnGroup/Pawn13/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn14"]
+[editable path="GridItemHolder/PawnGroup/Pawn14/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn15"]
+[editable path="GridItemHolder/PawnGroup/Pawn15/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn16"]
+[editable path="GridItemHolder/PawnGroup/Pawn16/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn17"]
+[editable path="GridItemHolder/PawnGroup/Pawn17/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn18"]
+[editable path="GridItemHolder/PawnGroup/Pawn18/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn19"]
+[editable path="GridItemHolder/PawnGroup/Pawn19/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn20"]
+[editable path="GridItemHolder/PawnGroup/Pawn20/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn21"]
+[editable path="GridItemHolder/PawnGroup/Pawn21/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn22"]
+[editable path="GridItemHolder/PawnGroup/Pawn22/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup/Pawn23"]
+[editable path="GridItemHolder/PawnGroup/Pawn23/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn"]
+[editable path="GridItemHolder/PawnGroup2/Pawn/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn2"]
+[editable path="GridItemHolder/PawnGroup2/Pawn2/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn3"]
+[editable path="GridItemHolder/PawnGroup2/Pawn3/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn4"]
+[editable path="GridItemHolder/PawnGroup2/Pawn4/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn5"]
+[editable path="GridItemHolder/PawnGroup2/Pawn5/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn6"]
+[editable path="GridItemHolder/PawnGroup2/Pawn6/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn7"]
+[editable path="GridItemHolder/PawnGroup2/Pawn7/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn8"]
+[editable path="GridItemHolder/PawnGroup2/Pawn8/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn9"]
+[editable path="GridItemHolder/PawnGroup2/Pawn9/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn10"]
+[editable path="GridItemHolder/PawnGroup2/Pawn10/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn11"]
+[editable path="GridItemHolder/PawnGroup2/Pawn11/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn12"]
+[editable path="GridItemHolder/PawnGroup2/Pawn12/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn13"]
+[editable path="GridItemHolder/PawnGroup2/Pawn13/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn14"]
+[editable path="GridItemHolder/PawnGroup2/Pawn14/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn15"]
+[editable path="GridItemHolder/PawnGroup2/Pawn15/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn16"]
+[editable path="GridItemHolder/PawnGroup2/Pawn16/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn17"]
+[editable path="GridItemHolder/PawnGroup2/Pawn17/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn18"]
+[editable path="GridItemHolder/PawnGroup2/Pawn18/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn19"]
+[editable path="GridItemHolder/PawnGroup2/Pawn19/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn20"]
+[editable path="GridItemHolder/PawnGroup2/Pawn20/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn21"]
+[editable path="GridItemHolder/PawnGroup2/Pawn21/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn22"]
+[editable path="GridItemHolder/PawnGroup2/Pawn22/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup2/Pawn23"]
+[editable path="GridItemHolder/PawnGroup2/Pawn23/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn"]
+[editable path="GridItemHolder/PawnGroup3/Pawn/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn2"]
+[editable path="GridItemHolder/PawnGroup3/Pawn2/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn3"]
+[editable path="GridItemHolder/PawnGroup3/Pawn3/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn4"]
+[editable path="GridItemHolder/PawnGroup3/Pawn4/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn5"]
+[editable path="GridItemHolder/PawnGroup3/Pawn5/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn6"]
+[editable path="GridItemHolder/PawnGroup3/Pawn6/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn7"]
+[editable path="GridItemHolder/PawnGroup3/Pawn7/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn8"]
+[editable path="GridItemHolder/PawnGroup3/Pawn8/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn9"]
+[editable path="GridItemHolder/PawnGroup3/Pawn9/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn10"]
+[editable path="GridItemHolder/PawnGroup3/Pawn10/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn11"]
+[editable path="GridItemHolder/PawnGroup3/Pawn11/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn12"]
+[editable path="GridItemHolder/PawnGroup3/Pawn12/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn13"]
+[editable path="GridItemHolder/PawnGroup3/Pawn13/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn14"]
+[editable path="GridItemHolder/PawnGroup3/Pawn14/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn15"]
+[editable path="GridItemHolder/PawnGroup3/Pawn15/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn16"]
+[editable path="GridItemHolder/PawnGroup3/Pawn16/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn17"]
+[editable path="GridItemHolder/PawnGroup3/Pawn17/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn18"]
+[editable path="GridItemHolder/PawnGroup3/Pawn18/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn19"]
+[editable path="GridItemHolder/PawnGroup3/Pawn19/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn20"]
+[editable path="GridItemHolder/PawnGroup3/Pawn20/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn21"]
+[editable path="GridItemHolder/PawnGroup3/Pawn21/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn22"]
+[editable path="GridItemHolder/PawnGroup3/Pawn22/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup3/Pawn23"]
+[editable path="GridItemHolder/PawnGroup3/Pawn23/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn"]
+[editable path="GridItemHolder/PawnGroup4/Pawn/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn2"]
+[editable path="GridItemHolder/PawnGroup4/Pawn2/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn3"]
+[editable path="GridItemHolder/PawnGroup4/Pawn3/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn4"]
+[editable path="GridItemHolder/PawnGroup4/Pawn4/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn5"]
+[editable path="GridItemHolder/PawnGroup4/Pawn5/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn6"]
+[editable path="GridItemHolder/PawnGroup4/Pawn6/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn7"]
+[editable path="GridItemHolder/PawnGroup4/Pawn7/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn8"]
+[editable path="GridItemHolder/PawnGroup4/Pawn8/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn9"]
+[editable path="GridItemHolder/PawnGroup4/Pawn9/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn10"]
+[editable path="GridItemHolder/PawnGroup4/Pawn10/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn11"]
+[editable path="GridItemHolder/PawnGroup4/Pawn11/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn12"]
+[editable path="GridItemHolder/PawnGroup4/Pawn12/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn13"]
+[editable path="GridItemHolder/PawnGroup4/Pawn13/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn14"]
+[editable path="GridItemHolder/PawnGroup4/Pawn14/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn15"]
+[editable path="GridItemHolder/PawnGroup4/Pawn15/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn16"]
+[editable path="GridItemHolder/PawnGroup4/Pawn16/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn17"]
+[editable path="GridItemHolder/PawnGroup4/Pawn17/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn18"]
+[editable path="GridItemHolder/PawnGroup4/Pawn18/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn19"]
+[editable path="GridItemHolder/PawnGroup4/Pawn19/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn20"]
+[editable path="GridItemHolder/PawnGroup4/Pawn20/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn21"]
+[editable path="GridItemHolder/PawnGroup4/Pawn21/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn22"]
+[editable path="GridItemHolder/PawnGroup4/Pawn22/Visuals/pawn_animate"]
+[editable path="GridItemHolder/PawnGroup4/Pawn23"]
+[editable path="GridItemHolder/PawnGroup4/Pawn23/Visuals/pawn_animate"]

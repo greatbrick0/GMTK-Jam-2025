@@ -1,0 +1,88 @@
+[gd_scene load_steps=17 format=3 uid="uid://cy58w8k2x4at2"]
+
+[ext_resource type="Script" uid="uid://cc8prbaljt2m7" path="res://Scripts/gameplay_manager.gd" id="1_nekx6"]
+[ext_resource type="PackedScene" uid="uid://cbw6vksc0one5" path="res://Scenes/Levels Maps/Showcase/pawn_line_map.tscn" id="2_ir0sa"]
+[ext_resource type="PackedScene" uid="uid://b3utyaq0kln3t" path="res://Scenes/Levels Maps/Primary/level_map_2.tscn" id="3_jg12q"]
+[ext_resource type="PackedScene" uid="uid://ccju7xka7ll76" path="res://Scenes/Levels Maps/Primary/level_map_3.tscn" id="4_yhwq6"]
+[ext_resource type="PackedScene" uid="uid://cd68fjtainkfs" path="res://Scenes/Levels Maps/Primary/level_map_4.tscn" id="5_s3oqq"]
+[ext_resource type="PackedScene" uid="uid://daql8rxhqyc0e" path="res://Scenes/TransferPlatforms/transfer_platform_type_a.tscn" id="6_t2y7q"]
+[ext_resource type="PackedScene" uid="uid://1qqun1yslen4" path="res://Scenes/VFXScene/indicator_tile.tscn" id="7_q4kwl"]
+[ext_resource type="Script" uid="uid://dx8fo6bvmn34b" path="res://Scripts/enemy_ai.gd" id="8_1dgcq"]
+[ext_resource type="PackedScene" uid="uid://c52jeaqpo6aj0" path="res://Scenes/game_hud.tscn" id="9_guxww"]
+[ext_resource type="Script" uid="uid://b2qlp2c5ffbgn" path="res://Scripts/camera_movement.gd" id="10_rpnqb"]
+[ext_resource type="Shader" path="res://Shaders/BackgroundAttempt2.gdshader" id="11_n16sq"]
+[ext_resource type="Script" uid="uid://cno6cr8chajkx" path="res://Scripts/click_handler.gd" id="12_jjuch"]
+
+[sub_resource type="Environment" id="Environment_nekx6"]
+ambient_light_source = 2
+ambient_light_color = Color(0.764168, 0.568939, 0.804688, 1)
+ambient_light_energy = 0.3
+volumetric_fog_density = 1.0
+volumetric_fog_emission = Color(0.953125, 0.953125, 0.953125, 1)
+volumetric_fog_emission_energy = 593.84
+volumetric_fog_length = 1.16
+volumetric_fog_ambient_inject = 9.38
+volumetric_fog_sky_affect = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hd7sb"]
+render_priority = 0
+shader = ExtResource("11_n16sq")
+shader_parameter/background_color = Color(0.054902, 0.0352941, 0.129412, 1)
+shader_parameter/star_count = 200
+shader_parameter/seed = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_5vthg"]
+material = SubResource("ShaderMaterial_hd7sb")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q2fht"]
+
+[node name="ShowcaseLevel" type="Node3D"]
+
+[node name="GameplayManager" type="Node" parent="." node_paths=PackedStringArray("cam", "clickHandler", "gameHud", "mapHolder")]
+script = ExtResource("1_nekx6")
+cam = NodePath("../CameraHolder")
+clickHandler = NodePath("../ClickPlane")
+gameHud = NodePath("../GameHud")
+mapHolder = NodePath("../MapHolder")
+levelMaps = Array[PackedScene]([ExtResource("2_ir0sa"), ExtResource("3_jg12q"), ExtResource("4_yhwq6"), ExtResource("5_s3oqq")])
+mapTransfers = Array[PackedScene]([ExtResource("6_t2y7q"), ExtResource("6_t2y7q"), ExtResource("6_t2y7q"), ExtResource("6_t2y7q"), ExtResource("6_t2y7q"), ExtResource("6_t2y7q"), ExtResource("6_t2y7q")])
+tileHighlightObj = ExtResource("7_q4kwl")
+
+[node name="EnemyAi" type="Node" parent="GameplayManager"]
+script = ExtResource("8_1dgcq")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nekx6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.993914, -0.0130512, -0.109382, 0.109382, 0.23457, 0.965926, 0.0130512, -0.972012, 0.23457, 0, 0, 0)
+
+[node name="GameHud" parent="." instance=ExtResource("9_guxww")]
+offset = Vector2(0, 800)
+transform = Transform2D(1, 0, 0, 1, 0, 800)
+
+[node name="MapHolder" type="Node3D" parent="."]
+
+[node name="CameraHolder" type="Node3D" parent="."]
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 0, 0, 0)
+script = ExtResource("10_rpnqb")
+speedMult = Vector2(-0.014, -0.03)
+
+[node name="Camera3D" type="Camera3D" parent="CameraHolder"]
+transform = Transform3D(-1, -1.51808e-08, 8.60947e-08, 0, 0.984808, 0.173648, -8.74228e-08, 0.173648, -0.984808, 0, 1, -5)
+fov = 90.0
+size = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraHolder"]
+transform = Transform3D(99.9488, -0.370978, -3.17638, -1.01491, 90.5107, -42.5064, 3.03265, 42.5169, 90.4606, -0.00479126, -65.0074, 84.9201)
+mesh = SubResource("QuadMesh_5vthg")
+
+[node name="ClickPlane" type="Area3D" parent="."]
+script = ExtResource("12_jjuch")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickPlane"]
+shape = SubResource("WorldBoundaryShape3D_q2fht")
+
+[connection signal="input_event" from="ClickPlane" to="ClickPlane" method="_on_input_event"]
+[connection signal="mouse_exited" from="ClickPlane" to="ClickPlane" method="_on_mouse_exited"]
+[connection signal="start_camera_move" from="ClickPlane" to="CameraHolder" method="_on_click_plane_start_camera_move"]

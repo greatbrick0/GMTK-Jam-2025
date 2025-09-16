@@ -27,7 +27,7 @@ material = SubResource("ShaderMaterial_hd7sb")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q2fht"]
 
-[node name="MainLevel" type="Node3D"]
+[node name="MainLevel2" type="Node3D"]
 
 [node name="GameplayManager" type="Node" parent="." node_paths=PackedStringArray("cam", "clickHandler", "gameHud", "mapHolder")]
 script = ExtResource("1_ikcpc")
