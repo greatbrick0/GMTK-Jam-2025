@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbw6vksc0one5"]
+
+[ext_resource type="PackedScene" uid="uid://d3mdpfhbust2f" path="res://Scenes/level_map.tscn" id="1_gf86w"]
+[ext_resource type="PackedScene" uid="uid://wupfhi85dpdv" path="res://Scenes/Characters/pawn.tscn" id="2_n1exh"]
+
+[node name="LevelMap1" instance=ExtResource("1_gf86w")]
+
+[node name="GridMap" parent="." index="0"]
+data = {
+"cells": PackedInt32Array(65535, 2, 2, 65535, 1, 2, 65535, 3, 2, 65535, 4, 2, 65535, 5, 2, 65535, 6, 2, 65535, 7, 2, 65535, 8, 2, 65535, 9, 2, 65535, 10, 2, 65535, 11, 2, 65535, 12, 2, 65535, 13, 2, 65535, 14, 2, 65535, 15, 2, 65535, 16, 2, 65535, 17, 2, 65535, 18, 2, 65535, 19, 2, 65535, 20, 2, 65535, 21, 2, 65535, 22, 2, 65535, 23, 2)
+}
+
+[node name="ConnectPoint" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 24)
+
+[node name="Pawn" parent="GridItemHolder" index="0" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 1)
+wakingDelay = 3
+
+[node name="Pawn2" parent="GridItemHolder" index="1" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 2)
+wakingDelay = 3
+
+[node name="Pawn3" parent="GridItemHolder" index="2" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 3)
+wakingDelay = 3
+
+[node name="Pawn4" parent="GridItemHolder" index="3" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 4)
+wakingDelay = 3
+
+[node name="Pawn5" parent="GridItemHolder" index="4" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 5)
+wakingDelay = 3
+
+[node name="Pawn6" parent="GridItemHolder" index="5" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 6)
+wakingDelay = 3
+
+[node name="Pawn7" parent="GridItemHolder" index="6" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 7)
+wakingDelay = 3
+
+[node name="Pawn8" parent="GridItemHolder" index="7" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 8)
+wakingDelay = 3
+
+[node name="Pawn9" parent="GridItemHolder" index="8" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 9)
+wakingDelay = 3
+
+[node name="Pawn10" parent="GridItemHolder" index="9" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 10)
+wakingDelay = 3
+
+[node name="Pawn11" parent="GridItemHolder" index="10" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 11)
+wakingDelay = 3
+
+[node name="Pawn12" parent="GridItemHolder" index="11" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 12)
+wakingDelay = 3
+
+[node name="Pawn13" parent="GridItemHolder" index="12" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 13)
+wakingDelay = 3
+
+[node name="Pawn14" parent="GridItemHolder" index="13" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 14)
+wakingDelay = 3
+
+[node name="Pawn15" parent="GridItemHolder" index="14" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 15)
+wakingDelay = 3
+
+[node name="Pawn16" parent="GridItemHolder" index="15" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 16)
+wakingDelay = 3
+
+[node name="Pawn17" parent="GridItemHolder" index="16" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 17)
+wakingDelay = 3
+
+[node name="Pawn18" parent="GridItemHolder" index="17" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 18)
+wakingDelay = 3
+
+[node name="Pawn19" parent="GridItemHolder" index="18" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 19)
+wakingDelay = 3
+
+[node name="Pawn20" parent="GridItemHolder" index="19" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 20)
+wakingDelay = 3
+
+[node name="Pawn21" parent="GridItemHolder" index="20" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 21)
+wakingDelay = 3
+
+[node name="Pawn22" parent="GridItemHolder" index="21" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 22)
+wakingDelay = 3
+
+[node name="Pawn23" parent="GridItemHolder" index="22" instance=ExtResource("2_n1exh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 23)
+wakingDelay = 3
